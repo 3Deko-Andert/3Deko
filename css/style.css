@@ -230,6 +230,12 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   align-items:center;
   justify-content:center;
 }
+.hero-logo{
+  width:100%;
+  max-width:480px;
+  height:auto;
+  filter:drop-shadow(0 18px 30px rgba(74,58,51,0.12));
+}
 
 /* ---------------- Prozess ---------------- */
 .process{
