@@ -1,48 +1,121 @@
 /* ==========================================================
    3Deko – Script
-   Navigation, Warenkorb (localStorage), Produkt-Platzhalter
+   Navigation, Warenkorb (localStorage), Produkte
    ========================================================== */
 
-/* ---------- Platzhalter-Icons für Produkte (Fotos folgen später) ---------- */
-const ICONS = {
-  vase: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M38 14h24l4 16-6 8 8 14c4 8 2 20-10 24H42c-12-4-14-16-10-24l8-14-6-8 4-16z" stroke="#B98F7C" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M40 40c6 3 14 3 20 0" stroke="#B98F7C" stroke-width="2.4" opacity=".6"/>
-  </svg>`,
-  star: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M50 14 L58 40 L86 40 L63 56 L71 82 L50 66 L29 82 L37 56 L14 40 L42 40 Z" stroke="#A47F45" stroke-width="4" stroke-linejoin="round" fill="#CBA46A" fill-opacity=".18"/>
-  </svg>`,
-  pendant: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="50" cy="24" r="8" stroke="#8B9678" stroke-width="4"/>
-    <path d="M50 32v10" stroke="#8B9678" stroke-width="4"/>
-    <path d="M28 42 C28 66, 72 66, 72 42" stroke="#8B9678" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="50" cy="78" r="6" fill="#8B9678" opacity=".5"/>
-  </svg>`,
-  planter: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M30 46h40l-6 34H36l-6-34z" stroke="#B98F7C" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M50 46V30" stroke="#8B9678" stroke-width="4"/>
-    <path d="M50 30c-10-4-14-16-6-22 8 4 12 14 6 22z" fill="#C3CBB0" stroke="#8B9678" stroke-width="3"/>
-    <path d="M50 34c8-2 14-10 10-18-7 1-13 8-10 18z" fill="#ADB79C" stroke="#8B9678" stroke-width="3"/>
-  </svg>`,
-  candle: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M36 46h28v34a14 14 0 0 1-28 0V46z" stroke="#B9A2A8" stroke-width="4" stroke-linejoin="round"/>
-    <path d="M50 30c6 6 6 12 0 16-6-4-6-10 0-16z" fill="#CBA46A" stroke="#A47F45" stroke-width="2"/>
-  </svg>`,
-  moon: `<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M62 20c-18 4-30 20-26 38 4 18 22 28 40 22-14 10-34 8-46-6-12-14-10-36 6-48 8-6 17-8 26-6z" fill="#B9A2A8" fill-opacity=".25" stroke="#9C8890" stroke-width="4" stroke-linejoin="round"/>
-  </svg>`
-};
-
+/* ---------- Produkte ---------- */
+/* Preise sind Schätzungen und müssen vor dem Verkauf von dir geprüft/angepasst werden. */
 const PRODUCTS = [
-  { id: "p1", name: "Wellen-Vase \u201EOnda\u201C", category: "Vasen", price: 24.90, icon: "vase" },
-  { id: "p2", name: "Sternenanhänger \u201ELumi\u201C", category: "Anhänger", price: 8.50, icon: "star" },
-  { id: "p3", name: "Kettenhalter \u201EBogen\u201C", category: "Deko-Objekte", price: 14.00, icon: "pendant" },
-  { id: "p4", name: "Mini-Pflanzstecker \u201ESpross\u201C", category: "Pflanzenfreunde", price: 6.90, icon: "planter" },
-  { id: "p5", name: "Kerzenring \u201EHalo\u201C", category: "Kerzenhalter", price: 12.50, icon: "candle" },
-  { id: "p6", name: "Mondphase \u201ENotte\u201C", category: "Wanddeko", price: 18.90, icon: "moon" },
-  { id: "p7", name: "Tropfen-Vase \u201EPerla\u201C", category: "Vasen", price: 27.00, icon: "vase" },
-  { id: "p8", name: "Sternchen-Set \u201EPiccolo\u201C", category: "Anhänger", price: 9.90, icon: "star" },
-  { id: "p9", name: "Blattstecker \u201EFoglia\u201C", category: "Pflanzenfreunde", price: 7.50, icon: "planter" }
+  {
+    id: "p1",
+    name: "Ablage-Set \u201ERiga\u201C",
+    category: "Tabletts & Schalen",
+    season: "Ganzjährig",
+    seasonIcon: "✨",
+    price: 22.90,
+    image: "images/products/product-trays.jpg",
+    desc: "Vier gerillte Ablageschalen zum Stapeln oder Kombinieren – für Schlüssel, Schmuck oder Kerzen."
+  },
+  {
+    id: "p2",
+    name: "Kürbis-Dose \u201EZucca Legno\u201C",
+    category: "Herbstdeko",
+    season: "Herbst",
+    seasonIcon: "🍂",
+    price: 16.90,
+    image: "images/products/product-wood-pumpkin-box.jpg",
+    desc: "Kürbisförmige Dose in Holzoptik mit abnehmbarem Deckel – hübsches Versteck für kleine Schätze."
+  },
+  {
+    id: "p3",
+    name: "Lotus-Leuchte \u201EFiore\u201C",
+    category: "Leuchten",
+    season: "Ganzjährig",
+    seasonIcon: "✨",
+    price: 24.90,
+    image: "images/products/product-lotus-lamp.jpg",
+    desc: "LED-Blütenleuchte mit warmem Licht – verwandelt jede Kommode in einen gemütlichen Rückzugsort."
+  },
+  {
+    id: "p4",
+    name: "Personalisiertes Namensschild",
+    category: "Personalisierte Geschenke",
+    season: "Ganzjährig",
+    seasonIcon: "✨",
+    price: 28.90,
+    image: "images/products/product-name-sign.jpg",
+    desc: "Individuelles Namensschild mit herbstlichen Blatt-Akzenten – dein Wunschname, frei wählbar."
+  },
+  {
+    id: "p5",
+    name: "Kürbis-Dosen-Duo \u201EZucca\u201C",
+    category: "Herbstdeko",
+    season: "Herbst",
+    seasonIcon: "🍂",
+    price: 26.90,
+    image: "images/products/product-pumpkin-duo.jpg",
+    desc: "Zwei Kürbis-Dosen in klassischem Orange – als Tischdeko oder kleines Nascherei-Versteck."
+  },
+  {
+    id: "p6",
+    name: "Foto-Lichtwürfel \u201ERicordo\u201C",
+    category: "Personalisierte Geschenke",
+    season: "Ganzjährig",
+    seasonIcon: "✨",
+    price: 34.90,
+    image: "images/products/product-photo-cube-lamp.jpg",
+    desc: "Dein Lieblingsfoto als Lithophanie im leuchtenden Würfel – ein Geschenk, das bleibt."
+  },
+  {
+    id: "p7",
+    name: "Kerzenhalter-Set \u201ENotte Nera\u201C",
+    category: "Kerzenhalter",
+    season: "Herbst",
+    seasonIcon: "🍂",
+    price: 19.90,
+    image: "images/products/product-black-candle-pumpkin.jpg",
+    desc: "Schwarzer Kerzenhalter mit Ringdetail plus passendem Mini-Kürbis – schlicht und stimmungsvoll."
+  },
+  {
+    id: "p8",
+    name: "Foto-Leuchte \u201EMomento\u201C",
+    category: "Personalisierte Geschenke",
+    season: "Ganzjährig",
+    seasonIcon: "✨",
+    price: 32.90,
+    image: "images/products/product-photo-lantern-dog.jpg",
+    desc: "Lithophanie-Leuchte mit eingraviertem Lieblingsfoto – warmes Licht inklusive."
+  },
+  {
+    id: "p9",
+    name: "Kürbis-Windlicht-Trio \u201EAutunno\u201C",
+    category: "Kerzenhalter",
+    season: "Herbst",
+    seasonIcon: "🍂",
+    price: 24.90,
+    image: "images/products/product-tealight-pumpkin-trio.jpg",
+    desc: "Drei Windlicht-Kürbisse mit Lochmuster in Grün, Senfgelb und Schwarz – zusammen ein Hingucker."
+  },
+  {
+    id: "p10",
+    name: "Kerzenhalter-Duo \u201EPanna\u201C",
+    category: "Kerzenhalter",
+    season: "Herbst/Winter",
+    seasonIcon: "🍂",
+    price: 29.90,
+    image: "images/products/product-cream-candle-duo.jpg",
+    desc: "Zwei cremefarbene Kerzenhalter mit Kürbis- und Wickel-Detail auf gerillter Tablett-Unterlage."
+  },
+  {
+    id: "p11",
+    name: "Herz-Windlicht \u201ECuore\u201C",
+    category: "Kerzenhalter",
+    season: "Herbst",
+    seasonIcon: "🍂",
+    price: 13.90,
+    image: "images/products/product-heart-pumpkin.jpg",
+    desc: "Schwarzer Kürbis-Windlicht mit herzförmigem Ausschnitt – romantisches Glühen für dunkle Abende."
+  }
 ];
 
 /* ---------- Warenkorb (localStorage) ---------- */
@@ -113,7 +186,7 @@ function renderCartDrawer(){
     total += p.price * item.qty;
     return `
       <div class="cart-item">
-        <div class="thumb">${ICONS[p.icon]}</div>
+        <div class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
         <div class="cart-item-info">
           <h4>${p.name}</h4>
           <div class="row">
@@ -141,6 +214,26 @@ function closeCart(){
   document.getElementById("cartOverlay")?.classList.remove("open");
 }
 
+/* ---------- Produktkarte (gemeinsam für Shop & Startseite) ---------- */
+function productCard(p){
+  return `
+    <article class="product-card">
+      <div class="product-media">
+        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <span class="season-badge">${p.seasonIcon} ${p.season}</span>
+      </div>
+      <div class="product-body">
+        <span class="product-cat">${p.category}</span>
+        <h3>${p.name}</h3>
+        <p class="product-desc">${p.desc}</p>
+        <p class="product-price">${formatPrice(p.price)} <span class="placeholder-tag">geschätzter Preis</span></p>
+        <div class="product-actions">
+          <button type="button" class="btn btn-primary btn-small" onclick="addToCart('${p.id}')">In den Warenkorb</button>
+        </div>
+      </div>
+    </article>`;
+}
+
 /* ---------- Produkte im Shop rendern ---------- */
 function renderProductGrid(filterCat){
   const grid = document.getElementById("productGrid");
@@ -148,35 +241,7 @@ function renderProductGrid(filterCat){
   const items = filterCat && filterCat !== "Alle"
     ? PRODUCTS.filter(p => p.category === filterCat)
     : PRODUCTS;
-
-  grid.innerHTML = items.map(p => `
-    <article class="product-card">
-      <div class="product-media" style="background:${mediaBg(p.icon)}">
-        ${ICONS[p.icon]}
-        <span class="photo-note">Foto folgt</span>
-      </div>
-      <div class="product-body">
-        <span class="product-cat">${p.category}</span>
-        <h3>${p.name}</h3>
-        <p class="product-price">${formatPrice(p.price)} <span class="placeholder-tag">Platzhalterpreis</span></p>
-        <div class="product-actions">
-          <button type="button" class="btn btn-primary btn-small" onclick="addToCart('${p.id}')">In den Warenkorb</button>
-        </div>
-      </div>
-    </article>
-  `).join("");
-}
-
-function mediaBg(icon){
-  const map = {
-    vase: "linear-gradient(160deg, #F3E6DF, #EFE9E3)",
-    star: "linear-gradient(160deg, #F1E6D3, #EFE9E3)",
-    pendant: "linear-gradient(160deg, #EEF0E6, #EFE9E3)",
-    planter: "linear-gradient(160deg, #EEF0E6, #F3E6DF)",
-    candle: "linear-gradient(160deg, #EFE7E3, #EFE9E3)",
-    moon: "linear-gradient(160deg, #EFE7E3, #F3E6DF)"
-  };
-  return map[icon] || "#EFE9E3";
+  grid.innerHTML = items.map(productCard).join("");
 }
 
 /* ---------- Startseiten-Vorschau (3 Produkte) ---------- */
@@ -184,22 +249,7 @@ function renderFeatured(){
   const grid = document.getElementById("featuredGrid");
   if (!grid) return;
   const featured = PRODUCTS.slice(0, 3);
-  grid.innerHTML = featured.map(p => `
-    <article class="product-card">
-      <div class="product-media" style="background:${mediaBg(p.icon)}">
-        ${ICONS[p.icon]}
-        <span class="photo-note">Foto folgt</span>
-      </div>
-      <div class="product-body">
-        <span class="product-cat">${p.category}</span>
-        <h3>${p.name}</h3>
-        <p class="product-price">${formatPrice(p.price)} <span class="placeholder-tag">Platzhalterpreis</span></p>
-        <div class="product-actions">
-          <button type="button" class="btn btn-primary btn-small" onclick="addToCart('${p.id}')">In den Warenkorb</button>
-        </div>
-      </div>
-    </article>
-  `).join("");
+  grid.innerHTML = featured.map(productCard).join("");
 }
 
 /* ---------- Filter-Chips ---------- */
