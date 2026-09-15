@@ -307,20 +307,27 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 
 .product-media{
   aspect-ratio:1/1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
   position:relative;
-  padding:20px;
+  overflow:hidden;
+  background:var(--bg-alt);
 }
-.product-media svg{ width:56%; height:56%; }
-.product-media .photo-note{
+.product-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.season-badge{
   position:absolute;
-  bottom:10px; left:0; right:0;
-  text-align:center;
+  top:12px; right:12px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(3px);
+  padding:.35em .7em;
+  border-radius:999px;
   font-size:.72rem;
-  color:var(--ink-soft);
-  letter-spacing:.02em;
+  font-weight:600;
+  color:var(--ink);
+  box-shadow:0 4px 10px -4px rgba(74,58,51,0.3);
 }
 
 .product-body{ padding:18px 20px 22px; }
@@ -333,7 +340,13 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   margin-bottom:.4em;
   display:block;
 }
-.product-body h3{ margin-bottom:.2em; }
+.product-body h3{ margin-bottom:.3em; }
+.product-desc{
+  font-size:.86rem;
+  color:var(--ink-soft);
+  margin:0 0 .8em;
+  line-height:1.45;
+}
 .product-price{
   font-weight:700;
   color:var(--ink);
@@ -475,8 +488,9 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   background:var(--bg-alt);
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
+  overflow:hidden;
 }
-.cart-item .thumb svg{ width:60%; height:60%; }
+.cart-item .thumb img{ width:100%; height:100%; object-fit:cover; }
 .cart-item-info{ flex:1; }
 .cart-item-info h4{ font-size:.95rem; margin:0 0 .2em; font-family:var(--font-body); font-weight:700; }
 .cart-item-info .row{ display:flex; align-items:center; justify-content:space-between; margin-top:6px; }
@@ -559,6 +573,16 @@ form.contact-form{ display:flex; flex-direction:column; gap:16px; }
   align-items:center;
   padding:70px 0;
 }
+.about-quote{
+  margin:1.6em 0;
+  padding:0 0 0 22px;
+  border-left:3px solid var(--rose);
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:1.25rem;
+  color:var(--ink);
+  line-height:1.5;
+}
 .about-photo{
   aspect-ratio:4/5;
   border-radius:var(--radius-a);
@@ -569,6 +593,13 @@ form.contact-form{ display:flex; flex-direction:column; gap:16px; }
   align-items:center;
   justify-content:center;
   gap:14px;
+  overflow:hidden;
+}
+.about-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
 }
 .about-photo .photo-note{
   font-size:.85rem;
