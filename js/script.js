@@ -4,119 +4,31 @@
    ========================================================== */
 
 /* ---------- Produkte ---------- */
-/* Preise sind Schätzungen und müssen vor dem Verkauf von dir geprüft/angepasst werden. */
-const PRODUCTS = [
-  {
-    id: "p1",
-    name: "Ablage-Set \u201ERiga\u201C",
-    category: "Tabletts & Schalen",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 22.90,
-    image: "images/products/product-trays.jpg",
-    desc: "Vier gerillte Ablageschalen zum Stapeln oder Kombinieren – für Schlüssel, Schmuck oder Kerzen."
-  },
-  {
-    id: "p2",
-    name: "Kürbis-Dose \u201EZucca Legno\u201C",
-    category: "Herbstdeko",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 16.90,
-    image: "images/products/product-wood-pumpkin-box.jpg",
-    desc: "Kürbisförmige Dose in Holzoptik mit abnehmbarem Deckel – hübsches Versteck für kleine Schätze."
-  },
-  {
-    id: "p3",
-    name: "Lotus-Leuchte \u201EFiore\u201C",
-    category: "Leuchten",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 24.90,
-    image: "images/products/product-lotus-lamp.jpg",
-    desc: "LED-Blütenleuchte mit warmem Licht – verwandelt jede Kommode in einen gemütlichen Rückzugsort."
-  },
-  {
-    id: "p4",
-    name: "Personalisiertes Namensschild",
-    category: "Personalisierte Geschenke",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 28.90,
-    image: "images/products/product-name-sign.jpg",
-    desc: "Individuelles Namensschild mit herbstlichen Blatt-Akzenten – dein Wunschname, frei wählbar."
-  },
-  {
-    id: "p5",
-    name: "Kürbis-Dosen-Duo \u201EZucca\u201C",
-    category: "Herbstdeko",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 26.90,
-    image: "images/products/product-pumpkin-duo.jpg",
-    desc: "Zwei Kürbis-Dosen in klassischem Orange – als Tischdeko oder kleines Nascherei-Versteck."
-  },
-  {
-    id: "p6",
-    name: "Foto-Lichtwürfel \u201ERicordo\u201C",
-    category: "Personalisierte Geschenke",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 34.90,
-    image: "images/products/product-photo-cube-lamp.jpg",
-    desc: "Dein Lieblingsfoto als Lithophanie im leuchtenden Würfel – ein Geschenk, das bleibt."
-  },
-  {
-    id: "p7",
-    name: "Kerzenhalter-Set \u201ENotte Nera\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 19.90,
-    image: "images/products/product-black-candle-pumpkin.jpg",
-    desc: "Schwarzer Kerzenhalter mit Ringdetail plus passendem Mini-Kürbis – schlicht und stimmungsvoll."
-  },
-  {
-    id: "p8",
-    name: "Foto-Leuchte \u201EMomento\u201C",
-    category: "Personalisierte Geschenke",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 32.90,
-    image: "images/products/product-photo-lantern-dog.jpg",
-    desc: "Lithophanie-Leuchte mit eingraviertem Lieblingsfoto – warmes Licht inklusive."
-  },
-  {
-    id: "p9",
-    name: "Kürbis-Windlicht-Trio \u201EAutunno\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 24.90,
-    image: "images/products/product-tealight-pumpkin-trio.jpg",
-    desc: "Drei Windlicht-Kürbisse mit Lochmuster in Grün, Senfgelb und Schwarz – zusammen ein Hingucker."
-  },
-  {
-    id: "p10",
-    name: "Kerzenhalter-Duo \u201EPanna\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst/Winter",
-    seasonIcon: "🍂",
-    price: 29.90,
-    image: "images/products/product-cream-candle-duo.jpg",
-    desc: "Zwei cremefarbene Kerzenhalter mit Kürbis- und Wickel-Detail auf gerillter Tablett-Unterlage."
-  },
-  {
-    id: "p11",
-    name: "Herz-Windlicht \u201ECuore\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 13.90,
-    image: "images/products/product-heart-pumpkin.jpg",
-    desc: "Schwarzer Kürbis-Windlicht mit herzförmigem Ausschnitt – romantisches Glühen für dunkle Abende."
+/* Die Produktdaten liegen in content/products.json und werden dort über
+   das CMS unter /admin/ verwaltet (Fotos, Preise, Kategorie, Saison). */
+let PRODUCTS = [];
+
+async function loadProducts(){
+  try {
+    const res = await fetch("content/products.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Antwort war nicht ok");
+    const data = await res.json();
+    PRODUCTS = data.products || [];
+  } catch (err) {
+    console.error("Produkte konnten nicht geladen werden:", err);
+    PRODUCTS = [];
   }
-];
+}
+
+/* Leitet ein kleines Saison-Emoji aus dem im CMS gesetzten Text ab. */
+function seasonIcon(season){
+  if (!season) return "✨";
+  if (season.includes("Winter") && !season.includes("Herbst")) return "❄️";
+  if (season.includes("Herbst")) return "🍂";
+  if (season.includes("Frühling")) return "🌱";
+  if (season.includes("Sommer")) return "☀️";
+  return "✨";
+}
 
 /* ---------- Warenkorb (localStorage) ---------- */
 const CART_KEY = "3deko_cart";
@@ -220,7 +132,7 @@ function productCard(p){
     <article class="product-card">
       <div class="product-media">
         <img src="${p.image}" alt="${p.name}" loading="lazy">
-        <span class="season-badge">${p.seasonIcon} ${p.season}</span>
+        <span class="season-badge">${seasonIcon(p.season)} ${p.season}</span>
       </div>
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
@@ -238,6 +150,10 @@ function productCard(p){
 function renderProductGrid(filterCat){
   const grid = document.getElementById("productGrid");
   if (!grid) return;
+  if (PRODUCTS.length === 0){
+    grid.innerHTML = `<p style="grid-column:1/-1; color:var(--ink-soft);">Die Produkte konnten gerade nicht geladen werden. Bitte lade die Seite neu.</p>`;
+    return;
+  }
   const items = filterCat && filterCat !== "Alle"
     ? PRODUCTS.filter(p => p.category === filterCat)
     : PRODUCTS;
@@ -294,7 +210,9 @@ function initDemoForms(){
 }
 
 /* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadProducts();
+
   updateCartCount();
   renderCartDrawer();
   renderProductGrid();
