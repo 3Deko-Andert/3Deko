@@ -210,6 +210,39 @@ function initDemoForms(){
   });
 }
 
+/* ---------- Kasse (Stripe) ---------- */
+async function goToCheckout(){
+  const button = document.getElementById("checkoutButton");
+  const note = document.getElementById("checkoutNote");
+  const cart = getCart();
+
+  if (cart.length === 0){
+    if (note) note.textContent = "Dein Warenkorb ist noch leer.";
+    return;
+  }
+
+  if (button){ button.disabled = true; button.textContent = "Einen Moment …"; }
+  if (note) note.textContent = "";
+
+  try {
+    const res = await fetch("/.netlify/functions/create-checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cart })
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.url){
+      throw new Error(data.error || "Die Kasse konnte nicht geöffnet werden.");
+    }
+    window.location.href = data.url;
+  } catch (err) {
+    console.error(err);
+    if (note) note.textContent = err.message || "Die Kasse konnte gerade nicht geöffnet werden. Bitte versuch es in ein paar Minuten erneut.";
+    if (button){ button.disabled = false; button.textContent = "Zur Kasse"; }
+  }
+}
+
 /* ---------- Init ---------- */
 document.addEventListener("DOMContentLoaded", async () => {
   await loadProducts();
@@ -225,4 +258,5 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("cartButton")?.addEventListener("click", openCart);
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
+  document.getElementById("checkoutButton")?.addEventListener("click", goToCheckout);
 });
