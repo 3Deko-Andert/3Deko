@@ -1,0 +1,65 @@
+# ==========================================================
+# 3Deko – CMS-Konfiguration (Decap CMS)
+# ==========================================================
+# Anmeldung: echter GitHub-Login (inkl. deiner 2FA-Authenticator-App,
+# falls du sie in deinem GitHub-Konto aktiviert hast). Die Anmeldung läuft
+# über Netlifys kostenlosen OAuth-Vermittler – dafür muss diese Website
+# über Netlify gehostet werden (siehe Anleitung im Chat).
+
+backend:
+  name: github
+  repo: 3Deko-Andert/3deko
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Damit "Änderung speichern" die Website direkt aktualisiert, statt einen
+# Änderungsvorschlag (Pull Request) anzulegen:
+publish_mode: simple
+
+media_folder: "images/products"
+public_folder: "images/products"
+
+locale: "de"
+
+collections:
+  - name: "products"
+    label: "Shop-Produkte"
+    label_singular: "Produkt"
+    description: "Hier fügst du neue Deko-Objekte hinzu, änderst Fotos, Preise oder die Saison-Markierung (z. B. Herbst)."
+    files:
+      - name: "products"
+        label: "Alle Produkte"
+        file: "content/products.json"
+        fields:
+          - label: "Produkte"
+            name: "products"
+            widget: "list"
+            label_singular: "Produkt"
+            summary: "{{name}} – {{category}}"
+            fields:
+              - { label: "Interne ID (nicht ändern, außer bei neuen Produkten)", name: "id", widget: "string" }
+              - { label: "Produktname", name: "name", widget: "string", hint: "Wird auf der Produktkarte im Shop angezeigt." }
+              - label: "Kategorie"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Tabletts & Schalen"
+                  - "Herbstdeko"
+                  - "Leuchten"
+                  - "Personalisierte Geschenke"
+                  - "Kerzenhalter"
+              - label: "Saison / Tag"
+                name: "season"
+                widget: "select"
+                hint: "Erscheint als kleines Abzeichen auf dem Produktfoto."
+                options:
+                  - "Ganzjährig"
+                  - "Frühling"
+                  - "Sommer"
+                  - "Herbst"
+                  - "Herbst/Winter"
+                  - "Winter"
+              - { label: "Preis in Euro", name: "price", widget: "number", value_type: "float", step: 0.1 }
+              - { label: "Foto", name: "image", widget: "image", hint: "Foto hierher ziehen oder auswählen – wird automatisch hochgeladen." }
+              - { label: "Kurzbeschreibung", name: "desc", widget: "text", hint: "1–2 Sätze, erscheinen unter dem Produktnamen." }
