@@ -118,21 +118,23 @@
   // in der Anzeige sowie im "Foto per E-Mail schicken"-Button vorausfüllen.
   (function(){
     const params = new URLSearchParams(window.location.search);
-    const orderId = params.get("session_id");
-    if (!orderId) return;
+    const orderNumber = params.get("order");
+    const sessionId = params.get("session_id");
+    const displayId = orderNumber || sessionId;
+    if (!displayId) return;
 
     const line = document.getElementById("orderNumberLine");
     const value = document.getElementById("orderNumberValue");
     if (line && value){
-      value.textContent = orderId;
+      value.textContent = displayId;
       line.style.display = "block";
     }
 
     const mailBtn = document.getElementById("photoMailButton");
     if (mailBtn){
-      const subject = encodeURIComponent("Foto zu Bestellung " + orderId);
+      const subject = encodeURIComponent("Foto zu Bestellung " + displayId);
       const body = encodeURIComponent(
-        "Hallo Cindy,\n\nhier ist mein Wunschfoto zu meiner Bestellung " + orderId + ".\n\n" +
+        "Hallo Cindy,\n\nhier ist mein Wunschfoto zu meiner Bestellung " + displayId + ".\n\n" +
         "(Foto bitte an diese E-Mail anhängen)\n\nViele Grüße"
       );
       mailBtn.href = "mailto:office@3deko-andert.at?subject=" + subject + "&body=" + body;
