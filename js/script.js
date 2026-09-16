@@ -23,6 +23,7 @@ async function loadProducts(){
 /* Leitet ein kleines Saison-Emoji aus dem im CMS gesetzten Text ab. */
 function seasonIcon(season){
   if (!season) return "✨";
+  if (season.includes("Weihnachten")) return "🎄";
   if (season.includes("Winter") && !season.includes("Herbst")) return "❄️";
   if (season.includes("Herbst")) return "🍂";
   if (season.includes("Frühling")) return "🌱";
