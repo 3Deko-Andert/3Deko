@@ -75,7 +75,8 @@ exports.handler = async (event) => {
       const product = products.find(p => p.id === entry.id);
       if (!product) return null;
       const qty = Math.max(1, Math.min(20, parseInt(entry.qty, 10) || 1));
-      return { product, qty };
+      const note = typeof entry.note === "string" ? entry.note.trim().slice(0, 400) : "";
+      return { product, qty, note };
     })
     .filter(Boolean);
 
@@ -92,11 +93,29 @@ exports.handler = async (event) => {
   params.append("shipping_address_collection[allowed_countries][]", "DE");
   params.append("locale", "de");
 
+  // Freiwilliges Notizfeld, das direkt bei der Bezahlung angezeigt wird –
+  // zusätzlich zu den Wünschen, die schon pro Produkt im Warenkorb erfasst wurden.
+  params.append("custom_fields[0][key]", "anmerkung");
+  params.append("custom_fields[0][label][type]", "custom");
+  params.append("custom_fields[0][label][custom]", "Anmerkung zur Bestellung (optional)");
+  params.append("custom_fields[0][type]", "text");
+  params.append("custom_fields[0][optional]", "true");
+
   items.forEach((entry, i) => {
+    // Persönlicher Wunsch (Name, Fototext, ...) wird direkt sichtbar an den
+    // Produktnamen angehängt UND zusätzlich als Metadaten gespeichert, damit
+    // er in der Stripe-Übersicht garantiert nicht übersehen wird.
+    const displayName = entry.note
+      ? `${entry.product.name} — Wunsch: ${entry.note}`
+      : entry.product.name;
+
     params.append(`line_items[${i}][quantity]`, entry.qty);
     params.append(`line_items[${i}][price_data][currency]`, "eur");
     params.append(`line_items[${i}][price_data][unit_amount]`, Math.round(entry.product.price * 100));
-    params.append(`line_items[${i}][price_data][product_data][name]`, entry.product.name);
+    params.append(`line_items[${i}][price_data][product_data][name]`, displayName);
+    if (entry.note){
+      params.append(`line_items[${i}][price_data][product_data][metadata][wunsch]`, entry.note);
+    }
   });
 
   try {
