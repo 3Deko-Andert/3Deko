@@ -44,11 +44,18 @@ collections:
                 name: "category"
                 widget: "select"
                 options:
-                  - "Tabletts & Schalen"
-                  - "Herbstdeko"
-                  - "Leuchten"
-                  - "Personalisierte Geschenke"
+                  - "Vasen"
+                  - "Wanddeko"
+                  - "Tischdeko"
+                  - "Aufbewahrung & Dosen"
                   - "Kerzenhalter"
+                  - "Leuchten"
+                  - "Tabletts & Schalen"
+                  - "Personalisierte Geschenke"
+                  - "Pflanzenzubehör"
+                  - "Herbstdeko"
+                  - "Weihnachts- & Winterdeko"
+                  - "Oster- & Frühlingsdeko"
               - label: "Saison / Tag"
                 name: "season"
                 widget: "select"
@@ -60,6 +67,7 @@ collections:
                   - "Herbst"
                   - "Herbst/Winter"
                   - "Winter"
+                  - "Weihnachten"
               - { label: "Preis in Euro", name: "price", widget: "number", value_type: "float", step: 0.1 }
               - { label: "Foto", name: "image", widget: "image", hint: "Foto hierher ziehen oder auswählen – wird automatisch hochgeladen." }
               - { label: "Kurzbeschreibung", name: "desc", widget: "text", hint: "1–2 Sätze, erscheinen unter dem Produktnamen." }
