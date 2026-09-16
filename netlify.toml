@@ -1,0 +1,11 @@
+# ==========================================================
+# 3Deko – Netlify-Konfiguration
+# ==========================================================
+# Kein Build-Schritt nötig (reines HTML/CSS/JS), nur der
+# Ordner mit der Server-Funktion für die Stripe-Kasse wird angegeben.
+
+[functions]
+  directory = "netlify/functions"
+
+[build]
+  publish = "."
