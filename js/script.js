@@ -34,6 +34,10 @@ function seasonIcon(season){
 /* ---------- Warenkorb (localStorage) ---------- */
 const CART_KEY = "3deko_cart";
 
+function newLineId(){
+  return "l" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
 function getCart(){
   try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
   catch(e){ return []; }
@@ -42,26 +46,30 @@ function saveCart(cart){
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   updateCartCount();
 }
-function addToCart(id, qty = 1){
+
+/* note = optionaler Personalisierungs-Wunsch. Zeilen mit unterschiedlichem
+   Wunschtext bleiben getrennt (z. B. zwei Namensschilder mit je eigenem Namen). */
+function addToCart(id, qty = 1, note = ""){
   const cart = getCart();
-  const existing = cart.find(i => i.id === id);
+  note = (note || "").trim();
+  const existing = cart.find(i => i.id === id && (i.note || "") === note);
   if (existing) existing.qty += qty;
-  else cart.push({ id, qty });
+  else cart.push({ lineId: newLineId(), id, qty, note });
   saveCart(cart);
   renderCartDrawer();
   openCart();
 }
-function updateQty(id, delta){
+function updateQty(lineId, delta){
   const cart = getCart();
-  const item = cart.find(i => i.id === id);
+  const item = cart.find(i => i.lineId === lineId);
   if (!item) return;
   item.qty += delta;
   const filtered = cart.filter(i => i.qty > 0);
   saveCart(filtered);
   renderCartDrawer();
 }
-function removeFromCart(id){
-  saveCart(getCart().filter(i => i.id !== id));
+function removeFromCart(lineId){
+  saveCart(getCart().filter(i => i.lineId !== lineId));
   renderCartDrawer();
 }
 function cartCount(){
@@ -102,15 +110,16 @@ function renderCartDrawer(){
         <div class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
         <div class="cart-item-info">
           <h4>${p.name}</h4>
+          ${item.note ? `<p class="cart-item-note">✎ ${item.note}</p>` : ""}
           <div class="row">
             <div class="qty-control">
-              <button type="button" onclick="updateQty('${p.id}', -1)" aria-label="Menge verringern">−</button>
+              <button type="button" onclick="updateQty('${item.lineId}', -1)" aria-label="Menge verringern">−</button>
               <span>${item.qty}</span>
-              <button type="button" onclick="updateQty('${p.id}', 1)" aria-label="Menge erhöhen">+</button>
+              <button type="button" onclick="updateQty('${item.lineId}', 1)" aria-label="Menge erhöhen">+</button>
             </div>
             <strong>${formatPrice(p.price * item.qty)}</strong>
           </div>
-          <button type="button" class="remove-link" onclick="removeFromCart('${p.id}')">entfernen</button>
+          <button type="button" class="remove-link" onclick="removeFromCart('${item.lineId}')">entfernen</button>
         </div>
       </div>`;
   }).join("");
@@ -129,6 +138,13 @@ function closeCart(){
 
 /* ---------- Produktkarte (gemeinsam für Shop & Startseite) ---------- */
 function productCard(p){
+  const personalizeBlock = p.personalizable ? `
+        <label class="personalize-field">
+          <span>${p.personalizeLabel || "Deine Wünsche"}</span>
+          <textarea rows="2" placeholder="${p.needsPhoto ? "z. B. „Foto vom letzten Sommerurlaub, wir zu zweit“" : "z. B. „Anna“"}"></textarea>
+        </label>
+        ${p.needsPhoto ? `<p class="personalize-photo-hint">📸 Foto bitte nach der Bestellung per E-Mail an office@3deko-andert.at schicken (mit deiner Bestellnummer).</p>` : ""}` : "";
+
   return `
     <article class="product-card">
       <div class="product-media">
@@ -140,11 +156,29 @@ function productCard(p){
         <h3>${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
         <p class="product-price">${formatPrice(p.price)} <span class="placeholder-tag">geschätzter Preis</span></p>
+        ${personalizeBlock}
         <div class="product-actions">
-          <button type="button" class="btn btn-primary btn-small" onclick="addToCart('${p.id}')">In den Warenkorb</button>
+          <button type="button" class="btn btn-primary btn-small" onclick="handleAddToCart(this, '${p.id}')">In den Warenkorb</button>
         </div>
       </div>
     </article>`;
+}
+
+/* Liest ein eventuelles Wunsch-Textfeld direkt aus der jeweiligen Karte aus,
+   damit mehrere gleiche Produkte auf einer Seite sich nicht in die Quere kommen. */
+function handleAddToCart(button, id){
+  const card = button.closest(".product-card");
+  const textarea = card ? card.querySelector(".personalize-field textarea") : null;
+  const product = PRODUCTS.find(p => p.id === id);
+
+  if (textarea && product?.personalizable && textarea.value.trim() === ""){
+    textarea.focus();
+    textarea.style.borderColor = "var(--rose-deep)";
+    return;
+  }
+
+  addToCart(id, 1, textarea ? textarea.value : "");
+  if (textarea) textarea.value = "";
 }
 
 /* ---------- Produkte im Shop rendern ---------- */
