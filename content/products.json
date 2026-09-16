@@ -98,6 +98,15 @@
       "price": 13.9,
       "image": "images/products/product-heart-pumpkin.jpg",
       "desc": "Schwarzer Kürbis-Windlicht mit herzförmigem Ausschnitt – romantisches Glühen für dunkle Abende."
+    },
+    {
+      "id": "p12",
+      "name": "test",
+      "category": "Herbstdeko",
+      "season": "Ganzjährig",
+      "price": 666,
+      "image": "images/products/3deko_logo.jpeg",
+      "desc": "estetesteefef"
     }
   ]
 }
