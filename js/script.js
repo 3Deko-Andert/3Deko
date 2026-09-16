@@ -39,8 +39,20 @@ function newLineId(){
 }
 
 function getCart(){
-  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  let cart;
+  try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; }
   catch(e){ return []; }
+
+  // Reparatur für Warenkörbe aus einer älteren Version der Website, die
+  // noch keine eindeutige Zeilen-Kennung hatten (sonst lässt sich "entfernen"
+  // bei solchen Alt-Eintägen nicht anklicken).
+  let migrated = false;
+  cart.forEach(item => {
+    if (!item.lineId){ item.lineId = newLineId(); migrated = true; }
+  });
+  if (migrated) localStorage.setItem(CART_KEY, JSON.stringify(cart));
+
+  return cart;
 }
 function saveCart(cart){
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
