@@ -85,9 +85,16 @@ exports.handler = async (event) => {
   }
 
   const site = process.env.URL || `https://${event.headers.host}`;
+
+  // Kurze, gut lesbare Bestellnummer erzeugen (z. B. 3D-8K42F1). Wird
+  // zusätzlich als Kundenreferenz bei Stripe hinterlegt, damit die Bestellung
+  // auch im Stripe-Dashboard leicht wiederzufinden ist.
+  const orderNumber = "3D-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+
   const params = new URLSearchParams();
   params.append("mode", "payment");
-  params.append("success_url", `${site}/bestellung-erfolgreich.html?session_id={CHECKOUT_SESSION_ID}`);
+  params.append("client_reference_id", orderNumber);
+  params.append("success_url", `${site}/bestellung-erfolgreich.html?order=${orderNumber}&session_id={CHECKOUT_SESSION_ID}`);
   params.append("cancel_url", `${site}/shop.html`);
   params.append("shipping_address_collection[allowed_countries][]", "AT");
   params.append("shipping_address_collection[allowed_countries][]", "DE");
