@@ -71,3 +71,11 @@ collections:
               - { label: "Preis in Euro", name: "price", widget: "number", value_type: "float", step: 0.1 }
               - { label: "Foto", name: "image", widget: "image", hint: "Foto hierher ziehen oder auswählen – wird automatisch hochgeladen." }
               - { label: "Kurzbeschreibung", name: "desc", widget: "text", hint: "1–2 Sätze, erscheinen unter dem Produktnamen." }
+              - { label: "Personalisierbar? (zeigt ein Wunsch-Textfeld im Shop)", name: "personalizable", widget: "boolean", default: false }
+              - label: "Beschriftung für das Wunsch-Feld"
+                name: "personalizeLabel"
+                widget: "string"
+                required: false
+                default: "Deine Wünsche (z. B. Name oder Text)"
+                hint: "Nur sichtbar/relevant, wenn 'Personalisierbar' angehakt ist."
+              - { label: "Braucht ein Foto von der Kundin/dem Kunden?", name: "needsPhoto", widget: "boolean", default: false, hint: "Zeigt einen Hinweis, das Foto nach der Bestellung per E-Mail zu schicken." }
