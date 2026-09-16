@@ -41,6 +41,15 @@
     </svg>
     <h1 style="font-size:clamp(2rem,4vw,2.6rem)">Danke für deine Bestellung!</h1>
     <p class="lead">Deine Zahlung ist erfolgreich eingegangen. Du erhältst in Kürze eine Bestätigung per E-Mail. Ich mache mich gleich ans Drucken und Verpacken.</p>
+    <p id="orderNumberLine" style="display:none; font-size:.95rem; color:var(--ink-soft); margin-top:-.6em;">
+      Deine Bestellnummer: <strong id="orderNumberValue" style="color:var(--ink); font-family:monospace; word-break:break-all;"></strong>
+    </p>
+    <div class="notice-box" style="text-align:left; margin:1.6em 0;">
+      <p><strong>Hast du ein personalisiertes Foto-Produkt bestellt?</strong> Dann schick mir dein Wunschfoto einfach noch per E-Mail – am besten über den Button unten, da ist deine Bestellnummer schon im Betreff eingetragen.</p>
+      <p style="margin-top:.8em;">
+        <a href="mailto:office@3deko-andert.at" id="photoMailButton" class="btn btn-ghost btn-small">Foto per E-Mail schicken</a>
+      </p>
+    </div>
     <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:1.6em;">
       <a href="shop.html" class="btn btn-primary">Weiterstöbern</a>
       <a href="index.html" class="btn btn-ghost">Zur Startseite</a>
@@ -104,6 +113,31 @@
 <script>
   // Warenkorb wird nach erfolgreicher Zahlung geleert
   try { localStorage.removeItem("3deko_cart"); } catch(e) {}
+
+  // Bestellnummer (Stripe-Sitzungs-ID) aus der Adresszeile auslesen und
+  // in der Anzeige sowie im "Foto per E-Mail schicken"-Button vorausfüllen.
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get("session_id");
+    if (!orderId) return;
+
+    const line = document.getElementById("orderNumberLine");
+    const value = document.getElementById("orderNumberValue");
+    if (line && value){
+      value.textContent = orderId;
+      line.style.display = "block";
+    }
+
+    const mailBtn = document.getElementById("photoMailButton");
+    if (mailBtn){
+      const subject = encodeURIComponent("Foto zu Bestellung " + orderId);
+      const body = encodeURIComponent(
+        "Hallo Cindy,\n\nhier ist mein Wunschfoto zu meiner Bestellung " + orderId + ".\n\n" +
+        "(Foto bitte an diese E-Mail anhängen)\n\nViele Grüße"
+      );
+      mailBtn.href = "mailto:office@3deko-andert.at?subject=" + subject + "&body=" + body;
+    }
+  })();
 </script>
 </body>
 </html>
