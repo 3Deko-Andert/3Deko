@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": "p12",
-      "name": "test",
-      "category": "Herbstdeko",
-      "season": "Ganzjährig",
-      "price": 666,
-      "image": "images/products/3deko_logo.jpeg",
-      "desc": "estetesteefef"
-    },
-    {
       "id": "p1",
       "name": "Ablage-Set „Riga“",
       "category": "Tabletts & Schalen",
