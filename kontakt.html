@@ -44,25 +44,25 @@
 
   <section class="section">
     <div class="container contact-grid">
-      <form class="contact-form" action="mailto:office@3deko-andert.at" method="post" enctype="text/plain">
+      <form class="contact-form" id="contactForm">
         <div>
           <label for="name">Name</label>
-          <input type="text" id="name" name="Name" required>
+          <input type="text" id="name" name="name" required>
         </div>
         <div>
           <label for="email">E-Mail-Adresse</label>
-          <input type="email" id="email" name="E-Mail" required>
+          <input type="email" id="email" name="email" required>
         </div>
         <div>
           <label for="message">Deine Nachricht</label>
-          <textarea id="message" name="Nachricht" required></textarea>
+          <textarea id="message" name="message" required></textarea>
         </div>
         <label class="consent">
           <input type="checkbox" required>
           <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage einverstanden.</span>
         </label>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start;">Nachricht senden</button>
-        <p class="cart-note" style="margin-top:0;">Beim Absenden öffnet sich dein E-Mail-Programm mit einer vorausgefüllten Nachricht an office@3deko-andert.at.</p>
+        <button type="submit" class="btn btn-primary" id="contactSubmit" style="align-self:flex-start;">Nachricht senden</button>
+        <p class="cart-note" id="contactNote" style="margin-top:0;">Du bekommst direkt danach eine Bestätigung per E-Mail, dass deine Nachricht bei uns angekommen ist.</p>
       </form>
 
       <div class="contact-info-card">
@@ -71,7 +71,7 @@
         <ul>
           <li><strong>E-Mail:</strong> office@3deko-andert.at</li>
           <li><strong>Telefon:</strong> +43 676 5263535</li>
-          <li><strong>Werkstatt:</strong> Kapellensiedlung 17, 7152 Pamhagen (nur nach Vereinbarung)</li>
+          <li><strong>Abholung:</strong> Kapellensiedlung 17, 7152 Pamhagen – nur nach Vereinbarung</li>
           <li><strong>Antwortzeit:</strong> in der Regel innerhalb von 2 Werktagen</li>
         </ul>
       </div>
@@ -127,7 +127,7 @@
   <div class="cart-foot">
     <div class="cart-total"><span>Zwischensumme</span><span id="cartTotal">0,00 €</span></div>
     <button class="btn btn-primary" type="button" id="checkoutButton">Zur Kasse</button>
-    <p class="cart-note" id="checkoutNote">Zzgl. 6,90 € Versand (wird an der Kasse automatisch hinzugefügt).</p>
+    <p class="cart-note" id="checkoutNote">An der Kasse wählst du zwischen Versand (6,90 €) und kostenloser Abholung in Pamhagen (nur nach Vereinbarung).</p>
   </div>
 </aside>
 
