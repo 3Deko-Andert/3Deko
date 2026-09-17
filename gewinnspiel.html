@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎉 Du hast gewonnen! – 3Deko</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="images/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<main>
+  <section class="section" style="text-align:center; max-width:520px; margin:0 auto; padding-top:100px; padding-bottom:110px;">
+
+    <div id="prizeLoading">
+      <p class="lead">Einen Moment …</p>
+    </div>
+
+    <div id="prizeWin" style="display:none;">
+      <div style="font-size:52px; margin-bottom:10px;">🎉</div>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.4rem)">Herzlichen Glückwunsch!</h1>
+      <p class="lead">Du hast den versteckten Link auf der 3Deko-Startseite gefunden – und damit <strong class="fill-hint">einen Überraschungsgutschein</strong> gewonnen! 🎁</p>
+      <p style="color:var(--ink-soft); font-size:.9rem;">Trag dich kurz ein, damit wir dir Bescheid geben können.</p>
+
+      <form id="prizeForm" style="text-align:left; max-width:360px; margin:24px auto 0; display:flex; flex-direction:column; gap:16px;">
+        <div>
+          <label for="pName" style="font-weight:700; font-size:.9rem; display:block; margin-bottom:6px;">Name</label>
+          <input type="text" id="pName" required style="width:100%; padding:.85em 1em; border-radius:14px; border:1px solid var(--line); font-family:var(--font-body); font-size:.98rem;">
+        </div>
+        <div>
+          <label for="pEmail" style="font-weight:700; font-size:.9rem; display:block; margin-bottom:6px;">E-Mail-Adresse</label>
+          <input type="email" id="pEmail" required style="width:100%; padding:.85em 1em; border-radius:14px; border:1px solid var(--line); font-family:var(--font-body); font-size:.98rem;">
+        </div>
+        <button type="submit" id="prizeSubmit" class="btn btn-primary">Gewinn beanspruchen</button>
+        <p id="prizeError" style="color:var(--rose-deep); font-size:.85rem; display:none;"></p>
+      </form>
+    </div>
+
+    <div id="prizeSuccess" style="display:none;">
+      <div style="font-size:52px; margin-bottom:10px;">✅</div>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.4rem)">Geschafft!</h1>
+      <p class="lead">Danke dir – wir melden uns in Kürze bei dir per E-Mail, um alles Weitere zu klären.</p>
+      <a href="index.html" class="btn btn-ghost" style="margin-top:1em;">Zurück zur Startseite</a>
+    </div>
+
+    <div id="prizeGone" style="display:none;">
+      <div style="font-size:52px; margin-bottom:10px;">💔</div>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.4rem)">Schon vergeben</h1>
+      <p class="lead">Ohje, zu spät – dieser Gewinn wurde bereits von jemand anderem eingelöst. Schau gern trotzdem im Shop vorbei!</p>
+      <a href="shop.html" class="btn btn-primary" style="margin-top:1em;">Zum Shop</a>
+    </div>
+
+  </section>
+</main>
+
+<script>
+  const loading = document.getElementById("prizeLoading");
+  const winBox = document.getElementById("prizeWin");
+  const successBox = document.getElementById("prizeSuccess");
+  const goneBox = document.getElementById("prizeGone");
+
+  function show(el){
+    [loading, winBox, successBox, goneBox].forEach(b => b.style.display = "none");
+    el.style.display = "block";
+  }
+
+  fetch("/.netlify/functions/prize")
+    .then(res => res.json())
+    .then(data => show(data.claimed ? goneBox : winBox))
+    .catch(() => show(winBox));
+
+  document.getElementById("prizeForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = document.getElementById("prizeSubmit");
+    const error = document.getElementById("prizeError");
+    error.style.display = "none";
+    button.disabled = true;
+    button.textContent = "Einen Moment …";
+
+    try {
+      const res = await fetch("/.netlify/functions/prize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.getElementById("pName").value,
+          email: document.getElementById("pEmail").value
+        })
+      });
+      const data = await res.json();
+      if (res.status === 409){
+        show(goneBox);
+        return;
+      }
+      if (!res.ok) throw new Error(data.error || "Da ist etwas schiefgegangen.");
+      show(successBox);
+    } catch (err) {
+      error.textContent = err.message;
+      error.style.display = "block";
+      button.disabled = false;
+      button.textContent = "Gewinn beanspruchen";
+    }
+  });
+</script>
+</body>
+</html>
