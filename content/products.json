@@ -2,7 +2,7 @@
   "products": [
     {
       "season": "Ganzjährig",
-      "price": 22.9,
+      "price": 1,
       "personalizable": false,
       "name": "Ablage-Set „Riga“",
       "desc": "Vier gerillte Ablageschalen zum Stapeln oder Kombinieren – für Schlüssel, Schmuck oder Kerzen.",
@@ -123,18 +123,6 @@
       "id": "p11",
       "image": "images/products/product-heart-pumpkin.jpg",
       "category": "Kerzenhalter"
-    },
-    {
-      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
-      "season": "Sommer",
-      "price": 1,
-      "personalizable": true,
-      "name": "Test",
-      "desc": "teste",
-      "needsPhoto": true,
-      "id": "p12",
-      "image": "images/products/product-photo-cube-lamp.jpg",
-      "category": "Wanddeko"
     }
   ]
 }
