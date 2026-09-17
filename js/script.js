@@ -293,6 +293,46 @@ async function goToCheckout(){
   }
 }
 
+/* ---------- Kontaktformular ---------- */
+function initContactForm(){
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = document.getElementById("contactSubmit");
+    const note = document.getElementById("contactNote");
+
+    const payload = {
+      name: form.querySelector("#name").value,
+      email: form.querySelector("#email").value,
+      message: form.querySelector("#message").value
+    };
+
+    if (button){ button.disabled = true; button.textContent = "Wird gesendet …"; }
+    if (note) note.textContent = "";
+
+    try {
+      const res = await fetch("/.netlify/functions/send-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok){
+        throw new Error(data.error || "Nachricht konnte nicht verschickt werden.");
+      }
+      form.reset();
+      if (button){ button.textContent = "Gesendet ✓"; }
+      if (note) note.textContent = "Danke! Deine Nachricht ist angekommen – du bekommst gleich eine Bestätigung per E-Mail.";
+    } catch (err) {
+      console.error(err);
+      if (note) note.textContent = err.message || "Da ist etwas schiefgegangen. Bitte versuch es später erneut oder schreib direkt an office@3deko-andert.at.";
+      if (button){ button.disabled = false; button.textContent = "Nachricht senden"; }
+    }
+  });
+}
+
 /* ---------- Init ---------- */
 document.addEventListener("DOMContentLoaded", async () => {
   await loadProducts();
@@ -304,6 +344,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initFilters();
   initNav();
   initDemoForms();
+  initContactForm();
 
   document.getElementById("cartButton")?.addEventListener("click", openCart);
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
