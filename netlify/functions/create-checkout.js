@@ -100,6 +100,16 @@ exports.handler = async (event) => {
   params.append("shipping_address_collection[allowed_countries][]", "DE");
   params.append("locale", "de");
 
+  // Erstellt zusätzlich zum Zahlungsbeleg eine echte Rechnung (PDF, mit
+  // fortlaufender Rechnungsnummer) und schickt sie automatisch an die
+  // Kundin/den Kunden.
+  params.append("invoice_creation[enabled]", "true");
+  params.append(
+    "invoice_creation[invoice_data][footer]",
+    "3Deko – Cindy Andert – Kapellensiedlung 17, 7152 Pamhagen – office@3deko-andert.at – " +
+    "Kleinunternehmerin gemäß § 6 Abs. 1 Z 27 UStG, daher weisen wir keine Umsatzsteuer aus."
+  );
+
   // Freiwilliges Notizfeld, das direkt bei der Bezahlung angezeigt wird –
   // zusätzlich zu den Wünschen, die schon pro Produkt im Warenkorb erfasst wurden.
   params.append("custom_fields[0][key]", "anmerkung");
