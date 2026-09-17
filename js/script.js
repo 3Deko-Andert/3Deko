@@ -150,12 +150,15 @@ function closeCart(){
 
 /* ---------- Produktkarte (gemeinsam für Shop & Startseite) ---------- */
 function productCard(p){
-  const personalizeBlock = p.personalizable ? `
+  const personalizeField = p.personalizable ? `
         <label class="personalize-field">
           <span>${p.personalizeLabel || "Deine Wünsche"}</span>
-          <textarea rows="2" placeholder="${p.needsPhoto ? "z. B. „Foto vom letzten Sommerurlaub, wir zu zweit“" : "z. B. „Anna“"}"></textarea>
-        </label>
-        ${p.needsPhoto ? `<p class="personalize-photo-hint">📸 Foto bitte nach der Bestellung per E-Mail an office@3deko-andert.at schicken (mit deiner Bestellnummer).</p>` : ""}` : "";
+          <textarea rows="2" placeholder="z. B. „Anna“"></textarea>
+        </label>` : "";
+
+  const photoHint = p.needsPhoto
+    ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns dein Wunschfoto per E-Mail schickst.</p>`
+    : "";
 
   return `
     <article class="product-card">
@@ -167,8 +170,9 @@ function productCard(p){
         <span class="product-cat">${p.category}</span>
         <h3>${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
-        <p class="product-price">${formatPrice(p.price)} <span class="placeholder-tag">geschätzter Preis</span></p>
-        ${personalizeBlock}
+        <p class="product-price">${formatPrice(p.price)}</p>
+        ${personalizeField}
+        ${photoHint}
         <div class="product-actions">
           <button type="button" class="btn btn-primary btn-small" onclick="handleAddToCart(this, '${p.id}')">In den Warenkorb</button>
         </div>
