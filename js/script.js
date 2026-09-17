@@ -157,7 +157,7 @@ function productCard(p){
         </label>` : "";
 
   const photoHint = p.needsPhoto
-    ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns dein Wunschfoto per E-Mail schickst.</p>`
+    ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns deine Wunschfotos per E-Mail schickst.</p>`
     : "";
 
   return `
