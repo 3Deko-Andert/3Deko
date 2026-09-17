@@ -121,6 +121,21 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   backdrop-filter:blur(6px);
   border-bottom:1px solid var(--line);
 }
+
+/* Winziger, unsichtbarer Gewinnspiel-Link – nur bei Hover ein Hauch erkennbar */
+#secretLink{
+  position:absolute;
+  top:6px;
+  right:50%;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--rose);
+  opacity:0;
+  z-index:60;
+  transition:opacity .3s ease;
+}
+#secretLink:hover{ opacity:.35; }
 .site-header .container{
   display:flex;
   align-items:center;
