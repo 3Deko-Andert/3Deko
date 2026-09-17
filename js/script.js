@@ -333,6 +333,16 @@ function initContactForm(){
   });
 }
 
+/* ---------- Verstecktes Gewinnspiel: Link ausblenden, falls schon vergeben ---------- */
+function initSecretLink(){
+  const link = document.getElementById("secretLink");
+  if (!link) return;
+  fetch("/.netlify/functions/prize")
+    .then(res => res.json())
+    .then(data => { if (data.claimed) link.remove(); })
+    .catch(() => {}); // bei Fehler lieber unauffällig nichts tun
+}
+
 /* ---------- Init ---------- */
 document.addEventListener("DOMContentLoaded", async () => {
   await loadProducts();
@@ -345,6 +355,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initNav();
   initDemoForms();
   initContactForm();
+  initSecretLink();
 
   document.getElementById("cartButton")?.addEventListener("click", openCart);
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
