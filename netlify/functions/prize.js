@@ -8,7 +8,7 @@
 // Speichert den Status dauerhaft über Netlify Blobs (in Netlify eingebaut,
 // kein zusätzliches Konto nötig).
 
-const { getStore } = require("@netlify/blobs");
+const { getStore, connectLambda } = require("@netlify/blobs");
 
 const STORE_EMAIL = "office@3deko-andert.at";
 
@@ -21,6 +21,8 @@ function escapeHtml(str){
 }
 
 exports.handler = async (event) => {
+  connectLambda(event); // aktiviert die Blobs-Umgebung für dieses klassische Funktionsformat
+
   let store;
   try {
     store = getStore("prize");
