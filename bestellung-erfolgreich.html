@@ -45,7 +45,7 @@
       Deine Bestellnummer: <strong id="orderNumberValue" style="color:var(--ink); font-family:monospace; word-break:break-all;"></strong>
     </p>
     <div class="notice-box" style="text-align:left; margin:1.6em 0;">
-      <p><strong>Hast du ein personalisiertes Foto-Produkt bestellt?</strong> Dann schick mir dein Wunschfoto einfach noch per E-Mail – am besten über den Button unten, da ist deine Bestellnummer schon im Betreff eingetragen.</p>
+      <p><strong>Hast du ein personalisiertes Foto-Produkt bestellt?</strong> Dann schick mir deine Wunschfotos einfach noch per E-Mail – am besten über den Button unten, da ist deine Bestellnummer schon im Betreff eingetragen.</p>
       <p style="margin-top:.8em;">
         <a href="mailto:office@3deko-andert.at" id="photoMailButton" class="btn btn-ghost btn-small">Foto per E-Mail schicken</a>
       </p>
@@ -134,8 +134,8 @@
     if (mailBtn){
       const subject = encodeURIComponent("Foto zu Bestellung " + displayId);
       const body = encodeURIComponent(
-        "Hallo Cindy,\n\nhier ist mein Wunschfoto zu meiner Bestellung " + displayId + ".\n\n" +
-        "(Foto bitte an diese E-Mail anhängen)\n\nViele Grüße"
+        "Hallo Cindy,\n\nhier sind meine Wunschfotos zu meiner Bestellung " + displayId + ".\n\n" +
+        "(Fotos bitte an diese E-Mail anhängen)\n\nViele Grüße"
       );
       mailBtn.href = "mailto:office@3deko-andert.at?subject=" + subject + "&body=" + body;
     }
