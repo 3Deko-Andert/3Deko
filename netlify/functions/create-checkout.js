@@ -100,6 +100,12 @@ exports.handler = async (event) => {
   params.append("shipping_address_collection[allowed_countries][]", "DE");
   params.append("locale", "de");
 
+  // Versandkosten automatisch zur Bestellung hinzufügen
+  params.append("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
+  params.append("shipping_options[0][shipping_rate_data][fixed_amount][amount]", "690");
+  params.append("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "eur");
+  params.append("shipping_options[0][shipping_rate_data][display_name]", "Versand");
+
   // Erstellt zusätzlich zum Zahlungsbeleg eine echte Rechnung (PDF, mit
   // fortlaufender Rechnungsnummer) und schickt sie automatisch an die
   // Kundin/den Kunden.
