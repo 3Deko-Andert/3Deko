@@ -4,151 +4,84 @@
    ========================================================== */
 
 /* ---------- Produkte ---------- */
-/* Preise sind Schätzungen und müssen vor dem Verkauf von dir geprüft/angepasst werden. */
-const PRODUCTS = [
-  {
-    id: "p1",
-    name: "Ablage-Set \u201ERiga\u201C",
-    category: "Tabletts & Schalen",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 22.90,
-    image: "images/products/product-trays.jpg",
-    desc: "Vier gerillte Ablageschalen zum Stapeln oder Kombinieren – für Schlüssel, Schmuck oder Kerzen."
-  },
-  {
-    id: "p2",
-    name: "Kürbis-Dose \u201EZucca Legno\u201C",
-    category: "Herbstdeko",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 16.90,
-    image: "images/products/product-wood-pumpkin-box.jpg",
-    desc: "Kürbisförmige Dose in Holzoptik mit abnehmbarem Deckel – hübsches Versteck für kleine Schätze."
-  },
-  {
-    id: "p3",
-    name: "Lotus-Leuchte \u201EFiore\u201C",
-    category: "Leuchten",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 24.90,
-    image: "images/products/product-lotus-lamp.jpg",
-    desc: "LED-Blütenleuchte mit warmem Licht – verwandelt jede Kommode in einen gemütlichen Rückzugsort."
-  },
-  {
-    id: "p4",
-    name: "Personalisiertes Namensschild",
-    category: "Personalisierte Geschenke",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 28.90,
-    image: "images/products/product-name-sign.jpg",
-    desc: "Individuelles Namensschild mit herbstlichen Blatt-Akzenten – dein Wunschname, frei wählbar."
-  },
-  {
-    id: "p5",
-    name: "Kürbis-Dosen-Duo \u201EZucca\u201C",
-    category: "Herbstdeko",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 26.90,
-    image: "images/products/product-pumpkin-duo.jpg",
-    desc: "Zwei Kürbis-Dosen in klassischem Orange – als Tischdeko oder kleines Nascherei-Versteck."
-  },
-  {
-    id: "p6",
-    name: "Foto-Lichtwürfel \u201ERicordo\u201C",
-    category: "Personalisierte Geschenke",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 34.90,
-    image: "images/products/product-photo-cube-lamp.jpg",
-    desc: "Dein Lieblingsfoto als Lithophanie im leuchtenden Würfel – ein Geschenk, das bleibt."
-  },
-  {
-    id: "p7",
-    name: "Kerzenhalter-Set \u201ENotte Nera\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 19.90,
-    image: "images/products/product-black-candle-pumpkin.jpg",
-    desc: "Schwarzer Kerzenhalter mit Ringdetail plus passendem Mini-Kürbis – schlicht und stimmungsvoll."
-  },
-  {
-    id: "p8",
-    name: "Foto-Leuchte \u201EMomento\u201C",
-    category: "Personalisierte Geschenke",
-    season: "Ganzjährig",
-    seasonIcon: "✨",
-    price: 32.90,
-    image: "images/products/product-photo-lantern-dog.jpg",
-    desc: "Lithophanie-Leuchte mit eingraviertem Lieblingsfoto – warmes Licht inklusive."
-  },
-  {
-    id: "p9",
-    name: "Kürbis-Windlicht-Trio \u201EAutunno\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 24.90,
-    image: "images/products/product-tealight-pumpkin-trio.jpg",
-    desc: "Drei Windlicht-Kürbisse mit Lochmuster in Grün, Senfgelb und Schwarz – zusammen ein Hingucker."
-  },
-  {
-    id: "p10",
-    name: "Kerzenhalter-Duo \u201EPanna\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst/Winter",
-    seasonIcon: "🍂",
-    price: 29.90,
-    image: "images/products/product-cream-candle-duo.jpg",
-    desc: "Zwei cremefarbene Kerzenhalter mit Kürbis- und Wickel-Detail auf gerillter Tablett-Unterlage."
-  },
-  {
-    id: "p11",
-    name: "Herz-Windlicht \u201ECuore\u201C",
-    category: "Kerzenhalter",
-    season: "Herbst",
-    seasonIcon: "🍂",
-    price: 13.90,
-    image: "images/products/product-heart-pumpkin.jpg",
-    desc: "Schwarzer Kürbis-Windlicht mit herzförmigem Ausschnitt – romantisches Glühen für dunkle Abende."
+/* Die Produktdaten liegen in content/products.json und werden dort über
+   das CMS unter /admin/ verwaltet (Fotos, Preise, Kategorie, Saison). */
+let PRODUCTS = [];
+
+async function loadProducts(){
+  try {
+    const res = await fetch("content/products.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("Antwort war nicht ok");
+    const data = await res.json();
+    PRODUCTS = data.products || [];
+  } catch (err) {
+    console.error("Produkte konnten nicht geladen werden:", err);
+    PRODUCTS = [];
   }
-];
+}
+
+/* Leitet ein kleines Saison-Emoji aus dem im CMS gesetzten Text ab. */
+function seasonIcon(season){
+  if (!season) return "✨";
+  if (season.includes("Weihnachten")) return "🎄";
+  if (season.includes("Winter") && !season.includes("Herbst")) return "❄️";
+  if (season.includes("Herbst")) return "🍂";
+  if (season.includes("Frühling")) return "🌱";
+  if (season.includes("Sommer")) return "☀️";
+  return "✨";
+}
 
 /* ---------- Warenkorb (localStorage) ---------- */
 const CART_KEY = "3deko_cart";
 
+function newLineId(){
+  return "l" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
 function getCart(){
-  try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+  let cart;
+  try { cart = JSON.parse(localStorage.getItem(CART_KEY)) || []; }
   catch(e){ return []; }
+
+  // Reparatur für Warenkörbe aus einer älteren Version der Website, die
+  // noch keine eindeutige Zeilen-Kennung hatten (sonst lässt sich "entfernen"
+  // bei solchen Alt-Eintägen nicht anklicken).
+  let migrated = false;
+  cart.forEach(item => {
+    if (!item.lineId){ item.lineId = newLineId(); migrated = true; }
+  });
+  if (migrated) localStorage.setItem(CART_KEY, JSON.stringify(cart));
+
+  return cart;
 }
 function saveCart(cart){
   localStorage.setItem(CART_KEY, JSON.stringify(cart));
   updateCartCount();
 }
-function addToCart(id, qty = 1){
+
+/* note = optionaler Personalisierungs-Wunsch. Zeilen mit unterschiedlichem
+   Wunschtext bleiben getrennt (z. B. zwei Namensschilder mit je eigenem Namen). */
+function addToCart(id, qty = 1, note = ""){
   const cart = getCart();
-  const existing = cart.find(i => i.id === id);
+  note = (note || "").trim();
+  const existing = cart.find(i => i.id === id && (i.note || "") === note);
   if (existing) existing.qty += qty;
-  else cart.push({ id, qty });
+  else cart.push({ lineId: newLineId(), id, qty, note });
   saveCart(cart);
   renderCartDrawer();
   openCart();
 }
-function updateQty(id, delta){
+function updateQty(lineId, delta){
   const cart = getCart();
-  const item = cart.find(i => i.id === id);
+  const item = cart.find(i => i.lineId === lineId);
   if (!item) return;
   item.qty += delta;
   const filtered = cart.filter(i => i.qty > 0);
   saveCart(filtered);
   renderCartDrawer();
 }
-function removeFromCart(id){
-  saveCart(getCart().filter(i => i.id !== id));
+function removeFromCart(lineId){
+  saveCart(getCart().filter(i => i.lineId !== lineId));
   renderCartDrawer();
 }
 function cartCount(){
@@ -189,15 +122,16 @@ function renderCartDrawer(){
         <div class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
         <div class="cart-item-info">
           <h4>${p.name}</h4>
+          ${item.note ? `<p class="cart-item-note">✎ ${item.note}</p>` : ""}
           <div class="row">
             <div class="qty-control">
-              <button type="button" onclick="updateQty('${p.id}', -1)" aria-label="Menge verringern">−</button>
+              <button type="button" onclick="updateQty('${item.lineId}', -1)" aria-label="Menge verringern">−</button>
               <span>${item.qty}</span>
-              <button type="button" onclick="updateQty('${p.id}', 1)" aria-label="Menge erhöhen">+</button>
+              <button type="button" onclick="updateQty('${item.lineId}', 1)" aria-label="Menge erhöhen">+</button>
             </div>
             <strong>${formatPrice(p.price * item.qty)}</strong>
           </div>
-          <button type="button" class="remove-link" onclick="removeFromCart('${p.id}')">entfernen</button>
+          <button type="button" class="remove-link" onclick="removeFromCart('${item.lineId}')">entfernen</button>
         </div>
       </div>`;
   }).join("");
@@ -216,28 +150,61 @@ function closeCart(){
 
 /* ---------- Produktkarte (gemeinsam für Shop & Startseite) ---------- */
 function productCard(p){
+  const personalizeField = p.personalizable ? `
+        <label class="personalize-field">
+          <span>${p.personalizeLabel || "Deine Wünsche"}</span>
+          <textarea rows="2" placeholder="z. B. „Anna“"></textarea>
+        </label>` : "";
+
+  const photoHint = p.needsPhoto
+    ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns deine Wunschfotos per E-Mail schickst.</p>`
+    : "";
+
   return `
     <article class="product-card">
       <div class="product-media">
         <img src="${p.image}" alt="${p.name}" loading="lazy">
-        <span class="season-badge">${p.seasonIcon} ${p.season}</span>
+        <span class="season-badge">${seasonIcon(p.season)} ${p.season}</span>
       </div>
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
         <h3>${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
-        <p class="product-price">${formatPrice(p.price)} <span class="placeholder-tag">geschätzter Preis</span></p>
+        <p class="product-price">${formatPrice(p.price)}</p>
+        ${personalizeField}
+        ${photoHint}
         <div class="product-actions">
-          <button type="button" class="btn btn-primary btn-small" onclick="addToCart('${p.id}')">In den Warenkorb</button>
+          <button type="button" class="btn btn-primary btn-small" onclick="handleAddToCart(this, '${p.id}')">In den Warenkorb</button>
         </div>
       </div>
     </article>`;
+}
+
+/* Liest ein eventuelles Wunsch-Textfeld direkt aus der jeweiligen Karte aus,
+   damit mehrere gleiche Produkte auf einer Seite sich nicht in die Quere kommen. */
+function handleAddToCart(button, id){
+  const card = button.closest(".product-card");
+  const textarea = card ? card.querySelector(".personalize-field textarea") : null;
+  const product = PRODUCTS.find(p => p.id === id);
+
+  if (textarea && product?.personalizable && textarea.value.trim() === ""){
+    textarea.focus();
+    textarea.style.borderColor = "var(--rose-deep)";
+    return;
+  }
+
+  addToCart(id, 1, textarea ? textarea.value : "");
+  if (textarea) textarea.value = "";
 }
 
 /* ---------- Produkte im Shop rendern ---------- */
 function renderProductGrid(filterCat){
   const grid = document.getElementById("productGrid");
   if (!grid) return;
+  if (PRODUCTS.length === 0){
+    grid.innerHTML = `<p style="grid-column:1/-1; color:var(--ink-soft);">Die Produkte konnten gerade nicht geladen werden. Bitte lade die Seite neu.</p>`;
+    return;
+  }
   const items = filterCat && filterCat !== "Alle"
     ? PRODUCTS.filter(p => p.category === filterCat)
     : PRODUCTS;
@@ -293,8 +260,94 @@ function initDemoForms(){
   });
 }
 
+/* ---------- Kasse (Stripe) ---------- */
+async function goToCheckout(){
+  const button = document.getElementById("checkoutButton");
+  const note = document.getElementById("checkoutNote");
+  const cart = getCart();
+
+  if (cart.length === 0){
+    if (note) note.textContent = "Dein Warenkorb ist noch leer.";
+    return;
+  }
+
+  if (button){ button.disabled = true; button.textContent = "Einen Moment …"; }
+  if (note) note.textContent = "";
+
+  try {
+    const res = await fetch("/.netlify/functions/create-checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ cart })
+    });
+    const data = await res.json();
+
+    if (!res.ok || !data.url){
+      throw new Error(data.error || "Die Kasse konnte nicht geöffnet werden.");
+    }
+    window.location.href = data.url;
+  } catch (err) {
+    console.error(err);
+    if (note) note.textContent = err.message || "Die Kasse konnte gerade nicht geöffnet werden. Bitte versuch es in ein paar Minuten erneut.";
+    if (button){ button.disabled = false; button.textContent = "Zur Kasse"; }
+  }
+}
+
+/* ---------- Kontaktformular ---------- */
+function initContactForm(){
+  const form = document.getElementById("contactForm");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = document.getElementById("contactSubmit");
+    const note = document.getElementById("contactNote");
+
+    const payload = {
+      name: form.querySelector("#name").value,
+      email: form.querySelector("#email").value,
+      message: form.querySelector("#message").value
+    };
+
+    if (button){ button.disabled = true; button.textContent = "Wird gesendet …"; }
+    if (note) note.textContent = "";
+
+    try {
+      const res = await fetch("/.netlify/functions/send-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (!res.ok){
+        throw new Error(data.error || "Nachricht konnte nicht verschickt werden.");
+      }
+      form.reset();
+      if (button){ button.textContent = "Gesendet ✓"; }
+      if (note) note.textContent = "Danke! Deine Nachricht ist angekommen – du bekommst gleich eine Bestätigung per E-Mail.";
+    } catch (err) {
+      console.error(err);
+      if (note) note.textContent = err.message || "Da ist etwas schiefgegangen. Bitte versuch es später erneut oder schreib direkt an office@3deko-andert.at.";
+      if (button){ button.disabled = false; button.textContent = "Nachricht senden"; }
+    }
+  });
+}
+
+/* ---------- Verstecktes Gewinnspiel: Links ausblenden, falls schon vergeben ---------- */
+function initSecretLink(){
+  const link1 = document.getElementById("secretLink");
+  const link2 = document.getElementById("secretLink2");
+  if (!link1 && !link2) return;
+  fetch("/.netlify/functions/prize")
+    .then(res => res.json())
+    .then(data => { if (data.claimed){ link1?.remove(); link2?.remove(); } })
+    .catch(() => {}); // bei Fehler lieber unauffällig nichts tun
+}
+
 /* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadProducts();
+
   updateCartCount();
   renderCartDrawer();
   renderProductGrid();
@@ -302,8 +355,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initFilters();
   initNav();
   initDemoForms();
+  initContactForm();
+  initSecretLink();
 
   document.getElementById("cartButton")?.addEventListener("click", openCart);
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
+  document.getElementById("checkoutButton")?.addEventListener("click", goToCheckout);
 });
