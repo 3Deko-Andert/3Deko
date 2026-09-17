@@ -333,13 +333,14 @@ function initContactForm(){
   });
 }
 
-/* ---------- Verstecktes Gewinnspiel: Link ausblenden, falls schon vergeben ---------- */
+/* ---------- Verstecktes Gewinnspiel: Links ausblenden, falls schon vergeben ---------- */
 function initSecretLink(){
-  const link = document.getElementById("secretLink");
-  if (!link) return;
+  const link1 = document.getElementById("secretLink");
+  const link2 = document.getElementById("secretLink2");
+  if (!link1 && !link2) return;
   fetch("/.netlify/functions/prize")
     .then(res => res.json())
-    .then(data => { if (data.claimed) link.remove(); })
+    .then(data => { if (data.claimed){ link1?.remove(); link2?.remove(); } })
     .catch(() => {}); // bei Fehler lieber unauffällig nichts tun
 }
 
