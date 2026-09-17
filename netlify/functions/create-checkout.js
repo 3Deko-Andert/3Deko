@@ -97,14 +97,23 @@ exports.handler = async (event) => {
   params.append("success_url", `${site}/bestellung-erfolgreich.html?order=${orderNumber}&session_id={CHECKOUT_SESSION_ID}`);
   params.append("cancel_url", `${site}/shop.html`);
   params.append("shipping_address_collection[allowed_countries][]", "AT");
-  params.append("shipping_address_collection[allowed_countries][]", "DE");
   params.append("locale", "de");
 
-  // Versandkosten automatisch zur Bestellung hinzufügen
+  // Kund:in kann zwischen Versand (6,90 €, automatisch berechnet) und
+  // Abholung in Pamhagen (kostenlos, nur nach Vereinbarung) wählen.
   params.append("shipping_options[0][shipping_rate_data][type]", "fixed_amount");
   params.append("shipping_options[0][shipping_rate_data][fixed_amount][amount]", "690");
   params.append("shipping_options[0][shipping_rate_data][fixed_amount][currency]", "eur");
   params.append("shipping_options[0][shipping_rate_data][display_name]", "Versand");
+  params.append("shipping_options[0][shipping_rate_data][delivery_estimate][minimum][unit]", "business_day");
+  params.append("shipping_options[0][shipping_rate_data][delivery_estimate][minimum][value]", "3");
+  params.append("shipping_options[0][shipping_rate_data][delivery_estimate][maximum][unit]", "business_day");
+  params.append("shipping_options[0][shipping_rate_data][delivery_estimate][maximum][value]", "14");
+
+  params.append("shipping_options[1][shipping_rate_data][type]", "fixed_amount");
+  params.append("shipping_options[1][shipping_rate_data][fixed_amount][amount]", "0");
+  params.append("shipping_options[1][shipping_rate_data][fixed_amount][currency]", "eur");
+  params.append("shipping_options[1][shipping_rate_data][display_name]", "Abholung in Pamhagen (nur nach Vereinbarung)");
 
   // Erstellt zusätzlich zum Zahlungsbeleg eine echte Rechnung (PDF, mit
   // fortlaufender Rechnungsnummer) und schickt sie automatisch an die
