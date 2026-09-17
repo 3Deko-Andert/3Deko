@@ -136,6 +136,22 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   transition:opacity .3s ease;
 }
 #secretLink:hover{ opacity:.35; }
+
+/* Zweiter versteckter Link – links, vertikal mittig, bleibt beim Scrollen an Ort und Stelle */
+#secretLink2{
+  position:fixed;
+  top:50%;
+  left:6px;
+  transform:translateY(-50%);
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:var(--sage);
+  opacity:0;
+  z-index:60;
+  transition:opacity .3s ease;
+}
+#secretLink2:hover{ opacity:.35; }
 .site-header .container{
   display:flex;
   align-items:center;
