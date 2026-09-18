@@ -2,7 +2,7 @@
   "products": [
     {
       "season": "Ganzjährig",
-      "onSale": true,
+      "onSale": false,
       "price": 22.9,
       "personalizable": false,
       "name": "Ablage-Set „Riga“",
