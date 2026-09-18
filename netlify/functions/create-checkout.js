@@ -143,10 +143,11 @@ exports.handler = async (event) => {
 
     params.append(`line_items[${i}][quantity]`, entry.qty);
     params.append(`line_items[${i}][price_data][currency]`, "eur");
-    // Bei Sale-Produkten automatisch 15% Rabatt anwenden (serverseitig, damit
-    // niemand über den Browser einen falschen Preis vorgeben kann)
+    // Bei Sale-Produkten den im Verwaltungspanel frei gewählten Rabatt anwenden
+    // (serverseitig, damit niemand über den Browser einen falschen Preis vorgeben kann)
+    const salePercent = entry.product.salePercent || 15;
     const unitPrice = entry.product.onSale
-      ? Math.round(entry.product.price * 0.85 * 100) / 100
+      ? Math.round(entry.product.price * (1 - salePercent / 100) * 100) / 100
       : entry.product.price;
     params.append(`line_items[${i}][price_data][unit_amount]`, Math.round(unitPrice * 100));
     params.append(`line_items[${i}][price_data][product_data][name]`, displayName);
