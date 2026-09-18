@@ -361,6 +361,44 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   box-shadow:0 4px 10px -4px rgba(74,58,51,0.3);
 }
 
+/* Rotes Sale-Eck-Banner oben links auf dem Produktfoto */
+.sale-badge{
+  position:absolute;
+  top:14px; left:-32px;
+  background:#C64B3C;
+  color:#fff;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.04em;
+  padding:.35em 40px;
+  transform:rotate(-45deg);
+  box-shadow:0 3px 8px -2px rgba(0,0,0,0.35);
+  z-index:2;
+}
+
+.price-old{
+  text-decoration:line-through;
+  color:var(--ink-soft);
+  font-weight:500;
+  margin-right:.4em;
+}
+.price-sale{
+  color:#C64B3C;
+  font-weight:700;
+}
+
+/* Roter Sale-Filter-Chip */
+.chip-sale{
+  border-color:#C64B3C;
+  color:#C64B3C;
+  font-weight:700;
+}
+.chip-sale.active{
+  background:#C64B3C;
+  border-color:#C64B3C;
+  color:#fff;
+}
+
 .product-body{ padding:18px 20px 22px; }
 .product-cat{
   font-size:.72rem;
