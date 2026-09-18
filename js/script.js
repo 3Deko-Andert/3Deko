@@ -149,9 +149,10 @@ function closeCart(){
 }
 
 /* ---------- Produktkarte (gemeinsam für Shop & Startseite) ---------- */
-/* Rechnet bei Sale-Produkten automatisch 15% vom Preis ab. */
+/* Rechnet bei Sale-Produkten den im Verwaltungspanel frei gewählten Rabatt ab (Standard 15%). */
 function effectivePrice(p){
-  return p.onSale ? Math.round(p.price * 0.85 * 100) / 100 : p.price;
+  const percent = p.onSale ? (p.salePercent || 15) : 0;
+  return p.onSale ? Math.round(p.price * (1 - percent / 100) * 100) / 100 : p.price;
 }
 
 function productCard(p){
@@ -165,7 +166,7 @@ function productCard(p){
     ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns deine Wunschfotos per E-Mail schickst.</p>`
     : "";
 
-  const saleBadge = p.onSale ? `<span class="sale-badge">-15%</span>` : "";
+  const saleBadge = p.onSale ? `<span class="sale-badge">-${p.salePercent || 15}%</span>` : "";
   const priceBlock = p.onSale
     ? `<p class="product-price"><span class="price-old">${formatPrice(p.price)}</span> <span class="price-sale">${formatPrice(effectivePrice(p))}</span></p>`
     : `<p class="product-price">${formatPrice(p.price)}</p>`;
