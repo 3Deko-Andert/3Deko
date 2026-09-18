@@ -319,7 +319,8 @@ function initContactForm(){
     const payload = {
       name: form.querySelector("#name").value,
       email: form.querySelector("#email").value,
-      message: form.querySelector("#message").value
+      message: form.querySelector("#message").value,
+      hpWebsite: form.querySelector("#hpWebsite")?.value || ""
     };
 
     if (button){ button.disabled = true; button.textContent = "Wird gesendet …"; }
