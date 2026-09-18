@@ -116,7 +116,7 @@ function renderCartDrawer(){
   wrap.innerHTML = cart.map(item => {
     const p = PRODUCTS.find(pr => pr.id === item.id);
     if (!p) return "";
-    total += p.price * item.qty;
+    total += effectivePrice(p) * item.qty;
     return `
       <div class="cart-item">
         <div class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
@@ -129,7 +129,7 @@ function renderCartDrawer(){
               <span>${item.qty}</span>
               <button type="button" onclick="updateQty('${item.lineId}', 1)" aria-label="Menge erhöhen">+</button>
             </div>
-            <strong>${formatPrice(p.price * item.qty)}</strong>
+            <strong>${formatPrice(effectivePrice(p) * item.qty)}</strong>
           </div>
           <button type="button" class="remove-link" onclick="removeFromCart('${item.lineId}')">entfernen</button>
         </div>
@@ -149,6 +149,11 @@ function closeCart(){
 }
 
 /* ---------- Produktkarte (gemeinsam für Shop & Startseite) ---------- */
+/* Rechnet bei Sale-Produkten automatisch 15% vom Preis ab. */
+function effectivePrice(p){
+  return p.onSale ? Math.round(p.price * 0.85 * 100) / 100 : p.price;
+}
+
 function productCard(p){
   const personalizeField = p.personalizable ? `
         <label class="personalize-field">
@@ -160,17 +165,23 @@ function productCard(p){
     ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns deine Wunschfotos per E-Mail schickst.</p>`
     : "";
 
+  const saleBadge = p.onSale ? `<span class="sale-badge">-15%</span>` : "";
+  const priceBlock = p.onSale
+    ? `<p class="product-price"><span class="price-old">${formatPrice(p.price)}</span> <span class="price-sale">${formatPrice(effectivePrice(p))}</span></p>`
+    : `<p class="product-price">${formatPrice(p.price)}</p>`;
+
   return `
     <article class="product-card">
       <div class="product-media">
         <img src="${p.image}" alt="${p.name}" loading="lazy">
+        ${saleBadge}
         <span class="season-badge">${seasonIcon(p.season)} ${p.season}</span>
       </div>
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
         <h3>${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
-        <p class="product-price">${formatPrice(p.price)}</p>
+        ${priceBlock}
         ${personalizeField}
         ${photoHint}
         <div class="product-actions">
@@ -205,9 +216,9 @@ function renderProductGrid(filterCat){
     grid.innerHTML = `<p style="grid-column:1/-1; color:var(--ink-soft);">Die Produkte konnten gerade nicht geladen werden. Bitte lade die Seite neu.</p>`;
     return;
   }
-  const items = filterCat && filterCat !== "Alle"
-    ? PRODUCTS.filter(p => p.category === filterCat)
-    : PRODUCTS;
+  let items = PRODUCTS;
+  if (filterCat === "Sale") items = PRODUCTS.filter(p => p.onSale);
+  else if (filterCat && filterCat !== "Alle") items = PRODUCTS.filter(p => p.category === filterCat);
   grid.innerHTML = items.map(productCard).join("");
 }
 
@@ -223,9 +234,10 @@ function renderFeatured(){
 function initFilters(){
   const filterBar = document.getElementById("filterBar");
   if (!filterBar) return;
-  const cats = ["Alle", ...new Set(PRODUCTS.map(p => p.category))];
+  const hasSale = PRODUCTS.some(p => p.onSale);
+  const cats = ["Alle", ...(hasSale ? ["Sale"] : []), ...new Set(PRODUCTS.map(p => p.category))];
   filterBar.innerHTML = cats.map((c, i) =>
-    `<button type="button" class="chip ${i === 0 ? "active" : ""}" data-cat="${c}">${c}</button>`
+    `<button type="button" class="chip ${i === 0 ? "active" : ""} ${c === "Sale" ? "chip-sale" : ""}" data-cat="${c}">${c === "Sale" ? "🔥 Sale" : c}</button>`
   ).join("");
 
   filterBar.addEventListener("click", (e) => {
