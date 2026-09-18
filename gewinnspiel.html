@@ -24,6 +24,10 @@
       <p style="color:var(--ink-soft); font-size:.9rem;">Trag dich kurz ein, damit wir dir Bescheid geben können.</p>
 
       <form id="prizeForm" style="text-align:left; max-width:360px; margin:24px auto 0; display:flex; flex-direction:column; gap:16px;">
+        <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+          <label for="hpWebsite2">Bitte leer lassen</label>
+          <input type="text" id="hpWebsite2" tabindex="-1" autocomplete="off">
+        </div>
         <div>
           <label for="pName" style="font-weight:700; font-size:.9rem; display:block; margin-bottom:6px;">Name</label>
           <input type="text" id="pName" required style="width:100%; padding:.85em 1em; border-radius:14px; border:1px solid var(--line); font-family:var(--font-body); font-size:.98rem;">
@@ -84,7 +88,8 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: document.getElementById("pName").value,
-          email: document.getElementById("pEmail").value
+          email: document.getElementById("pEmail").value,
+          hpWebsite: document.getElementById("hpWebsite2")?.value || ""
         })
       });
       const data = await res.json();
