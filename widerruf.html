@@ -64,20 +64,41 @@
     </ul>
     <p>Diese Produkte sind im Shop entsprechend als personalisierbar gekennzeichnet. Bei allen übrigen, nicht individuell angefertigten Produkten gilt das oben beschriebene Widerrufsrecht ganz normal.</p>
 
-    <h2>Muster-Widerrufsformular</h2>
-    <p>(Wenn du den Vertrag widerrufen willst, fülle bitte dieses Formular aus und sende es zurück.)</p>
-    <div class="notice-box" style="border-left-color:var(--rose-deep);">
-      <p>
-        An 3Deko, Cindy Andert, Kapellensiedlung 17, 7152 Pamhagen, E-Mail: office@3deko-andert.at:<br><br>
-        Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über den Kauf der folgenden Waren (*)/die Erbringung der folgenden Dienstleistung (*):<br><br>
-        Bestellt am (*)/erhalten am (*): _______________<br>
-        Name des/der Verbraucher(s): _______________<br>
-        Anschrift des/der Verbraucher(s): _______________<br>
-        Unterschrift des/der Verbraucher(s) (nur bei Mitteilung auf Papier): _______________<br>
-        Datum: _______________<br><br>
-        <em>(*) Unzutreffendes streichen</em>
-      </p>
-    </div>
+    <h2>Widerrufsformular</h2>
+    <p>Wenn du den Vertrag widerrufen willst, fülle bitte dieses Formular aus und schick es ab – du bekommst danach direkt eine Bestätigung per E-Mail, dass dein Widerruf bei uns angekommen ist.</p>
+
+    <form class="contact-form" id="withdrawalForm" style="margin-top:1.4em;">
+      <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+        <label for="hpWebsite3">Bitte leer lassen</label>
+        <input type="text" id="hpWebsite3" tabindex="-1" autocomplete="off">
+      </div>
+      <div>
+        <label for="wdName">Name</label>
+        <input type="text" id="wdName" required>
+      </div>
+      <div>
+        <label for="wdEmail">E-Mail-Adresse</label>
+        <input type="email" id="wdEmail" required>
+      </div>
+      <div>
+        <label for="wdAddress">Anschrift</label>
+        <textarea id="wdAddress" required placeholder="Straße, PLZ, Ort"></textarea>
+      </div>
+      <div>
+        <label for="wdOrderNumber">Bestellnummer (falls bekannt, z. B. 3D-8K42F1)</label>
+        <input type="text" id="wdOrderNumber">
+      </div>
+      <div>
+        <label for="wdOrderedOn">Bestellt am / erhalten am</label>
+        <input type="text" id="wdOrderedOn" placeholder="z. B. 12.09.2026">
+      </div>
+      <div>
+        <label for="wdItems">Welche Ware(n) möchtest du zurückgeben?</label>
+        <textarea id="wdItems" required placeholder="z. B. Ablage-Set „Riga“, 1 Stück"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="withdrawalSubmit" style="align-self:flex-start;">Widerruf absenden</button>
+      <p class="cart-note" id="withdrawalNote" style="margin-top:0;">Beim Absenden erhältst du sofort eine Bestätigung per E-Mail, dass dein Widerruf bei uns eingegangen ist.</p>
+    </form>
   </div>
 </main>
 
@@ -134,5 +155,49 @@
 </aside>
 
 <script src="js/script.js"></script>
+<script>
+  (function(){
+    const form = document.getElementById("withdrawalForm");
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const button = document.getElementById("withdrawalSubmit");
+      const note = document.getElementById("withdrawalNote");
+
+      const payload = {
+        name: document.getElementById("wdName").value,
+        email: document.getElementById("wdEmail").value,
+        address: document.getElementById("wdAddress").value,
+        orderNumber: document.getElementById("wdOrderNumber").value,
+        orderedOn: document.getElementById("wdOrderedOn").value,
+        items: document.getElementById("wdItems").value,
+        hpWebsite: document.getElementById("hpWebsite3")?.value || ""
+      };
+
+      if (button){ button.disabled = true; button.textContent = "Wird gesendet …"; }
+      if (note) note.textContent = "";
+
+      try {
+        const res = await fetch("/.netlify/functions/send-withdrawal", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        if (!res.ok){
+          throw new Error(data.error || "Widerruf konnte nicht verschickt werden.");
+        }
+        form.reset();
+        if (button){ button.textContent = "Gesendet ✓"; }
+        if (note) note.textContent = "Danke! Dein Widerruf ist angekommen – du bekommst gleich eine Bestätigung per E-Mail.";
+      } catch (err) {
+        console.error(err);
+        if (note) note.textContent = err.message || "Da ist etwas schiefgegangen. Bitte versuch es später erneut oder schreib direkt an office@3deko-andert.at.";
+        if (button){ button.disabled = false; button.textContent = "Widerruf absenden"; }
+      }
+    });
+  })();
+</script>
 </body>
 </html>
