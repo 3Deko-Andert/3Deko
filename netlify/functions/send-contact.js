@@ -60,6 +60,13 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: JSON.stringify({ error: "Ungültige Anfrage." }) };
   }
 
+  // Honeypot: Dieses Feld ist für Menschen unsichtbar. Füllt es jemand (bzw.
+  // ein Bot) trotzdem aus, tun wir so, als hätte alles geklappt, verschicken
+  // aber in Wirklichkeit nichts.
+  if ((data.hpWebsite || "").trim() !== "") {
+    return { statusCode: 200, body: JSON.stringify({ ownerSent: true, customerSent: true }) };
+  }
+
   const name = (data.name || "").trim().slice(0, 200);
   const email = (data.email || "").trim().slice(0, 200);
   const message = (data.message || "").trim().slice(0, 4000);
