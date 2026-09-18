@@ -44,6 +44,13 @@ exports.handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ error: "Ungültige Anfrage." }) };
     }
 
+    // Honeypot: für Menschen unsichtbares Feld. Ist es ausgefüllt, war es ein
+    // Bot – wir tun so, als wäre der Gewinn erfolgreich beansprucht worden,
+    // tragen ihn aber tatsächlich nicht ein.
+    if ((data.hpWebsite || "").trim() !== "") {
+      return { statusCode: 200, body: JSON.stringify({ ok: true }) };
+    }
+
     const name = (data.name || "").trim().slice(0, 200);
     const email = (data.email || "").trim().slice(0, 200);
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
