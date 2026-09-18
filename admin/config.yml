@@ -79,4 +79,5 @@ collections:
                 default: "Deine Wünsche (z. B. Name oder Text)"
                 hint: "Nur sichtbar/relevant, wenn 'Personalisierbar' angehakt ist."
               - { label: "Braucht ein Foto von der Kundin/dem Kunden?", name: "needsPhoto", widget: "boolean", default: false, hint: "Zeigt einen Hinweis, das Foto nach der Bestellung per E-Mail zu schicken." }
-              - { label: "Im Sale? (zieht automatisch 15% vom Preis ab)", name: "onSale", widget: "boolean", default: false, hint: "Zeigt ein rotes Sale-Banner und den reduzierten Preis im Shop." }
+              - { label: "Im Sale? (zieht automatisch Rabatt vom Preis ab)", name: "onSale", widget: "boolean", default: false, hint: "Zeigt ein rotes Sale-Banner und den reduzierten Preis im Shop." }
+              - { label: "Sale-Rabatt in %", name: "salePercent", widget: "number", value_type: "int", default: 15, min: 1, max: 90, hint: "Nur relevant, wenn 'Im Sale' angehakt ist. Frei wählbar, z. B. 10, 20, 30 …" }
