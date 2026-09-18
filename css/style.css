@@ -364,15 +364,15 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 /* Rotes Sale-Eck-Banner oben links auf dem Produktfoto */
 .sale-badge{
   position:absolute;
-  top:14px; left:-32px;
-  background:#C64B3C;
+  top:21px; left:-48px;
+  background:#E30613;
   color:#fff;
-  font-size:.72rem;
+  font-size:1.08rem;
   font-weight:700;
   letter-spacing:.04em;
-  padding:.35em 40px;
+  padding:.525em 60px;
   transform:rotate(-45deg);
-  box-shadow:0 3px 8px -2px rgba(0,0,0,0.35);
+  box-shadow:0 4px 12px -2px rgba(0,0,0,0.4);
   z-index:2;
 }
 
@@ -383,19 +383,19 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   margin-right:.4em;
 }
 .price-sale{
-  color:#C64B3C;
+  color:#E30613;
   font-weight:700;
 }
 
 /* Roter Sale-Filter-Chip */
 .chip-sale{
-  border-color:#C64B3C;
-  color:#C64B3C;
+  border-color:#E30613;
+  color:#E30613;
   font-weight:700;
 }
 .chip-sale.active{
-  background:#C64B3C;
-  border-color:#C64B3C;
+  background:#E30613;
+  border-color:#E30613;
   color:#fff;
 }
 
