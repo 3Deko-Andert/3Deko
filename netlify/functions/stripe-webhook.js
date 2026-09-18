@@ -51,18 +51,28 @@ function formatPrice(cents, currency = "eur"){
   return value.toLocaleString("de-AT", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " " + (currency === "eur" ? "€" : currency.toUpperCase());
 }
 
+/* Verhindert, dass Kundeneingaben (Name, Adresse, Wünsche) als HTML/Skript
+   in der E-Mail landen könnten – wichtig, da diese Werte von außen kommen. */
+function escapeHtml(str){
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 /* Baut die HTML-E-Mail im 3Deko-Look. */
 function buildEmailHtml({ orderNumber, session, lineItems }){
   const customer = session.customer_details || {};
   const shipping = session.shipping_details || session.customer_details || {};
   const address = shipping.address || {};
   const note = (session.custom_fields || []).find(f => f.key === "anmerkung");
-  const noteText = note && note.text && note.text.value ? note.text.value : "";
+  const noteText = escapeHtml(note && note.text && note.text.value ? note.text.value : "");
 
   const rows = lineItems.map(li => `
     <tr>
       <td style="padding:10px 0; border-bottom:1px solid ${BRAND.line}; color:${BRAND.ink};">
-        ${li.description}${li.quantity > 1 ? ` <span style="color:${BRAND.inkSoft};">× ${li.quantity}</span>` : ""}
+        ${escapeHtml(li.description)}${li.quantity > 1 ? ` <span style="color:${BRAND.inkSoft};">× ${li.quantity}</span>` : ""}
       </td>
       <td style="padding:10px 0; border-bottom:1px solid ${BRAND.line}; text-align:right; white-space:nowrap; color:${BRAND.ink}; font-weight:600;">
         ${formatPrice(li.amount_total, li.currency)}
@@ -79,7 +89,7 @@ function buildEmailHtml({ orderNumber, session, lineItems }){
 
       <div style="padding:24px 32px;">
         <p style="margin:0 0 6px; color:${BRAND.inkSoft}; font-size:13px;">Bestellnummer</p>
-        <p style="margin:0 0 20px; color:${BRAND.ink}; font-size:16px; font-weight:700; font-family:monospace;">${orderNumber}</p>
+        <p style="margin:0 0 20px; color:${BRAND.ink}; font-size:16px; font-weight:700; font-family:monospace;">${escapeHtml(orderNumber)}</p>
 
         <table style="width:100%; border-collapse:collapse; margin-bottom:16px;">
           ${rows}
@@ -99,21 +109,21 @@ function buildEmailHtml({ orderNumber, session, lineItems }){
 
         <div style="margin-top:24px; padding-top:20px; border-top:1px solid ${BRAND.line};">
           <p style="margin:0 0 6px; font-size:13px; color:${BRAND.inkSoft};">Kontakt</p>
-          <p style="margin:0; color:${BRAND.ink};">${customer.name || "(kein Name angegeben)"}<br>${customer.email || ""}${customer.phone ? "<br>" + customer.phone : ""}</p>
+          <p style="margin:0; color:${BRAND.ink};">${escapeHtml(customer.name) || "(kein Name angegeben)"}<br>${escapeHtml(customer.email)}${customer.phone ? "<br>" + escapeHtml(customer.phone) : ""}</p>
         </div>
 
         <div style="margin-top:20px;">
           <p style="margin:0 0 6px; font-size:13px; color:${BRAND.inkSoft};">Lieferadresse</p>
           <p style="margin:0; color:${BRAND.ink};">
-            ${address.line1 || ""}${address.line2 ? ", " + address.line2 : ""}<br>
-            ${address.postal_code || ""} ${address.city || ""}<br>
-            ${address.country || ""}
+            ${escapeHtml(address.line1)}${address.line2 ? ", " + escapeHtml(address.line2) : ""}<br>
+            ${escapeHtml(address.postal_code)} ${escapeHtml(address.city)}<br>
+            ${escapeHtml(address.country)}
           </p>
         </div>
       </div>
 
       <div style="padding:18px 32px; background:${BRAND.bg}; font-size:12px; color:${BRAND.inkSoft};">
-        Diese Bestellung findest du auch in deinem Stripe-Dashboard unter der Kundenreferenz ${orderNumber}.
+        Diese Bestellung findest du auch in deinem Stripe-Dashboard unter der Kundenreferenz ${escapeHtml(orderNumber)}.
       </div>
     </div>
   </div>`;
