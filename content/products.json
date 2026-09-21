@@ -2,7 +2,7 @@
   "products": [
     {
       "season": "Ganzjährig",
-      "onSale": false,
+      "onSale": true,
       "price": 22.9,
       "personalizable": false,
       "name": "Ablage-Set „Riga“",
@@ -11,7 +11,7 @@
       "id": "p1",
       "image": "images/products/product-trays.jpg",
       "category": "Tabletts & Schalen",
-      "salePercent": 20
+      "salePercent": 19
     },
     {
       "season": "Herbst",
