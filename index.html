@@ -1,187 +1,66 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>3Deko – Zarte 3D-gedruckte Deko aus dem Seewinkel</title>
-<meta name="description" content="3Deko fertigt kleine, verspielte Deko-Objekte im 3D-Druck – Vasen, Anhänger, Kerzenhalter und mehr. In kleinen Auflagen im Seewinkel gedruckt und dekoriert.">
-<link rel="icon" href="images/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>3Deko – Shop verwalten</title>
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
 </head>
 <body>
+  <!-- Lädt das Decap CMS (Open-Source-Verwaltungstool) von dessen offiziellem CDN -->
+  <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
 
-<header class="site-header">
-  <a href="gewinnspiel.html" id="secretLink" rel="nofollow" aria-hidden="true" tabindex="-1"></a>
-  <a href="gewinnspiel.html" id="secretLink2" rel="nofollow" aria-hidden="true" tabindex="-1"></a>
-  <div class="container">
-    <a href="index.html" class="brand">
-      <img src="images/logo-full.png" alt="3Deko – Cindy Andert, handgefertigte 3D-Druck-Deko">
-    </a>
-    <nav class="main-nav" id="mainNav">
-      <a href="index.html" class="active">Start</a>
-      <a href="shop.html">Shop</a>
-      <a href="ueber-uns.html">Über uns</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
-    <div class="header-actions">
-      <button class="cart-button" id="cartButton" aria-label="Warenkorb öffnen">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h2l2.2 11h9.6L20 9H7" stroke="#4A3A33" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="20" r="1.3" fill="#4A3A33"/><circle cx="17" cy="20" r="1.3" fill="#4A3A33"/></svg>
-        <span class="cart-count" data-cart-count>0</span>
-      </button>
-      <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-copy">
-        <span class="eyebrow">Handverlesenes Design, Schicht für Schicht gedruckt</span>
-        <h1>Deko nach deinem Geschmack</h1>
-        <p class="lead">Bei 3Deko entstehen aus ausgewählten 3D-Modellen Vasen, Kerzenhalter, Anhänger und ganze Deko-Sets, die ich nach Möglichkeit an deine Wünsche anpasse. So werden daraus kreative Einzelstücke für dich.</p>
-        <p>Ob schlicht oder bunt – viele Stücke kannst du in verschiedenen Farben und Größen bestellen. Passend zu deinem Zuhause oder als persönliches Geschenk.</p>
-        <p>Du hast eine Wunschfarbe oder eine eigene Idee? Schreib mir einfach, dann schauen wir gemeinsam, was möglich ist!</p>
-        <div class="hero-actions">
-          <a href="shop.html" class="btn btn-primary">Shop entdecken</a>
-          <a href="ueber-uns.html" class="btn btn-ghost">Unsere Geschichte</a>
-        </div>
-      </div>
-
-      <div class="hero-art">
-        <img src="images/logo-full.png" alt="3Deko – Cindy Andert" class="hero-logo">
-      </div>
-    </div>
-  </section>
-
-  <!-- PROZESS -->
-  <section class="process">
-    <div class="container">
-      <div class="process-head">
-        <span class="eyebrow">Wie ein Stück entsteht</span>
-        <h2>Von der Auswahl bis zum Päckchen</h2>
-      </div>
-      <div class="process-steps">
-        <div class="step">
-          <div class="step-num">1</div>
-          <h3>Modelle auswählen</h3>
-          <p>Wir suchen schöne 3D-Modelle aus oder setzen eigene Ideen um – passend zu deinem Geschmack.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">2</div>
-          <h3>Drucken</h3>
-          <p>Schicht für Schicht wird aus der digitalen Vorlage deine Deko – in kleinen Mengen und mit den Farben, die dir gefallen.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">3</div>
-          <h3>Prüfen & Kombinieren</h3>
-          <p>Jedes Stück wird von mir geprüft, bevor es zu dir kommt. Manche bleiben für sich, andere kombiniere ich zu passenden Deko-Sets – ganz nach deinem Geschmack.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED PRODUCTS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Frisch aus dem Drucker</span>
-          <h2>Ein paar unserer Lieblinge</h2>
-        </div>
-        <a href="shop.html" class="btn btn-ghost btn-small">Zum ganzen Shop</a>
-      </div>
-      <div class="grid-products" id="featuredGrid"></div>
-    </div>
-  </section>
-
-  <!-- WERTE -->
-  <section class="section" style="padding-top:0;">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow">Worauf wir achten</span>
-          <h2>Zart im Design, bewusst in der Machart</h2>
-        </div>
-      </div>
-      <div class="values">
-        <div class="value-card">
-          <svg viewBox="0 0 40 40" fill="none"><path d="M20 5 L23 17 L35 20 L23 23 L20 35 L17 23 L5 20 L17 17 Z" stroke="#8B9678" stroke-width="2.2" stroke-linejoin="round"/></svg>
-          <h3>Jedes Stück ein Unikat</h3>
-          <p>Kleine Details machen den Unterschied: Durch den 3D-Druck und deine gewählten Farben bekommt jedes Stück seinen eigenen Charakter.</p>
-        </div>
-        <div class="value-card">
-          <svg viewBox="0 0 40 40" fill="none"><circle cx="15" cy="16" r="7" stroke="#B98F7C" stroke-width="2.2"/><circle cx="25" cy="16" r="7" stroke="#A47F45" stroke-width="2.2"/><circle cx="20" cy="26" r="7" stroke="#8B9678" stroke-width="2.2"/></svg>
-          <h3>Ganz nach deinem Geschmack</h3>
-          <p>Du hast eine Wunschfarbe oder eine eigene Idee? Schreib mir einfach, dann schauen wir gemeinsam, was möglich ist!</p>
-        </div>
-        <div class="value-card">
-          <svg viewBox="0 0 40 40" fill="none"><path d="M8 16h24l-2 16H10L8 16z" stroke="#A47F45" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 16l4-8h16l4 8" stroke="#A47F45" stroke-width="2.6" stroke-linejoin="round"/></svg>
-          <h3>Versand</h3>
-          <p>Gut verpackt macht sich deine Deko auf den Weg zu dir – überall in Österreich.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="index.html" class="brand"><img src="images/logo-full.png" alt="3Deko – Cindy Andert, handgefertigte 3D-Druck-Deko"></a>
-        <p>Kleine Deko-Objekte, liebevoll im Seewinkel zusammengestellt. Zart im Design, langlebig im Material.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Entdecken</h4>
-        <ul>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="ueber-uns.html">Über uns</a></li>
-          <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Rechtliches</h4>
-        <ul>
-          <li><a href="impressum.html">Impressum</a></li>
-          <li><a href="datenschutz.html">Datenschutz</a></li>
-          <li><a href="agb.html">AGB</a></li>
-          <li><a href="widerruf.html">Widerrufsrecht</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Folgen</h4>
-        <ul>
-          <li><a href="https://www.instagram.com/3deko_cindyandert/?hl=de" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 3Deko, Seewinkel</span>
-      <span>Design &amp; 3D-Druck mit Liebe zum Detail</span>
-    </div>
-  </div>
-</footer>
-
-<div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-label="Warenkorb">
-  <div class="cart-head">
-    <h3>Warenkorb</h3>
-    <button class="cart-close" id="cartClose" aria-label="Warenkorb schließen">×</button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-foot">
-    <div class="cart-total"><span>Zwischensumme</span><span id="cartTotal">0,00 €</span></div>
-    <button class="btn btn-primary" type="button" id="checkoutButton">Zur Kasse</button>
-    <p class="cart-note" id="checkoutNote">An der Kasse wählst du zwischen Versand (6,90 €) und kostenloser Abholung in Pamhagen (nur nach Vereinbarung).</p>
-  </div>
-</aside>
-
-<script src="js/script.js"></script>
+  <!-- Schwebender Button: aktuellen Shop-Datenstand als Datei sichern -->
+  <button id="downloadShopBtn" title="Lädt eine Sicherungskopie aller aktuellen Produktdaten herunter">⬇ Shop-Daten sichern</button>
+  <script>
+    document.getElementById("downloadShopBtn").addEventListener("click", async () => {
+      const btn = document.getElementById("downloadShopBtn");
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Wird vorbereitet …";
+      try {
+        const res = await fetch("/content/products.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("Datei konnte nicht geladen werden.");
+        const data = await res.json();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const date = new Date().toISOString().slice(0, 10);
+        a.href = url;
+        a.download = `3deko-produkte-${date}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        btn.textContent = "Gesichert ✓";
+      } catch (err) {
+        alert("Sicherung konnte nicht erstellt werden: " + err.message);
+        btn.textContent = original;
+      } finally {
+        setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 2500);
+      }
+    });
+  </script>
+  <style>
+    #downloadShopBtn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      z-index:9999;
+      background:#B98F7C;
+      color:#fff;
+      border:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-family:Arial, sans-serif;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 18px -4px rgba(0,0,0,0.35);
+    }
+    #downloadShopBtn:hover{ background:#A47F6C; }
+    #downloadShopBtn:disabled{ opacity:.7; cursor:default; }
+  </style>
 </body>
 </html>
