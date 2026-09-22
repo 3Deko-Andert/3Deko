@@ -1,25 +1,6 @@
 {
   "products": [
     {
-      "season": "Herbst",
-      "onSale": false,
-      "price": 14,
-      "hasColors": true,
-      "personalizable": false,
-      "name": "Kürbisschale",
-      "desc": "Kürbisdose – Deko für den Herbst\n\nDiese kürbisförmige Dose setzt herbstliche Akzente in deinem Zuhause. In verschiedenen Farben erhältlich – passend zu deiner Dekoration.\n\nGröße: ca. 12,4 × 6,1 cm\nMaterial: PLA\nDateivorlage: von herzallerliebstmimi\nBei der Farbauswahl ist die erste Farbe für die Schale und die zweite für den Strunk.\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Nicht für Lebensmittel geeignet.",
-      "needsPhoto": false,
-      "images": [
-        "images/products/product-wood-pumpkin-box.jpg",
-        "images/products/product-pumpkin-duo.jpg"
-      ],
-      "id": "p2",
-      "image": "images/products/product-wood-pumpkin-box.jpg",
-      "colorOptions": "Eiche/Braun/glatt, Schwarz/Eiche/glatt, Braun/Eiche/glatt, Weiß/Braun/glatt, Steinoptik/Eiche/glatt, Gold/Braun/glatt, Rötliches-Braun/Eiche/glatt, Eiche/Braun/rau, Schwarz/Eiche/rau, Braun/Eiche/rau, Weiß/Braun/rau, Steinoptik/Eiche/rau, Gold/Braun/rau, Rötliches-Braun/Eiche/rau",
-      "category": "Herbstdeko",
-      "salePercent": 15
-    },
-    {
       "season": "Ganzjährig",
       "onSale": false,
       "price": 25,
@@ -34,6 +15,25 @@
       "id": "p3",
       "image": "images/products/img_9639.jpeg",
       "category": "Leuchten",
+      "salePercent": 15
+    },
+    {
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 39,
+      "hasColors": false,
+      "personalizable": false,
+      "name": "Foto Laterne",
+      "desc": "Fotolaterne – deine Lieblingsfotos in 3D gedruckt\n\nDeine Lieblingsfotos werden zu einer persönlichen Laterne. Im Licht der LED-Kerze kommen die Motive zur Geltung. Den Rahmen kannst du in verschiedenen Farben wählen, die Fotoelemente bleiben weiß.\n\nFotogröße: 10 × 10 cm\nMaterial: PLA\nInklusive: eine LED-Kerze\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
+      "needsPhoto": true,
+      "images": [
+        "images/products/67fafc19-582f-4898-b672-e8d31da9dc5c.png",
+        "images/products/89cbee7a-0162-463a-9304-09a9bca2cccc.png",
+        "images/products/fb51ce46-e798-46ab-a4c4-f21745c71333.png"
+      ],
+      "id": "p6",
+      "image": "images/products/product-photo-lantern-dog.jpg",
+      "category": "Personalisierte Geschenke",
       "salePercent": 15
     },
     {
@@ -57,22 +57,22 @@
       "salePercent": 15
     },
     {
-      "season": "Ganzjährig",
+      "season": "Herbst",
       "onSale": false,
-      "price": 39,
-      "hasColors": false,
+      "price": 14,
+      "hasColors": true,
       "personalizable": false,
-      "name": "Foto Laterne",
-      "desc": "Fotolaterne – deine Lieblingsfotos in 3D gedruckt\n\nDeine Lieblingsfotos werden zu einer persönlichen Laterne. Im Licht der LED-Kerze kommen die Motive zur Geltung. Den Rahmen kannst du in verschiedenen Farben wählen, die Fotoelemente bleiben weiß.\n\nFotogröße: 10 × 10 cm\nMaterial: PLA\nInklusive: eine LED-Kerze\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
-      "needsPhoto": true,
+      "name": "Kürbisschale",
+      "desc": "Kürbisdose – Deko für den Herbst\n\nDiese kürbisförmige Dose setzt herbstliche Akzente in deinem Zuhause. In verschiedenen Farben erhältlich – passend zu deiner Dekoration.\n\nGröße: ca. 12,4 × 6,1 cm\nMaterial: PLA\nDateivorlage: von herzallerliebstmimi\nBei der Farbauswahl ist die erste Farbe für die Schale und die zweite für den Strunk.\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Nicht für Lebensmittel geeignet.",
+      "needsPhoto": false,
       "images": [
-        "images/products/67fafc19-582f-4898-b672-e8d31da9dc5c.png",
-        "images/products/89cbee7a-0162-463a-9304-09a9bca2cccc.png",
-        "images/products/fb51ce46-e798-46ab-a4c4-f21745c71333.png"
+        "images/products/product-wood-pumpkin-box.jpg",
+        "images/products/product-pumpkin-duo.jpg"
       ],
-      "id": "p6",
-      "image": "images/products/product-photo-lantern-dog.jpg",
-      "category": "Personalisierte Geschenke",
+      "id": "p2",
+      "image": "images/products/product-wood-pumpkin-box.jpg",
+      "colorOptions": "Eiche/Braun/glatt, Schwarz/Eiche/glatt, Braun/Eiche/glatt, Weiß/Braun/glatt, Steinoptik/Eiche/glatt, Gold/Braun/glatt, Rötliches-Braun/Eiche/glatt, Eiche/Braun/rau, Schwarz/Eiche/rau, Braun/Eiche/rau, Weiß/Braun/rau, Steinoptik/Eiche/rau, Gold/Braun/rau, Rötliches-Braun/Eiche/rau",
+      "category": "Herbstdeko",
       "salePercent": 15
     },
     {
