@@ -1,6 +1,7 @@
 {
   "products": [
     {
+      "personalizeLabel": "",
       "season": "Herbst",
       "onSale": false,
       "price": 14,
