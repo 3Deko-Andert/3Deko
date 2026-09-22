@@ -95,6 +95,28 @@ function updateCartCount(){
   });
 }
 
+/* Gibt das erste (Haupt-)Foto eines Produkts zurück. */
+function mainImage(p){
+  return (p.images && p.images.length > 0) ? p.images[0] : "images/products/placeholder.jpg";
+}
+
+/* Blättert die Mini-Galerie auf einer Produktkarte einen Schritt weiter/zurück. */
+function cycleImage(button, dir){
+  const media = button.closest(".product-media");
+  if (!media) return;
+  const imgs = [...media.querySelectorAll(".media-img")];
+  const dots = [...media.querySelectorAll(".media-dot")];
+  if (imgs.length < 2) return;
+
+  let current = imgs.findIndex(img => img.classList.contains("active"));
+  imgs[current].classList.remove("active");
+  dots[current]?.classList.remove("active");
+
+  current = (current + dir + imgs.length) % imgs.length;
+  imgs[current].classList.add("active");
+  dots[current]?.classList.add("active");
+}
+
 function formatPrice(v){
   return v.toLocaleString("de-AT", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 }
@@ -119,7 +141,7 @@ function renderCartDrawer(){
     total += effectivePrice(p) * item.qty;
     return `
       <div class="cart-item">
-        <div class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></div>
+        <div class="thumb"><img src="${mainImage(p)}" alt="${p.name}" loading="lazy"></div>
         <div class="cart-item-info">
           <h4>${p.name}</h4>
           ${item.note ? `<p class="cart-item-note">✎ ${item.note}</p>` : ""}
@@ -181,10 +203,18 @@ function productCard(p){
     ? `<p class="product-price"><span class="price-old">${formatPrice(p.price)}</span> <span class="price-sale">${formatPrice(effectivePrice(p))}</span></p>`
     : `<p class="product-price">${formatPrice(p.price)}</p>`;
 
+  const images = (p.images && p.images.length > 0) ? p.images : ["images/products/placeholder.jpg"];
+  const galleryImgs = images.map((src, i) => `<img src="${src}" alt="${p.name}" class="media-img${i === 0 ? " active" : ""}" loading="lazy">`).join("");
+  const galleryNav = images.length > 1 ? `
+        <button type="button" class="media-nav media-prev" onclick="event.stopPropagation(); cycleImage(this, -1)" aria-label="Vorheriges Foto">‹</button>
+        <button type="button" class="media-nav media-next" onclick="event.stopPropagation(); cycleImage(this, 1)" aria-label="Nächstes Foto">›</button>
+        <div class="media-dots">${images.map((_, i) => `<span class="media-dot${i === 0 ? " active" : ""}"></span>`).join("")}</div>` : "";
+
   return `
     <article class="product-card">
       <div class="product-media">
-        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <div class="media-images">${galleryImgs}</div>
+        ${galleryNav}
         ${saleBadge}
         <span class="season-badge">${seasonIcon(p.season)} ${p.season}</span>
       </div>
