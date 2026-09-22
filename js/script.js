@@ -162,6 +162,16 @@ function productCard(p){
           <textarea rows="2" placeholder="z. B. „Anna“"></textarea>
         </label>` : "";
 
+  const colorList = (p.colorOptions || "").split(",").map(c => c.trim()).filter(Boolean);
+  const colorField = (p.hasColors && colorList.length > 0) ? `
+        <label class="personalize-field color-field">
+          <span>Farbe wählen *</span>
+          <select class="color-select">
+            <option value="">Bitte wählen …</option>
+            ${colorList.map(c => `<option value="${c}">${c}</option>`).join("")}
+          </select>
+        </label>` : "";
+
   const photoHint = p.needsPhoto
     ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns deine Wunschfotos per E-Mail schickst.</p>`
     : "";
@@ -183,6 +193,7 @@ function productCard(p){
         <h3>${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
         ${priceBlock}
+        ${colorField}
         ${personalizeField}
         ${photoHint}
         <div class="product-actions">
@@ -192,12 +203,20 @@ function productCard(p){
     </article>`;
 }
 
-/* Liest ein eventuelles Wunsch-Textfeld direkt aus der jeweiligen Karte aus,
-   damit mehrere gleiche Produkte auf einer Seite sich nicht in die Quere kommen. */
+/* Liest ein eventuelles Wunsch-Textfeld und/oder eine Farbauswahl direkt aus
+   der jeweiligen Karte aus, damit mehrere gleiche Produkte auf einer Seite
+   sich nicht in die Quere kommen. Beides ist Pflicht, wenn vorhanden. */
 function handleAddToCart(button, id){
   const card = button.closest(".product-card");
   const textarea = card ? card.querySelector(".personalize-field textarea") : null;
+  const colorSelect = card ? card.querySelector(".color-select") : null;
   const product = PRODUCTS.find(p => p.id === id);
+
+  if (colorSelect && product?.hasColors && colorSelect.value === ""){
+    colorSelect.focus();
+    colorSelect.style.borderColor = "var(--rose-deep)";
+    return;
+  }
 
   if (textarea && product?.personalizable && textarea.value.trim() === ""){
     textarea.focus();
@@ -205,8 +224,13 @@ function handleAddToCart(button, id){
     return;
   }
 
-  addToCart(id, 1, textarea ? textarea.value : "");
+  const noteParts = [];
+  if (colorSelect && colorSelect.value) noteParts.push(`Farbe: ${colorSelect.value}`);
+  if (textarea && textarea.value.trim()) noteParts.push(`Wunsch: ${textarea.value.trim()}`);
+
+  addToCart(id, 1, noteParts.join(" · "));
   if (textarea) textarea.value = "";
+  if (colorSelect) colorSelect.value = "";
 }
 
 /* ---------- Produkte im Shop rendern ---------- */
@@ -359,6 +383,7 @@ function initSecretLink(){
 }
 
 /* ---------- Init ---------- */
+
 document.addEventListener("DOMContentLoaded", async () => {
   await loadProducts();
 
