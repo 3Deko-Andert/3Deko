@@ -342,12 +342,51 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
   overflow:hidden;
   background:var(--bg-alt);
 }
-.product-media img{
+.media-images{ position:relative; width:100%; height:100%; }
+.media-img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
   display:block;
+  opacity:0;
+  transition:opacity .35s ease;
 }
+.media-img.active{ opacity:1; }
+
+.media-nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:28px; height:28px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,0.88);
+  color:var(--ink);
+  font-size:1rem;
+  line-height:1;
+  cursor:pointer;
+  z-index:3;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 2px 6px -2px rgba(0,0,0,0.3);
+}
+.media-prev{ left:8px; }
+.media-next{ right:8px; }
+.media-dots{
+  position:absolute;
+  bottom:10px; left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:5px;
+  z-index:3;
+}
+.media-dot{
+  width:6px; height:6px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.6);
+}
+.media-dot.active{ background:#fff; }
 .season-badge{
   position:absolute;
   top:12px; right:12px;
