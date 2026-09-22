@@ -157,6 +157,9 @@
       "name": "Tablets",
       "desc": "Tablett im Holzpaneel-Design\n\nEin kleiner Hingucker auf jedem Tisch – in verschiedenen Farben erhältlich.\n\nLänge: ca. 18 cm\nMaterial: PLA\nGröße: Auf Anfrage auch größer möglich und mehrere Farben möglich.\n\nHinweis: Reiner Dekoartikel. Bitte nur LED-Kerzen daraufstellen.",
       "needsPhoto": false,
+      "images": [
+        "images/products/product-trays.jpg"
+      ],
       "id": "p10",
       "colorOptions": "Tabelt Schwarz - Paneel ganz Eiche, Tabelt Schwarz - Paneel halb Eiche, Tabelt Weiß - Paneel ganz Eiche, Tabelt Weiß - Paneel ganz Eiche",
       "category": "Tischdeko",
