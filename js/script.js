@@ -117,6 +117,69 @@ function cycleImage(button, dir){
   dots[current]?.classList.add("active");
 }
 
+/* ---------- Lightbox: Foto vergrößert ansehen ---------- */
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function initLightbox(){
+  if (document.getElementById("lightboxOverlay")) return; // schon vorhanden
+  const overlay = document.createElement("div");
+  overlay.className = "lightbox-overlay";
+  overlay.id = "lightboxOverlay";
+  overlay.innerHTML = `
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Schließen">×</button>
+    <button type="button" class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Vorheriges Foto">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button type="button" class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Nächstes Foto">›</button>
+    <div class="lightbox-dots" id="lightboxDots"></div>`;
+  document.body.appendChild(overlay);
+
+  overlay.addEventListener("click", (e) => { if (e.target === overlay) closeLightbox(); });
+  document.getElementById("lightboxClose").addEventListener("click", closeLightbox);
+  document.getElementById("lightboxPrev").addEventListener("click", () => lightboxStep(-1));
+  document.getElementById("lightboxNext").addEventListener("click", () => lightboxStep(1));
+  document.addEventListener("keydown", (e) => {
+    if (!overlay.classList.contains("open")) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowLeft") lightboxStep(-1);
+    if (e.key === "ArrowRight") lightboxStep(1);
+  });
+}
+
+function openLightbox(mediaDiv, id){
+  const product = PRODUCTS.find(p => p.id === id);
+  if (!product) return;
+  lightboxImages = (product.images && product.images.length > 0) ? product.images : ["images/products/placeholder.jpg"];
+
+  const imgs = [...mediaDiv.querySelectorAll(".media-img")];
+  const activeIdx = imgs.findIndex(img => img.classList.contains("active"));
+  lightboxIndex = activeIdx >= 0 ? activeIdx : 0;
+
+  renderLightbox();
+  document.getElementById("lightboxOverlay").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+
+function renderLightbox(){
+  document.getElementById("lightboxImg").src = lightboxImages[lightboxIndex];
+  const multi = lightboxImages.length > 1;
+  document.getElementById("lightboxPrev").style.display = multi ? "flex" : "none";
+  document.getElementById("lightboxNext").style.display = multi ? "flex" : "none";
+  document.getElementById("lightboxDots").innerHTML = multi
+    ? lightboxImages.map((_, i) => `<span class="lightbox-dot${i === lightboxIndex ? " active" : ""}"></span>`).join("")
+    : "";
+}
+
+function lightboxStep(dir){
+  lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+  renderLightbox();
+}
+
+function closeLightbox(){
+  document.getElementById("lightboxOverlay")?.classList.remove("open");
+  document.body.style.overflow = "";
+}
+
 function formatPrice(v){
   return v.toLocaleString("de-AT", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 }
@@ -231,7 +294,7 @@ function productCard(p){
   return `
     <article class="product-card">
       <div class="product-media">
-        <div class="media-images">${galleryImgs}</div>
+        <div class="media-images" onclick="openLightbox(this, '${p.id}')">${galleryImgs}</div>
         ${galleryNav}
         ${saleBadge}
         <span class="season-badge">${seasonIcon(p.season)} ${p.season}</span>
@@ -462,6 +525,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initDemoForms();
   initContactForm();
   initSecretLink();
+  initLightbox();
 
   document.getElementById("cartButton")?.addEventListener("click", openCart);
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
