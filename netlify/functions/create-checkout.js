@@ -138,7 +138,7 @@ exports.handler = async (event) => {
     // Produktnamen angehängt UND zusätzlich als Metadaten gespeichert, damit
     // er in der Stripe-Übersicht garantiert nicht übersehen wird.
     const displayName = entry.note
-      ? `${entry.product.name} — Wunsch: ${entry.note}`
+      ? `${entry.product.name} — ${entry.note}`
       : entry.product.name;
 
     params.append(`line_items[${i}][quantity]`, entry.qty);
