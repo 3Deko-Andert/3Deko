@@ -101,10 +101,27 @@
       "hasColors": true,
       "personalizable": false,
       "name": "Vase",
-      "desc": "Weiße Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 14 cm\nMaterial: PETG\nFarbe: Weiß\n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
+      "desc": "Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 14 cm\nMaterial: PETG\n\nWeitere Farben gerne auf Anfrage! \n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
       "needsPhoto": false,
       "images": [
         "images/products/img_0573.jpeg"
+      ],
+      "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
+      "category": "Vasen",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 10,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Vase twist",
+      "desc": "Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 14 cm\nMaterial: PETG\n\nWeitere Farben gerne auf Anfrage! \n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
+      "needsPhoto": false,
+      "images": [
+        "images/products/17f264df-17aa-4789-9421-4bae734a5790.png"
       ],
       "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
       "category": "Vasen",
