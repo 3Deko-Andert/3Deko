@@ -194,6 +194,24 @@ function productCard(p){
           </select>
         </label>` : "";
 
+  const colorList1 = (p.colorOptions1 || "").split(",").map(c => c.trim()).filter(Boolean);
+  const colorList2 = (p.colorOptions2 || "").split(",").map(c => c.trim()).filter(Boolean);
+  const twoColorFields = (p.hasTwoColors && colorList1.length > 0 && colorList2.length > 0) ? `
+        <label class="personalize-field color-field">
+          <span>Farbe 1 *</span>
+          <select class="color-select-1">
+            <option value="">Bitte wählen …</option>
+            ${colorList1.map(c => `<option value="${c}">${c}</option>`).join("")}
+          </select>
+        </label>
+        <label class="personalize-field color-field">
+          <span>Farbe 2 *</span>
+          <select class="color-select-2">
+            <option value="">Bitte wählen …</option>
+            ${colorList2.map(c => `<option value="${c}">${c}</option>`).join("")}
+          </select>
+        </label>` : "";
+
   const photoHint = p.needsPhoto
     ? `<p class="personalize-photo-hint">📸 Du bekommst nach der Bestellung eine Nachricht, wie du uns deine Wunschfotos per E-Mail schickst.</p>`
     : "";
@@ -224,6 +242,7 @@ function productCard(p){
         <p class="product-desc">${p.desc}</p>
         ${priceBlock}
         ${colorField}
+        ${twoColorFields}
         ${personalizeField}
         ${photoHint}
         <div class="product-actions">
@@ -240,11 +259,24 @@ function handleAddToCart(button, id){
   const card = button.closest(".product-card");
   const textarea = card ? card.querySelector(".personalize-field textarea") : null;
   const colorSelect = card ? card.querySelector(".color-select") : null;
+  const colorSelect1 = card ? card.querySelector(".color-select-1") : null;
+  const colorSelect2 = card ? card.querySelector(".color-select-2") : null;
   const product = PRODUCTS.find(p => p.id === id);
 
   if (colorSelect && product?.hasColors && colorSelect.value === ""){
     colorSelect.focus();
     colorSelect.style.borderColor = "var(--rose-deep)";
+    return;
+  }
+
+  if (product?.hasTwoColors && colorSelect1?.value === ""){
+    colorSelect1.focus();
+    colorSelect1.style.borderColor = "var(--rose-deep)";
+    return;
+  }
+  if (product?.hasTwoColors && colorSelect2?.value === ""){
+    colorSelect2.focus();
+    colorSelect2.style.borderColor = "var(--rose-deep)";
     return;
   }
 
@@ -256,11 +288,15 @@ function handleAddToCart(button, id){
 
   const noteParts = [];
   if (colorSelect && colorSelect.value) noteParts.push(`Farbe: ${colorSelect.value}`);
+  if (colorSelect1 && colorSelect1.value) noteParts.push(`Farbe 1: ${colorSelect1.value}`);
+  if (colorSelect2 && colorSelect2.value) noteParts.push(`Farbe 2: ${colorSelect2.value}`);
   if (textarea && textarea.value.trim()) noteParts.push(`Wunsch: ${textarea.value.trim()}`);
 
   addToCart(id, 1, noteParts.join(" · "));
   if (textarea) textarea.value = "";
   if (colorSelect) colorSelect.value = "";
+  if (colorSelect1) colorSelect1.value = "";
+  if (colorSelect2) colorSelect2.value = "";
 }
 
 /* ---------- Produkte im Shop rendern ---------- */
