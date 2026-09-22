@@ -84,10 +84,29 @@
       "name": "Kürbis Kerzenhalzer",
       "desc": "Kürbis-Kerzenhalter\n\nEin herbstlicher Akzent für dein Zuhause – in verschiedenen Farben erhältlich.\n\nPassend für: Stabkerzen mit 22 mm Durchmesser\nMaterial: PLA\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Verwende ausschließlich LED-Kerzen. Herkömmliche Stabkerzen dürfen nur zur Dekoration eingesetzt und nicht angezündet werden.",
       "needsPhoto": false,
+      "images": [
+        "images/products/1890cea9-dae0-4089-a0fe-faaea4d3b7c1.png"
+      ],
       "id": "p7",
       "image": "images/products/1890cea9-dae0-4089-a0fe-faaea4d3b7c1.png",
       "colorOptions": "Schwarz/glatt, Schwarz/rau, Weiß/glatt, Weiß/rau, Olivegrün/glatt, Olivgrün/rau, Gold/glatt, Gold/rau, Rötliches-Braun/glatt, Rötliches-Braun/rau",
       "category": "Kerzenhalter",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 10,
+      "hasColors": false,
+      "personalizable": false,
+      "name": "Vase",
+      "needsPhoto": false,
+      "images": [
+        "images/products/img_0573.jpeg"
+      ],
+      "colorOptions": "",
+      "category": "Vasen",
       "salePercent": 15
     }
   ]
