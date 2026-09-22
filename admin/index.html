@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>3Deko – Shop verwalten</title>
+  <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Lädt das Decap CMS (Open-Source-Verwaltungstool) von dessen offiziellem CDN -->
+  <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+
+  <!-- Schwebender Button: aktuellen Shop-Datenstand als Datei sichern -->
+  <button id="downloadShopBtn" title="Lädt eine Sicherungskopie aller aktuellen Produktdaten herunter">⬇ Shop-Daten sichern</button>
+  <script>
+    document.getElementById("downloadShopBtn").addEventListener("click", async () => {
+      const btn = document.getElementById("downloadShopBtn");
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Wird vorbereitet …";
+      try {
+        const res = await fetch("/content/products.json", { cache: "no-store" });
+        if (!res.ok) throw new Error("Datei konnte nicht geladen werden.");
+        const data = await res.json();
+        const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        const date = new Date().toISOString().slice(0, 10);
+        a.href = url;
+        a.download = `3deko-produkte-${date}.json`;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        btn.textContent = "Gesichert ✓";
+      } catch (err) {
+        alert("Sicherung konnte nicht erstellt werden: " + err.message);
+        btn.textContent = original;
+      } finally {
+        setTimeout(() => { btn.disabled = false; btn.textContent = original; }, 2500);
+      }
+    });
+  </script>
+  <style>
+    #downloadShopBtn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      z-index:9999;
+      background:#B98F7C;
+      color:#fff;
+      border:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-family:Arial, sans-serif;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 18px -4px rgba(0,0,0,0.35);
+    }
+    #downloadShopBtn:hover{ background:#A47F6C; }
+    #downloadShopBtn:disabled{ opacity:.7; cursor:default; }
+  </style>
+</body>
+</html>
