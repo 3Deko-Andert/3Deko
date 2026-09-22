@@ -98,7 +98,7 @@
       "season": "Ganzjährig",
       "onSale": false,
       "price": 10,
-      "hasColors": false,
+      "hasColors": true,
       "personalizable": false,
       "name": "Vase",
       "desc": "Weiße Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 14 cm\nMaterial: PETG\nFarbe: Weiß\n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
@@ -106,7 +106,7 @@
       "images": [
         "images/products/img_0573.jpeg"
       ],
-      "colorOptions": "",
+      "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
       "category": "Vasen",
       "salePercent": 15
     }
