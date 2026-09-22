@@ -69,7 +69,12 @@ collections:
                   - "Winter"
                   - "Weihnachten"
               - { label: "Preis in Euro", name: "price", widget: "number", value_type: "float", step: 0.1 }
-              - { label: "Foto", name: "image", widget: "image", hint: "Foto hierher ziehen oder auswählen – wird automatisch hochgeladen." }
+              - label: "Fotos"
+                name: "images"
+                widget: "list"
+                minimize_collapsed: true
+                hint: "Beliebig viele Fotos hinzufügen (auf 'Foto hinzufügen' klicken). Das ERSTE Foto in der Liste ist das Hauptbild im Shop – per Ziehen am Kreuz-Symbol lässt sich die Reihenfolge ändern."
+                field: { label: "Foto", name: "src", widget: "image" }
               - { label: "Kurzbeschreibung", name: "desc", widget: "text", hint: "1–2 Sätze, erscheinen unter dem Produktnamen." }
               - { label: "Personalisierbar? (zeigt ein Wunsch-Textfeld im Shop)", name: "personalizable", widget: "boolean", default: false }
               - label: "Beschriftung für das Wunsch-Feld"
