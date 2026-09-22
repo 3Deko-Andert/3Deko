@@ -28,6 +28,9 @@
       "name": "Lotuslampe",
       "desc": "Lotuslampe mit LED-Kerze\n\nDie weiße Lotuslampe in Blütenform bringt sanftes Licht in dein Zuhause. Eine LED-Kerze ist inkludiert.\n\nGröße: ca. 18 × 15 cm\nMaterial: PLA\nFarbe: Weiß\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
       "needsPhoto": false,
+      "images": [
+        "images/products/img_9639.jpeg"
+      ],
       "id": "p3",
       "image": "images/products/img_9639.jpeg",
       "category": "Leuchten",
@@ -43,6 +46,10 @@
       "name": "Personalisierter Buchstabe",
       "desc": "Buchstaben-Aufsteller – individuell gestaltet\n\nDein Wunschbuchstabe zum Aufstellen, in verschiedenen Farben erhältlich.\n\nHöhe: ca. 25 cm\nMaterial: PLA\n\nPersonalisierung: Du möchtest deinen Buchstaben mit Herzen, Blumen, Blättern oder einem anderen Motiv ergänzen? Trage deine Ideen einfach im Feld „Personalisierungswunsch“ ein. Ich melde mich bei dir und gebe dir Bescheid, ob dein Wunsch umsetzbar ist.\n\nHinweis: Reiner Dekoartikel.",
       "needsPhoto": false,
+      "images": [
+        "images/products/product-name-sign.jpg",
+        "images/products/chatgpt-image-22.-sept.-2026-10_46_03.png"
+      ],
       "id": "p4",
       "image": "images/products/product-name-sign.jpg",
       "colorOptions": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
@@ -58,6 +65,11 @@
       "name": "Foto Laterne",
       "desc": "Fotolaterne – deine Lieblingsfotos in 3D gedruckt\n\nDeine Lieblingsfotos werden zu einer persönlichen Laterne. Im Licht der LED-Kerze kommen die Motive zur Geltung. Den Rahmen kannst du in verschiedenen Farben wählen, die Fotoelemente bleiben weiß.\n\nFotogröße: 10 × 10 cm\nMaterial: PLA\nInklusive: eine LED-Kerze\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
       "needsPhoto": true,
+      "images": [
+        "images/products/67fafc19-582f-4898-b672-e8d31da9dc5c.png",
+        "images/products/89cbee7a-0162-463a-9304-09a9bca2cccc.png",
+        "images/products/fb51ce46-e798-46ab-a4c4-f21745c71333.png"
+      ],
       "id": "p6",
       "image": "images/products/product-photo-lantern-dog.jpg",
       "category": "Personalisierte Geschenke",
