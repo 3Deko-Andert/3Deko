@@ -1,6 +1,27 @@
 {
   "products": [
     {
+      "season": "Herbst",
+      "onSale": false,
+      "price": 14,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Kürbisschale",
+      "desc": "Kürbisdose – Deko für den Herbst\n\nDiese kürbisförmige Dose setzt herbstliche Akzente in deinem Zuhause. In verschiedenen Farben erhältlich – passend zu deiner Dekoration.\n\nGröße: ca. 12,4 × 6,1 cm\nMaterial: PLA\nDateivorlage: von herzallerliebstmimi\nBei der Farbauswahl ist die erste Farbe für die Schale und die zweite für den Strunk.\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Nicht für Lebensmittel geeignet.",
+      "needsPhoto": false,
+      "images": [
+        "images/products/product-wood-pumpkin-box.jpg",
+        "images/products/product-pumpkin-duo.jpg"
+      ],
+      "id": "p2",
+      "colorOptions": "Eiche/Braun/glatt, Schwarz/Eiche/glatt, Braun/Eiche/glatt, Weiß/Braun/glatt, Steinoptik/Eiche/glatt, Gold/Braun/glatt, Rötliches-Braun/Eiche/glatt, Eiche/Braun/rau, Schwarz/Eiche/rau, Braun/Eiche/rau, Weiß/Braun/rau, Steinoptik/Eiche/rau, Gold/Braun/rau, Rötliches-Braun/Eiche/rau",
+      "category": "Herbstdeko",
+      "salePercent": 15,
+      "hasTwoColors": false,
+      "colorOptions1": "",
+      "colorOptions2": ""
+    },
+    {
       "season": "Ganzjährig",
       "onSale": false,
       "price": 25,
@@ -13,9 +34,33 @@
         "images/products/img_9639.jpeg"
       ],
       "id": "p3",
-      "image": "images/products/img_9639.jpeg",
       "category": "Leuchten",
-      "salePercent": 15
+      "salePercent": 15,
+      "hasTwoColors": false,
+      "colorOptions1": "",
+      "colorOptions2": ""
+    },
+    {
+      "personalizeLabel": "Wie soll der Name lauten?",
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 29,
+      "hasColors": false,
+      "personalizable": true,
+      "name": "Personalisierter Buchstabe",
+      "desc": "Buchstaben-Aufsteller – individuell gestaltet\n\nDein Wunschbuchstabe zum Aufstellen, in verschiedenen Farben erhältlich.\n\nHöhe: ca. 25 cm\nMaterial: PLA\n\nPersonalisierung: Du möchtest deinen Buchstaben mit Herzen, Blumen, Blättern oder einem anderen Motiv ergänzen? Trage deine Ideen einfach im Feld „Personalisierungswunsch“ ein. Ich melde mich bei dir und gebe dir Bescheid, ob dein Wunsch umsetzbar ist.\n\nHinweis: Reiner Dekoartikel.",
+      "needsPhoto": false,
+      "images": [
+        "images/products/product-name-sign.jpg",
+        "images/products/chatgpt-image-22.-sept.-2026-10_46_03.png"
+      ],
+      "id": "p4",
+      "colorOptions": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
+      "category": "Personalisierte Geschenke",
+      "salePercent": 15,
+      "hasTwoColors": true,
+      "colorOptions1": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
+      "colorOptions2": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau"
     },
     {
       "season": "Ganzjährig",
@@ -32,48 +77,11 @@
         "images/products/fb51ce46-e798-46ab-a4c4-f21745c71333.png"
       ],
       "id": "p6",
-      "image": "images/products/product-photo-lantern-dog.jpg",
       "category": "Personalisierte Geschenke",
-      "salePercent": 15
-    },
-    {
-      "personalizeLabel": "Wie soll der Name lauten?",
-      "season": "Ganzjährig",
-      "onSale": false,
-      "price": 29,
-      "hasColors": true,
-      "personalizable": true,
-      "name": "Personalisierter Buchstabe",
-      "desc": "Buchstaben-Aufsteller – individuell gestaltet\n\nDein Wunschbuchstabe zum Aufstellen, in verschiedenen Farben erhältlich.\n\nHöhe: ca. 25 cm\nMaterial: PLA\n\nPersonalisierung: Du möchtest deinen Buchstaben mit Herzen, Blumen, Blättern oder einem anderen Motiv ergänzen? Trage deine Ideen einfach im Feld „Personalisierungswunsch“ ein. Ich melde mich bei dir und gebe dir Bescheid, ob dein Wunsch umsetzbar ist.\n\nHinweis: Reiner Dekoartikel.",
-      "needsPhoto": false,
-      "images": [
-        "images/products/product-name-sign.jpg",
-        "images/products/chatgpt-image-22.-sept.-2026-10_46_03.png"
-      ],
-      "id": "p4",
-      "image": "images/products/product-name-sign.jpg",
-      "colorOptions": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
-      "category": "Personalisierte Geschenke",
-      "salePercent": 15
-    },
-    {
-      "season": "Herbst",
-      "onSale": false,
-      "price": 14,
-      "hasColors": true,
-      "personalizable": false,
-      "name": "Kürbisschale",
-      "desc": "Kürbisdose – Deko für den Herbst\n\nDiese kürbisförmige Dose setzt herbstliche Akzente in deinem Zuhause. In verschiedenen Farben erhältlich – passend zu deiner Dekoration.\n\nGröße: ca. 12,4 × 6,1 cm\nMaterial: PLA\nDateivorlage: von herzallerliebstmimi\nBei der Farbauswahl ist die erste Farbe für die Schale und die zweite für den Strunk.\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Nicht für Lebensmittel geeignet.",
-      "needsPhoto": false,
-      "images": [
-        "images/products/product-wood-pumpkin-box.jpg",
-        "images/products/product-pumpkin-duo.jpg"
-      ],
-      "id": "p2",
-      "image": "images/products/product-wood-pumpkin-box.jpg",
-      "colorOptions": "Eiche/Braun/glatt, Schwarz/Eiche/glatt, Braun/Eiche/glatt, Weiß/Braun/glatt, Steinoptik/Eiche/glatt, Gold/Braun/glatt, Rötliches-Braun/Eiche/glatt, Eiche/Braun/rau, Schwarz/Eiche/rau, Braun/Eiche/rau, Weiß/Braun/rau, Steinoptik/Eiche/rau, Gold/Braun/rau, Rötliches-Braun/Eiche/rau",
-      "category": "Herbstdeko",
-      "salePercent": 15
+      "salePercent": 15,
+      "hasTwoColors": false,
+      "colorOptions1": "",
+      "colorOptions2": ""
     },
     {
       "season": "Herbst",
@@ -88,82 +96,32 @@
         "images/products/1890cea9-dae0-4089-a0fe-faaea4d3b7c1.png"
       ],
       "id": "p7",
-      "image": "images/products/1890cea9-dae0-4089-a0fe-faaea4d3b7c1.png",
       "colorOptions": "Schwarz/glatt, Schwarz/rau, Weiß/glatt, Weiß/rau, Olivegrün/glatt, Olivgrün/rau, Gold/glatt, Gold/rau, Rötliches-Braun/glatt, Rötliches-Braun/rau",
-      "category": "Herbstdeko",
-      "salePercent": 15
+      "category": "Kerzenhalter",
+      "salePercent": 15,
+      "hasTwoColors": false,
+      "colorOptions1": "",
+      "colorOptions2": ""
     },
     {
       "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
       "season": "Ganzjährig",
       "onSale": false,
       "price": 10,
-      "hasColors": true,
+      "hasColors": false,
       "personalizable": false,
       "name": "Vase",
-      "desc": "Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 14 cm\nMaterial: PLA\n\nWeitere Farben gerne auf Anfrage! \n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
       "needsPhoto": false,
       "images": [
         "images/products/img_0573.jpeg"
       ],
+      "colorOptions": "",
+      "category": "Vasen",
+      "salePercent": 15,
       "id": "p8",
-      "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
-      "category": "Vasen",
-      "salePercent": 15
-    },
-    {
-      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
-      "season": "Ganzjährig",
-      "onSale": false,
-      "price": 10,
-      "hasColors": true,
-      "personalizable": false,
-      "name": "Vase twist",
-      "desc": "Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 14 cm\nMaterial: PETG\n\nWeitere Farben gerne auf Anfrage! \n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
-      "needsPhoto": false,
-      "images": [
-        "images/products/17f264df-17aa-4789-9421-4bae734a5790.png"
-      ],
-      "id": "p9",
-      "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
-      "category": "Vasen",
-      "salePercent": 15
-    },
-    {
-      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
-      "season": "Ganzjährig",
-      "onSale": false,
-      "price": 10,
-      "hasColors": true,
-      "personalizable": false,
-      "name": "Vase schmal",
-      "desc": "Vase mit besonderem Design\n\nDiese weiße Vase setzt deine Trockenblumen schön in Szene.\n\nHöhe: ca. 16 cm\nMaterial: PLA\n\nWeitere Farben gerne auf Anfrage! \n\nHinweis: Nur für Trockenblumen geeignet. Nicht wasserdicht.",
-      "needsPhoto": false,
-      "images": [
-        "images/products/379bad37-e43a-437d-abbd-713da4c50572.png"
-      ],
-      "id": "p10",
-      "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
-      "category": "Vasen",
-      "salePercent": 15
-    },
-    {
-      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
-      "season": "Ganzjährig",
-      "onSale": false,
-      "price": 9,
-      "hasColors": true,
-      "personalizable": false,
-      "name": "Tablets",
-      "desc": "Tablett im Holzpaneel-Design\n\nEin kleiner Hingucker auf jedem Tisch – in verschiedenen Farben erhältlich.\n\nLänge: ca. 18 cm\nMaterial: PLA\nGröße: Auf Anfrage auch größer möglich und mehrere Farben möglich.\n\nHinweis: Reiner Dekoartikel. Bitte nur LED-Kerzen daraufstellen.",
-      "needsPhoto": false,
-      "images": [
-        "images/products/product-trays.jpg"
-      ],
-      "id": "p10",
-      "colorOptions": "Tabelt Schwarz - Paneel ganz Eiche, Tabelt Schwarz - Paneel halb Eiche, Tabelt Weiß - Paneel ganz Eiche, Tabelt Weiß - Paneel ganz Eiche",
-      "category": "Tischdeko",
-      "salePercent": 15
+      "hasTwoColors": false,
+      "colorOptions1": "",
+      "colorOptions2": ""
     }
   ]
 }
