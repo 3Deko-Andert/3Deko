@@ -106,6 +106,7 @@
       "images": [
         "images/products/img_0573.jpeg"
       ],
+      "id": "p8",
       "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
       "category": "Vasen",
       "salePercent": 15
@@ -123,6 +124,7 @@
       "images": [
         "images/products/17f264df-17aa-4789-9421-4bae734a5790.png"
       ],
+      "id": "p9",
       "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
       "category": "Vasen",
       "salePercent": 15
@@ -140,8 +142,24 @@
       "images": [
         "images/products/379bad37-e43a-437d-abbd-713da4c50572.png"
       ],
+      "id": "p10",
       "colorOptions": "Schwarz, Weiß, Dunkelgrau, Hellgrau, Olivgrün, Eiche",
       "category": "Vasen",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 9,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Tablets",
+      "desc": "Tablett im Holzpaneel-Design\n\nEin kleiner Hingucker auf jedem Tisch – in verschiedenen Farben erhältlich.\n\nLänge: ca. 18 cm\nMaterial: PLA\nGröße: Auf Anfrage auch größer möglich und mehrere Farben möglich.\n\nHinweis: Reiner Dekoartikel. Bitte nur LED-Kerzen daraufstellen.",
+      "needsPhoto": false,
+      "id": "p10",
+      "colorOptions": "Tabelt Schwarz - Paneel ganz Eiche, Tabelt Schwarz - Paneel halb Eiche, Tabelt Weiß - Paneel ganz Eiche, Tabelt Weiß - Paneel ganz Eiche",
+      "category": "Tischdeko",
       "salePercent": 15
     }
   ]
