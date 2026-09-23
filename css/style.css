@@ -521,9 +521,38 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 .product-desc{
   font-size:.86rem;
   color:var(--ink-soft);
-  margin:0 0 .8em;
+  margin:0 0 .3em;
   line-height:1.45;
 }
+.desc-details{
+  margin:0 0 .8em;
+}
+.desc-details summary{
+  font-size:.8rem;
+  font-weight:600;
+  color:var(--rose-deep);
+  cursor:pointer;
+  list-style:none;
+}
+.desc-details summary::-webkit-details-marker{ display:none; }
+.desc-details summary::after{
+  content:" ▾";
+}
+.desc-details[open] summary::after{
+  content:" ▴";
+}
+.desc-details[open] summary{
+  margin-bottom:.5em;
+}
+.desc-full{
+  font-size:.82rem;
+  color:var(--ink-soft);
+  line-height:1.55;
+}
+.desc-full p{
+  margin:0 0 .8em;
+}
+.desc-full p:last-child{ margin-bottom:0; }
 .product-price{
   font-weight:700;
   color:var(--ink);
