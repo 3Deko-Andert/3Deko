@@ -6,8 +6,110 @@
   <meta name="robots" content="noindex, nofollow">
   <title>3Deko – Shop verwalten</title>
   <link rel="icon" href="../images/logo.svg" type="image/svg+xml">
+  <style>
+    #statsBar{
+      font-family:Arial, sans-serif;
+      background:#FBF6F2;
+      border-bottom:2px solid #B98F7C;
+      padding:18px 20px;
+      display:flex;
+      justify-content:center;
+    }
+    #statsCard{
+      width:100%;
+      max-width:480px;
+      background:#fff;
+      border-radius:16px;
+      box-shadow:0 4px 16px -6px rgba(0,0,0,0.15);
+      border:1px solid #e6ded6;
+      padding:18px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    #statsCard .label{
+      font-size:13px;
+      color:#8A776D;
+      font-weight:600;
+      margin-bottom:2px;
+    }
+    #statsCard .number{
+      font-size:2.2rem;
+      font-weight:800;
+      color:#4A3A33;
+      line-height:1;
+    }
+    #statsCard .sub{
+      font-size:12px;
+      color:#8A776D;
+      margin-top:2px;
+    }
+    #statsCard a{
+      font-size:13px;
+      font-weight:700;
+      color:#B98F7C;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    #statsCard a:hover{ text-decoration:underline; }
+    #downloadShopBtn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      z-index:9999;
+      background:#B98F7C;
+      color:#fff;
+      border:none;
+      padding:12px 20px;
+      border-radius:999px;
+      font-family:Arial, sans-serif;
+      font-size:14px;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 18px -4px rgba(0,0,0,0.35);
+    }
+    #downloadShopBtn:hover{ background:#A47F6C; }
+    #downloadShopBtn:disabled{ opacity:.7; cursor:default; }
+  </style>
 </head>
 <body>
+
+  <!-- Besucherzähler: sitzt oben im normalen Seitenfluss, zentriert -->
+  <div id="statsBar">
+    <div id="statsCard">
+      <div>
+        <div class="label">📊 Besuche der Startseite</div>
+        <div class="number" id="visitCount">–</div>
+        <div class="sub">seit Einrichtung der Zählung</div>
+      </div>
+      <a href="https://3deko.goatcounter.com/" target="_blank" rel="noopener">Alle Statistiken ↗</a>
+    </div>
+  </div>
+  <script>
+    (function(){
+      const bar = document.getElementById("statsBar");
+      const numberEl = document.getElementById("visitCount");
+
+      function loadCount(){
+        fetch("https://3deko.goatcounter.com/counter//.json", { cache: "no-store" })
+          .then(res => { if (!res.ok) throw new Error("nicht erreichbar"); return res.json(); })
+          .then(data => { numberEl.textContent = data.count || "0"; })
+          .catch(() => { numberEl.textContent = "–"; });
+      }
+
+      function updateBarVisibility(){
+        const hash = window.location.hash || "";
+        const isEditing = hash.includes("/entries/") || hash.includes("/new");
+        bar.style.display = isEditing ? "none" : "flex";
+      }
+
+      window.addEventListener("hashchange", updateBarVisibility);
+      updateBarVisibility();
+      loadCount();
+    })();
+  </script>
+
   <!-- Lädt das Decap CMS (Open-Source-Verwaltungstool) von dessen offiziellem CDN -->
   <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
 
@@ -42,77 +144,5 @@
       }
     });
   </script>
-  <style>
-    #downloadShopBtn{
-      position:fixed;
-      bottom:20px;
-      right:20px;
-      z-index:9999;
-      background:#B98F7C;
-      color:#fff;
-      border:none;
-      padding:12px 20px;
-      border-radius:999px;
-      font-family:Arial, sans-serif;
-      font-size:14px;
-      font-weight:600;
-      cursor:pointer;
-      box-shadow:0 6px 18px -4px rgba(0,0,0,0.35);
-    }
-    #downloadShopBtn:hover{ background:#A47F6C; }
-    #downloadShopBtn:disabled{ opacity:.7; cursor:default; }
-  </style>
-  <!-- Statistik-Panel: zeigt Besucherzahlen auf der Übersichtsseite -->
-  <div id="statsPanel">
-    <div id="statsPanelHeader">
-      <span>📊 Besucherstatistik</span>
-      <a href="https://3deko.goatcounter.com/" target="_blank" rel="noopener">Vollständig öffnen ↗</a>
-    </div>
-    <iframe id="statsFrame" src="https://3deko.goatcounter.com/?hideui=1" loading="lazy" title="Besucherstatistik"></iframe>
-  </div>
-  <script>
-    (function(){
-      const panel = document.getElementById("statsPanel");
-      function updateStatsVisibility(){
-        const hash = window.location.hash || "";
-        const isEditing = hash.includes("/entries/") || hash.includes("/new");
-        panel.style.display = isEditing ? "none" : "block";
-      }
-      window.addEventListener("hashchange", updateStatsVisibility);
-      updateStatsVisibility();
-    })();
-  </script>
-  <style>
-    #statsPanel{
-      position:fixed;
-      top:16px;
-      left:16px;
-      z-index:9998;
-      width:360px;
-      background:#fff;
-      border-radius:14px;
-      box-shadow:0 10px 30px -6px rgba(0,0,0,0.3);
-      overflow:hidden;
-      border:1px solid #e6ded6;
-      font-family:Arial, sans-serif;
-    }
-    #statsPanelHeader{
-      padding:10px 14px;
-      font-size:13px;
-      font-weight:700;
-      background:#B98F7C;
-      color:#fff;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    #statsPanelHeader a{ color:#fff; font-size:11px; font-weight:600; text-decoration:underline; }
-    #statsFrame{
-      width:100%;
-      height:300px;
-      border:none;
-      display:block;
-    }
-  </style>
 </body>
 </html>
