@@ -240,6 +240,34 @@ function effectivePrice(p){
   return p.onSale ? Math.round(p.price * (1 - percent / 100) * 100) / 100 : p.price;
 }
 
+/* Wandelt Zeilenumbrüche in der Produktbeschreibung sauber in HTML um
+   (doppelte Leerzeile = neuer Absatz, einzelne = Zeilenumbruch). */
+function formatDesc(text){
+  return (text || "")
+    .split(/\n\s*\n/)
+    .map(block => `<p>${block.trim().replace(/\n/g, "<br>")}</p>`)
+    .join("");
+}
+
+/* Kurze Vorschau (erste Zeile) + bei längeren Texten ein Aufklapper mit dem
+   restlichen, vollständig formatierten Text. */
+function descBlock(p){
+  const full = (p.desc || "").trim();
+  const blocks = full.split(/\n\s*\n/);
+  const firstLine = blocks[0].trim();
+  const rest = blocks.slice(1).join("\n\n").trim();
+
+  if (!rest){
+    return `<p class="product-desc">${firstLine}</p>`;
+  }
+  return `
+    <p class="product-desc">${firstLine}</p>
+    <details class="desc-details">
+      <summary>Mehr erfahren</summary>
+      <div class="desc-full">${formatDesc(rest)}</div>
+    </details>`;
+}
+
 function productCard(p){
   const personalizeField = p.personalizable ? `
         <label class="personalize-field">
@@ -302,7 +330,7 @@ function productCard(p){
       <div class="product-body">
         <span class="product-cat">${p.category}</span>
         <h3>${p.name}</h3>
-        <p class="product-desc">${p.desc}</p>
+        ${descBlock(p)}
         ${priceBlock}
         ${colorField}
         ${twoColorFields}
