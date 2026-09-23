@@ -93,14 +93,16 @@ collections:
                 required: false
                 default: ""
                 hint: "Nur wirksam, wenn oben angehakt ist. Durch Komma getrennt eintragen, z. B.: Schwarz, Creme, Senfgelb"
-              - { label: "Zwei Farbfelder aktivieren? (z. B. Buchstabe + Schriftzug getrennt wählbar)", name: "hasTwoColors", widget: "boolean", default: false, hint: "Zeigt im Shop zwei getrennte Pflicht-Auswahlfelder 'Farbe 1' und 'Farbe 2' statt einem einzigen." }
-              - label: "Farbe 1 – verfügbare Optionen"
+              - { label: "Zwei Farbfelder aktivieren? (z. B. Buchstabe + Schriftzug getrennt wählbar)", name: "hasTwoColors", widget: "boolean", default: false, hint: "Zeigt im Shop zwei getrennte Pflicht-Auswahlfelder statt einem einzigen." }
+              - { label: "Beschriftung Feld 1", name: "colorLabel1", widget: "string", required: false, default: "Farbe 1", hint: "z. B. 'Buchstabe' statt 'Farbe 1'." }
+              - label: "Feld 1 – verfügbare Optionen"
                 name: "colorOptions1"
                 widget: "string"
                 required: false
                 default: ""
                 hint: "Nur wirksam, wenn 'Zwei Farbfelder aktivieren' angehakt ist. Durch Komma getrennt, z. B.: Schwarz, Weiß, Eiche"
-              - label: "Farbe 2 – verfügbare Optionen"
+              - { label: "Beschriftung Feld 2", name: "colorLabel2", widget: "string", required: false, default: "Farbe 2", hint: "z. B. 'Name inkl. Deko' statt 'Farbe 2'." }
+              - label: "Feld 2 – verfügbare Optionen"
                 name: "colorOptions2"
                 widget: "string"
                 required: false
