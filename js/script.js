@@ -289,14 +289,14 @@ function productCard(p){
   const colorList2 = (p.colorOptions2 || "").split(",").map(c => c.trim()).filter(Boolean);
   const twoColorFields = (p.hasTwoColors && colorList1.length > 0 && colorList2.length > 0) ? `
         <label class="personalize-field color-field">
-          <span>Farbe 1 *</span>
+          <span>${p.colorLabel1 || "Farbe 1"} *</span>
           <select class="color-select-1">
             <option value="">Bitte wählen …</option>
             ${colorList1.map(c => `<option value="${c}">${c}</option>`).join("")}
           </select>
         </label>
         <label class="personalize-field color-field">
-          <span>Farbe 2 *</span>
+          <span>${p.colorLabel2 || "Farbe 2"} *</span>
           <select class="color-select-2">
             <option value="">Bitte wählen …</option>
             ${colorList2.map(c => `<option value="${c}">${c}</option>`).join("")}
@@ -379,8 +379,8 @@ function handleAddToCart(button, id){
 
   const noteParts = [];
   if (colorSelect && colorSelect.value) noteParts.push(`Farbe: ${colorSelect.value}`);
-  if (colorSelect1 && colorSelect1.value) noteParts.push(`Farbe 1: ${colorSelect1.value}`);
-  if (colorSelect2 && colorSelect2.value) noteParts.push(`Farbe 2: ${colorSelect2.value}`);
+  if (colorSelect1 && colorSelect1.value) noteParts.push(`${product?.colorLabel1 || "Farbe 1"}: ${colorSelect1.value}`);
+  if (colorSelect2 && colorSelect2.value) noteParts.push(`${product?.colorLabel2 || "Farbe 2"}: ${colorSelect2.value}`);
   if (textarea && textarea.value.trim()) noteParts.push(`Wunsch: ${textarea.value.trim()}`);
 
   addToCart(id, 1, noteParts.join(" · "));
