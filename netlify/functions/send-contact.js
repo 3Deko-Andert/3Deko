@@ -110,7 +110,7 @@ exports.handler = async (event) => {
       method: "POST",
       headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "3Deko Kontaktformular <onboarding@resend.dev>",
+        from: "3Deko Kontaktformular <office@3deko-andert.at>",
         to: [STORE_EMAIL],
         reply_to: email,
         subject: `Kontaktformular: ${name}`,
@@ -128,7 +128,7 @@ exports.handler = async (event) => {
       method: "POST",
       headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "3Deko <onboarding@resend.dev>",
+        from: "3Deko <office@3deko-andert.at>",
         to: [email],
         subject: "Deine Nachricht ist bei 3Deko angekommen",
         html: customerHtml

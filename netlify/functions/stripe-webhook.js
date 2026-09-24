@@ -196,7 +196,7 @@ exports.handler = async (event) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        from: "3Deko Shop <onboarding@resend.dev>",
+        from: "3Deko Shop <office@3deko-andert.at>",
         to: [STORE_EMAIL],
         subject: `Neue Bestellung ${orderNumber} – ${formatPrice(fullSession.amount_total, fullSession.currency)}`,
         html

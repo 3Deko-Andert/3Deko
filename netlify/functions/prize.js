@@ -94,7 +94,7 @@ exports.handler = async (event) => {
           method: "POST",
           headers: { "Authorization": `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
           body: JSON.stringify({
-            from: "3Deko Gewinnspiel <onboarding@resend.dev>",
+            from: "3Deko Gewinnspiel <office@3deko-andert.at>",
             to: [STORE_EMAIL],
             subject: `🎉 Gewinnspiel eingelöst von ${name}`,
             html
