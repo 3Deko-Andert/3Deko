@@ -1,6 +1,9 @@
 {
   "products": [
     {
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
       "season": "Herbst",
       "onSale": false,
       "price": 14,
@@ -9,6 +12,8 @@
       "name": "Kürbisschale",
       "desc": "Kürbisdose – Deko für den Herbst\n\nDiese kürbisförmige Dose setzt herbstliche Akzente in deinem Zuhause. In verschiedenen Farben erhältlich – passend zu deiner Dekoration.\n\nGröße: ca. 12,4 × 6,1 cm\nMaterial: PLA\nDateivorlage: von herzallerliebstmimi\nBei der Farbauswahl ist die erste Farbe für die Schale und die zweite für den Strunk.\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Nicht für Lebensmittel geeignet.",
       "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
       "images": [
         "images/products/product-wood-pumpkin-box.jpg",
         "images/products/product-pumpkin-duo.jpg"
@@ -16,14 +21,12 @@
       "id": "p2",
       "colorOptions": "Eiche/Braun/glatt, Schwarz/Eiche/glatt, Braun/Eiche/glatt, Weiß/Braun/glatt, Steinoptik/Eiche/glatt, Gold/Braun/glatt, Rötliches-Braun/Eiche/glatt, Eiche/Braun/rau, Schwarz/Eiche/rau, Braun/Eiche/rau, Weiß/Braun/rau, Steinoptik/Eiche/rau, Gold/Braun/rau, Rötliches-Braun/Eiche/rau",
       "category": "Herbstdeko",
-      "salePercent": 15,
-      "hasTwoColors": false,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2"
+      "salePercent": 15
     },
     {
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
       "season": "Ganzjährig",
       "onSale": false,
       "price": 25,
@@ -32,28 +35,30 @@
       "name": "Lotuslampe",
       "desc": "Lotuslampe mit LED-Kerze\n\nDie weiße Lotuslampe in Blütenform bringt sanftes Licht in dein Zuhause. Eine LED-Kerze ist inkludiert.\n\nGröße: ca. 18 × 15 cm\nMaterial: PLA\nFarbe: Weiß\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
       "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
       "images": [
         "images/products/img_9639.jpeg"
       ],
       "id": "p3",
       "category": "Leuchten",
-      "salePercent": 15,
-      "hasTwoColors": false,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2"
+      "salePercent": 15
     },
     {
       "personalizeLabel": "Wie soll der Name lauten?",
+      "colorLabel1": "Buchstabe",
+      "colorLabel2": "Name inkl. Deko",
+      "hasTwoColors": true,
       "season": "Ganzjährig",
       "onSale": false,
       "price": 29,
       "hasColors": false,
       "personalizable": true,
       "name": "Personalisierter Buchstabe",
-      "desc": "Buchstaben-Aufsteller – individuell gestaltet\n\nDein Wunschbuchstabe zum Aufstellen, in verschiedenen Farben erhältlich.\n\nHöhe: ca. 25 cm\nMaterial: PLA\n\nPersonalisierung: Du möchtest deinen Buchstaben mit Herzen, Blumen, Blättern oder einem anderen Motiv ergänzen? Trage deine Ideen einfach im Feld „Personalisierungswunsch“ ein. Ich melde mich bei dir und gebe dir Bescheid, ob dein Wunsch umsetzbar ist.\n\nHinweis: Reiner Dekoartikel.",
+      "desc": "Buchstaben-Aufsteller – individuell gestaltet\n\nDein Wunschbuchstabe zum Aufstellen, in verschiedenen Farben erhältlich.\n\nHöhe: ca. 25 cm\nMaterial: PLA\n\nFarbe 1: Buchstabe (A)\nFarbe 2: Name (Annabell)\n\nPersonalisierung: Du möchtest deinen Buchstaben mit Herzen, Blumen, Blättern oder einem anderen Motiv ergänzen? Trage deine Ideen einfach im Feld „Personalisierungswunsch“ ein. Ich melde mich bei dir und gebe dir Bescheid, ob dein Wunsch umsetzbar ist.\n\nHinweis: Reiner Dekoartikel.",
       "needsPhoto": false,
+      "colorOptions1": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
+      "colorOptions2": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau, Rosa, Blau, Grün",
       "images": [
         "images/products/product-name-sign.jpg",
         "images/products/chatgpt-image-22.-sept.-2026-10_46_03.png"
@@ -61,14 +66,12 @@
       "id": "p4",
       "colorOptions": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
       "category": "Personalisierte Geschenke",
-      "salePercent": 15,
-      "hasTwoColors": true,
-      "colorOptions1": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
-      "colorOptions2": "Schwarz, Weiß, Eiche, Braun, Olivgrün, Dunkelgrau, Hellgrau, Dunkelblau",
-      "colorLabel1": "Buchstabe",
-      "colorLabel2": "Name inkl. Deko"
+      "salePercent": 15
     },
     {
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
       "season": "Ganzjährig",
       "onSale": false,
       "price": 39,
@@ -77,6 +80,8 @@
       "name": "Foto Laterne",
       "desc": "Fotolaterne – deine Lieblingsfotos in 3D gedruckt\n\nDeine Lieblingsfotos werden zu einer persönlichen Laterne. Im Licht der LED-Kerze kommen die Motive zur Geltung. Den Rahmen kannst du in verschiedenen Farben wählen, die Fotoelemente bleiben weiß.\n\nFotogröße: 10 × 10 cm\nMaterial: PLA\nInklusive: eine LED-Kerze\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
       "needsPhoto": true,
+      "colorOptions1": "",
+      "colorOptions2": "",
       "images": [
         "images/products/67fafc19-582f-4898-b672-e8d31da9dc5c.png",
         "images/products/89cbee7a-0162-463a-9304-09a9bca2cccc.png",
@@ -84,14 +89,12 @@
       ],
       "id": "p6",
       "category": "Personalisierte Geschenke",
-      "salePercent": 15,
-      "hasTwoColors": false,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2"
+      "salePercent": 15
     },
     {
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
       "season": "Herbst",
       "onSale": false,
       "price": 5,
@@ -100,40 +103,85 @@
       "name": "Kürbis Kerzenhalzer",
       "desc": "Kürbis-Kerzenhalter\n\nEin herbstlicher Akzent für dein Zuhause – in verschiedenen Farben erhältlich.\n\nPassend für: Stabkerzen mit 22 mm Durchmesser\nMaterial: PLA\nZwei verschiedene Strukturen: glatt oder rau – einfach bei der Farbauswahl auswählen.\n\nHinweis: Reiner Dekoartikel. Verwende ausschließlich LED-Kerzen. Herkömmliche Stabkerzen dürfen nur zur Dekoration eingesetzt und nicht angezündet werden.",
       "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
       "images": [
         "images/products/1890cea9-dae0-4089-a0fe-faaea4d3b7c1.png"
       ],
       "id": "p7",
       "colorOptions": "Schwarz/glatt, Schwarz/rau, Weiß/glatt, Weiß/rau, Olivegrün/glatt, Olivgrün/rau, Gold/glatt, Gold/rau, Rötliches-Braun/glatt, Rötliches-Braun/rau",
       "category": "Kerzenhalter",
-      "salePercent": 15,
-      "hasTwoColors": false,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2"
+      "salePercent": 15
     },
     {
       "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
       "season": "Ganzjährig",
       "onSale": false,
       "price": 10,
-      "hasColors": false,
+      "hasColors": true,
       "personalizable": false,
       "name": "Vase",
+      "desc": "3D-gedruckte Vase für Trockenblumen\n\nDiese Vase aus PLA setzt deine Trockenblumen in Szene. Mit einer Höhe von ca. 15 cm passt sie auf den Tisch, ins Regal oder auf die Fensterbank.\n\nMaterial: PLA\nHöhe: ca. 15 cm\nNur für Trockenblumen geeignet. Nicht mit Wasser befüllen.",
       "needsPhoto": false,
-      "images": [
-        "images/products/img_0573.jpeg"
-      ],
-      "colorOptions": "",
-      "category": "Vasen",
-      "salePercent": 15,
-      "id": "p8",
-      "hasTwoColors": false,
       "colorOptions1": "",
       "colorOptions2": "",
+      "images": [
+        "images/products/img_0573.jpeg",
+        "images/products/img_0573.jpeg"
+      ],
+      "id": "p8",
+      "colorOptions": "Weiß, Schwarz, Dunkelgrau, Hellgrau, Eiche, Olivgrün",
+      "category": "Vasen",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
       "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2"
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 10,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Vase Twist",
+      "desc": "3D-gedruckte Vase für Trockenblumen\n\nDiese Vase aus PLA setzt deine Trockenblumen in Szene. Mit einer Höhe von ca. 15 cm passt sie auf den Tisch, ins Regal oder auf die Fensterbank.\n\nMaterial: PLA\nHöhe: ca. 15 cm\nNur für Trockenblumen geeignet. Nicht mit Wasser befüllen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/17f264df-17aa-4789-9421-4bae734a5790.png"
+      ],
+      "id": "p9",
+      "colorOptions": "Weiß, Schwarz, Dunkelgrau, Hellgrau, Eiche, Olivgrün",
+      "category": "Vasen",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Ganzjährig",
+      "onSale": false,
+      "price": 10,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Vase schmal",
+      "desc": "3D-gedruckte Vase für Trockenblumen\n\nDiese Vase aus PLA setzt deine Trockenblumen in Szene. Mit einer Höhe von ca. 15 cm passt sie auf den Tisch, ins Regal oder auf die Fensterbank.\n\nMaterial: PLA\nHöhe: ca. 15 cm\nNur für Trockenblumen geeignet. Nicht mit Wasser befüllen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/379bad37-e43a-437d-abbd-713da4c50572.png"
+      ],
+      "id": "p10",
+      "colorOptions": "Weiß, Schwarz, Dunkelgrau, Hellgrau, Eiche, Olivgrün",
+      "category": "Vasen",
+      "salePercent": 15
     }
   ]
 }
