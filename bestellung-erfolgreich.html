@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bestellung erfolgreich – 3Deko</title>
+<meta name="description" content="Deine Bestellung bei 3Deko ist erfolgreich eingegangen.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bestellung erfolgreich – 3Deko">
+<meta property="og:description" content="Deine Bestellung bei 3Deko ist erfolgreich eingegangen.">
+<meta property="og:image" content="https://3deko-andert.at/images/logo-full.png">
+<meta property="og:url" content="https://3deko-andert.at/bestellung-erfolgreich">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bestellung erfolgreich – 3Deko">
+<meta name="twitter:description" content="Deine Bestellung bei 3Deko ist erfolgreich eingegangen.">
+<meta name="twitter:image" content="https://3deko-andert.at/images/logo-full.png">
 <meta name="robots" content="noindex">
 <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css"></head>
@@ -104,7 +115,11 @@
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-foot">
     <div class="cart-total"><span>Zwischensumme</span><span id="cartTotal">0,00 €</span></div>
-    <button class="btn btn-primary" type="button" id="checkoutButton">Zur Kasse</button>
+    <label class="agb-consent">
+      <input type="checkbox" id="agbConsent">
+      <span>Ich habe die <a href="agb.html" target="_blank" rel="noopener">AGB</a> und die <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> gelesen und akzeptiere sie.</span>
+    </label>
+    <button class="btn btn-primary" type="button" id="checkoutButton">Zahlungspflichtig bestellen</button>
     <p class="cart-note" id="checkoutNote" style="margin-top:10px;"></p>
   </div>
 </aside>

@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AGB – 3Deko</title>
+<meta name="description" content="Allgemeine Geschäftsbedingungen von 3Deko, dem 3D-Druck-Deko-Shop von Cindy Andert im Seewinkel.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AGB – 3Deko">
+<meta property="og:description" content="Allgemeine Geschäftsbedingungen von 3Deko, dem 3D-Druck-Deko-Shop von Cindy Andert im Seewinkel.">
+<meta property="og:image" content="https://3deko-andert.at/images/logo-full.png">
+<meta property="og:url" content="https://3deko-andert.at/agb">
+<meta property="og:locale" content="de_AT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AGB – 3Deko">
+<meta name="twitter:description" content="Allgemeine Geschäftsbedingungen von 3Deko, dem 3D-Druck-Deko-Shop von Cindy Andert im Seewinkel.">
+<meta name="twitter:image" content="https://3deko-andert.at/images/logo-full.png">
 <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="css/style.css"></head>
 <body>
@@ -122,7 +133,11 @@
   <div class="cart-items" id="cartItems"></div>
   <div class="cart-foot">
     <div class="cart-total"><span>Zwischensumme</span><span id="cartTotal">0,00 €</span></div>
-    <button class="btn btn-primary" type="button" id="checkoutButton">Zur Kasse</button>
+    <label class="agb-consent">
+      <input type="checkbox" id="agbConsent">
+      <span>Ich habe die <a href="agb.html" target="_blank" rel="noopener">AGB</a> und die <a href="widerruf.html" target="_blank" rel="noopener">Widerrufsbelehrung</a> gelesen und akzeptiere sie.</span>
+    </label>
+    <button class="btn btn-primary" type="button" id="checkoutButton">Zahlungspflichtig bestellen</button>
     <p class="cart-note" id="checkoutNote">An der Kasse wählst du zwischen Versand (6,90 €) und kostenloser Abholung in Pamhagen (nur nach Vereinbarung).</p>
   </div>
 </aside>
