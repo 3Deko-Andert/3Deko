@@ -1,3 +1,5 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /gewinnspiel.html
+
+Sitemap: https://3deko-andert.at/sitemap.xml
