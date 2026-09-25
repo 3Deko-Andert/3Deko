@@ -499,6 +499,7 @@ async function goToCheckout(){
   if (consent && !consent.checked){
     if (note) note.textContent = "Bitte bestätige zuerst, dass du AGB und Widerrufsbelehrung gelesen hast.";
     announce("Bitte bestätige zuerst, dass du AGB und Widerrufsbelehrung gelesen hast.");
+    consent.closest(".agb-consent")?.classList.add("error");
     consent.focus();
     return;
   }
@@ -598,4 +599,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
   document.getElementById("cartOverlay")?.addEventListener("click", closeCart);
   document.getElementById("checkoutButton")?.addEventListener("click", goToCheckout);
+  document.getElementById("agbConsent")?.addEventListener("change", (e) => {
+    if (e.target.checked) e.target.closest(".agb-consent")?.classList.remove("error");
+  });
 });
