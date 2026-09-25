@@ -121,6 +121,21 @@ function cycleImage(button, dir){
 let lightboxImages = [];
 let lightboxIndex = 0;
 
+/* ---------- Screenreader-Ansage bei Formularfehlern ---------- */
+function initA11yAnnouncer(){
+  if (document.getElementById("a11yAnnouncer")) return;
+  const el = document.createElement("div");
+  el.id = "a11yAnnouncer";
+  el.setAttribute("role", "status");
+  el.setAttribute("aria-live", "polite");
+  el.className = "visually-hidden";
+  document.body.appendChild(el);
+}
+function announce(msg){
+  const el = document.getElementById("a11yAnnouncer");
+  if (el){ el.textContent = ""; setTimeout(() => { el.textContent = msg; }, 50); }
+}
+
 function initLightbox(){
   if (document.getElementById("lightboxOverlay")) return; // schon vorhanden
   const overlay = document.createElement("div");
@@ -332,7 +347,7 @@ function productCard(p){
   return `
     <article class="product-card">
       <div class="product-media">
-        <div class="media-images" onclick="openLightbox(this, '${p.id}')">${galleryImgs}</div>
+        <div class="media-images" role="button" tabindex="0" aria-label="Foto von ${p.name} vergrößern" onclick="openLightbox(this, '${p.id}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault(); openLightbox(this, '${p.id}');}">${galleryImgs}</div>
         ${galleryNav}
         ${saleBadge}
         <span class="season-badge">${seasonIcon(p.season)} ${p.season}</span>
@@ -367,23 +382,27 @@ function handleAddToCart(button, id){
   if (colorSelect && product?.hasColors && colorSelect.value === ""){
     colorSelect.focus();
     colorSelect.style.borderColor = "var(--rose-deep)";
+    announce("Bitte wähle zuerst eine Farbe aus.");
     return;
   }
 
   if (product?.hasTwoColors && colorSelect1?.value === ""){
     colorSelect1.focus();
     colorSelect1.style.borderColor = "var(--rose-deep)";
+    announce(`Bitte wähle zuerst „${product.colorLabel1 || "Farbe 1"}“ aus.`);
     return;
   }
   if (product?.hasTwoColors && colorSelect2?.value === ""){
     colorSelect2.focus();
     colorSelect2.style.borderColor = "var(--rose-deep)";
+    announce(`Bitte wähle zuerst „${product.colorLabel2 || "Farbe 2"}“ aus.`);
     return;
   }
 
   if (textarea && product?.personalizable && textarea.value.trim() === ""){
     textarea.focus();
     textarea.style.borderColor = "var(--rose-deep)";
+    announce("Bitte trag zuerst deinen Wunsch ein.");
     return;
   }
 
@@ -429,14 +448,15 @@ function initFilters(){
   const hasSale = PRODUCTS.some(p => p.onSale);
   const cats = ["Alle", ...(hasSale ? ["Sale"] : []), ...new Set(PRODUCTS.map(p => p.category))];
   filterBar.innerHTML = cats.map((c, i) =>
-    `<button type="button" class="chip ${i === 0 ? "active" : ""} ${c === "Sale" ? "chip-sale" : ""}" data-cat="${c}">${c === "Sale" ? "🔥 Sale" : c}</button>`
+    `<button type="button" class="chip ${i === 0 ? "active" : ""} ${c === "Sale" ? "chip-sale" : ""}" data-cat="${c}" aria-pressed="${i === 0 ? "true" : "false"}">${c === "Sale" ? "🔥 Sale" : c}</button>`
   ).join("");
 
   filterBar.addEventListener("click", (e) => {
     const btn = e.target.closest(".chip");
     if (!btn) return;
-    filterBar.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+    filterBar.querySelectorAll(".chip").forEach(c => { c.classList.remove("active"); c.setAttribute("aria-pressed", "false"); });
     btn.classList.add("active");
+    btn.setAttribute("aria-pressed", "true");
     renderProductGrid(btn.dataset.cat);
   });
 }
@@ -564,6 +584,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initContactForm();
   initSecretLink();
   initLightbox();
+  initA11yAnnouncer();
 
   document.getElementById("cartButton")?.addEventListener("click", openCart);
   document.getElementById("cartClose")?.addEventListener("click", closeCart);
