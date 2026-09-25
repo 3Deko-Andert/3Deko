@@ -488,10 +488,18 @@ function initDemoForms(){
 async function goToCheckout(){
   const button = document.getElementById("checkoutButton");
   const note = document.getElementById("checkoutNote");
+  const consent = document.getElementById("agbConsent");
   const cart = getCart();
 
   if (cart.length === 0){
     if (note) note.textContent = "Dein Warenkorb ist noch leer.";
+    return;
+  }
+
+  if (consent && !consent.checked){
+    if (note) note.textContent = "Bitte bestätige zuerst, dass du AGB und Widerrufsbelehrung gelesen hast.";
+    announce("Bitte bestätige zuerst, dass du AGB und Widerrufsbelehrung gelesen hast.");
+    consent.focus();
     return;
   }
 
