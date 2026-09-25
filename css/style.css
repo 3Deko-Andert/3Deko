@@ -812,6 +812,17 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 .cart-total{ display:flex; justify-content:space-between; font-weight:700; margin-bottom:14px; }
 .cart-note{ font-size:.78rem; color:var(--ink-soft); margin-top:10px; }
 .cart-foot .btn{ width:100%; justify-content:center; }
+.agb-consent{
+  display:flex;
+  gap:8px;
+  align-items:flex-start;
+  font-size:.78rem;
+  color:var(--ink-soft);
+  margin-bottom:12px;
+  cursor:pointer;
+}
+.agb-consent input{ margin-top:3px; flex-shrink:0; }
+.agb-consent a{ color:var(--rose-deep); text-decoration:underline; }
 
 /* ---------------- Kontakt / Legal pages ---------------- */
 .page-hero{
