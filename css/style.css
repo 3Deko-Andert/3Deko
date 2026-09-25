@@ -945,7 +945,36 @@ form.contact-form{ display:flex; flex-direction:column; gap:16px; }
 }
 
 /* Sichtbarer Fokus für Tastaturnutzung */
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+/* Nur für Screenreader sichtbar (z. B. Formular-Fehlermeldungen) */
+.visually-hidden{
+  position:absolute;
+  width:1px; height:1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+  padding:0;
+  margin:-1px;
+}
+
+/* Skip-Link: für Maus/Touch unsichtbar, erscheint bei Tastatur-Fokus oben links */
+.skip-link{
+  position:absolute;
+  top:-60px;
+  left:12px;
+  background:var(--ink);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:0 0 10px 10px;
+  font-weight:700;
+  font-size:.9rem;
+  text-decoration:none;
+  z-index:999;
+  transition:top .2s ease;
+}
+.skip-link:focus{ top:0; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, [role="button"]:focus-visible{
   outline:2px solid var(--rose-deep);
   outline-offset:2px;
 }
