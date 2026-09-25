@@ -3,7 +3,64 @@
    Farben und Typografie abgestimmt auf das Logo (Cindy Andert)
    ========================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap');
+/* Eigene Schriftarten (selbst gehostet statt von Google geladen –
+   dadurch werden keine Besucherdaten mehr an Google übertragen) */
+@font-face{
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin_latin-ext-500.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin_latin-ext-600.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin_latin-ext-500italic.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/playfair-display-v40-latin_latin-ext-600italic.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/jost-v20-latin_latin-ext-regular.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../fonts/jost-v20-latin_latin-ext-500.woff2') format('woff2');
+}
+@font-face{
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/jost-v20-latin_latin-ext-600.woff2') format('woff2');
+}
 
 :root{
   /* Farben */
