@@ -180,6 +180,16 @@ function closeLightbox(){
   document.body.style.overflow = "";
 }
 
+/* Verhindert, dass eigene Eingaben (Wunschtext, Farbauswahl) als HTML im
+   Warenkorb interpretiert werden könnten. */
+function escapeHtml(str){
+  return String(str ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function formatPrice(v){
   return v.toLocaleString("de-AT", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " €";
 }
@@ -207,7 +217,7 @@ function renderCartDrawer(){
         <div class="thumb"><img src="${mainImage(p)}" alt="${p.name}" loading="lazy"></div>
         <div class="cart-item-info">
           <h4>${p.name}</h4>
-          ${item.note ? `<p class="cart-item-note">✎ ${item.note}</p>` : ""}
+          ${item.note ? `<p class="cart-item-note">✎ ${escapeHtml(item.note)}</p>` : ""}
           <div class="row">
             <div class="qty-control">
               <button type="button" onclick="updateQty('${item.lineId}', -1)" aria-label="Menge verringern">−</button>
