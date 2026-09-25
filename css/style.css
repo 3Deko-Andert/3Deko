@@ -814,20 +814,34 @@ p{ margin:0 0 1em; color:var(--ink-soft); }
 .cart-foot .btn{ width:100%; justify-content:center; }
 .agb-consent{
   display:flex;
-  gap:10px;
+  gap:8px;
   align-items:flex-start;
-  font-size:.82rem;
-  font-weight:600;
-  color:#C64B3C;
-  background:#FBEEEC;
-  border:1.5px solid #E3A79E;
+  font-size:.78rem;
+  font-weight:400;
+  color:var(--ink-soft);
+  background:transparent;
+  border:1.5px solid transparent;
   border-radius:10px;
-  padding:10px 12px;
+  padding:2px 0;
   margin-bottom:12px;
   cursor:pointer;
+  transition:all .2s ease;
 }
-.agb-consent input{ margin-top:3px; flex-shrink:0; accent-color:#C64B3C; }
-.agb-consent a{ color:#C64B3C; text-decoration:underline; font-weight:700; }
+.agb-consent input{ margin-top:3px; flex-shrink:0; }
+.agb-consent a{ color:var(--rose-deep); text-decoration:underline; }
+
+/* Wird per JS nur dann hinzugefügt, wenn versucht wurde, ohne Häkchen
+   zu bestellen – macht die Zeile erst dann auffällig rot und größer. */
+.agb-consent.error{
+  font-size:.86rem;
+  font-weight:700;
+  color:#C64B3C;
+  background:#FBEEEC;
+  border-color:#E3A79E;
+  padding:10px 12px;
+}
+.agb-consent.error input{ accent-color:#C64B3C; }
+.agb-consent.error a{ color:#C64B3C; font-weight:700; }
 
 /* ---------------- Kontakt / Legal pages ---------------- */
 .page-hero{
