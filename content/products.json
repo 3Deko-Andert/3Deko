@@ -266,29 +266,6 @@
       "colorOptions": "Schwarz, Weiß, Gold, Olivgrün, Rötliches-Braun",
       "category": "Herbstdeko",
       "salePercent": 15
-    },
-    {
-      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2",
-      "hasTwoColors": false,
-      "season": "Frühling",
-      "onSale": false,
-      "price": 12,
-      "hasColors": false,
-      "personalizable": false,
-      "name": "testprodukt",
-      "desc": "test",
-      "needsPhoto": true,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "images": [
-        "images/products/17f264df-17aa-4789-9421-4bae734a5790.png"
-      ],
-      "id": "p14",
-      "colorOptions": "",
-      "category": "Wanddeko",
-      "salePercent": 15
     }
   ]
 }
