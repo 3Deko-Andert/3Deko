@@ -166,7 +166,8 @@
       "id": "p15",
       "colorOptions": "schwarz, eiche, terakotta/kaminrot",
       "category": "Weihnachts- & Winterdeko",
-      "salePercent": 15
+      "salePercent": 15,
+      "personalizePlaceholder": "Bitte eines der oben genannten eintragen"
     },
     {
       "colorLabel1": "Farbe 1",
