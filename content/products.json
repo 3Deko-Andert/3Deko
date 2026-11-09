@@ -12,7 +12,7 @@
       "personalizable": false,
       "name": "Nussknacker-Lampe",
       "desc": "Diese Nussknacker-Lampe bringt gemütliches Licht auf deinen Tisch.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 24 cm\n\nNur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
-      "needsPhoto": true,
+      "needsPhoto": false,
       "colorOptions1": "",
       "colorOptions2": "",
       "images": [
@@ -22,6 +22,101 @@
       ],
       "id": "p14",
       "colorOptions": "schwarz, eiche, olivgrün, terakotta/kaminrot",
+      "category": "Weihnachts- & Winterdeko",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Weihnachten",
+      "onSale": false,
+      "price": 12,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Weihnachtsbäume in Strickoptik",
+      "desc": "Diese Weihnachtsbäume in Strickoptik bringen winterlich-weihnachtliche Stimmung in dein Zuhause.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 13 cm\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/img_0745.jpeg"
+      ],
+      "id": "p16",
+      "colorOptions": "schwarz, weiß, olivgrün",
+      "category": "Weihnachts- & Winterdeko",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Weihnachten",
+      "onSale": false,
+      "price": 10,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Stiefel in Strickoptik",
+      "desc": "Diese Stiefel in Strickoptik bringen winterlich-weihnachtliche Stimmung in dein Zuhause und eignen sich auch perfekt zum Verschenken. Zu Nikolaus oder Weihnachten kannst du sie mit kleinen Geschenken befüllen.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 10 cm\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/img_0776.jpeg",
+        "images/products/img_0678.jpeg",
+        "images/products/img_0777.jpeg"
+      ],
+      "id": "p17",
+      "colorOptions": "rot/weiß, eiche/braun",
+      "category": "Weihnachts- & Winterdeko",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe Schale",
+      "colorLabel2": "Farbe Geweih",
+      "hasTwoColors": true,
+      "season": "Winter",
+      "onSale": false,
+      "price": 13,
+      "hasColors": false,
+      "personalizable": false,
+      "name": "Schale mit Geweih",
+      "desc": "Diese Dekoschale mit Geweih ist ein Hingucker auf jedem Tisch. Mit Süßigkeiten befüllt eignet sie sich auch perfekt als Geschenk.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nDurchmesser: ca. 13 cm\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
+      "colorOptions1": "schwarz, weiß, eiche, terakotta/kaminrot, olivgrün",
+      "colorOptions2": "schwarz, weiß, eiche, terakotta/kaminrot, olivgrün",
+      "images": [
+        "images/products/img_0730.jpeg"
+      ],
+      "id": "p18",
+      "colorOptions": "",
+      "category": "Weihnachts- & Winterdeko",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Schirm mit Punkte, Schirm mit Streifen",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Weihnachten",
+      "onSale": false,
+      "price": 12,
+      "hasColors": true,
+      "personalizable": true,
+      "name": "Stern-Lampe",
+      "desc": "Diese Stern-Lampe bringt gemütliches Licht auf deinen Tisch.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 13 cm\n\nNur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/8f73b23d-9bd6-4c8f-8a8e-6aecee8c1a7d.png",
+        "images/products/img_1005.jpeg"
+      ],
+      "id": "p15",
+      "colorOptions": "schwarz, eiche, terakotta/kaminrot",
       "category": "Weihnachts- & Winterdeko",
       "salePercent": 15
     },
@@ -290,30 +385,6 @@
       "id": "p13",
       "colorOptions": "schwarz, gold, olivgrün,",
       "category": "Herbstdeko",
-      "salePercent": 15
-    },
-    {
-      "personalizeLabel": "Schirm mit Punkte, Schirm mit Streifen",
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2",
-      "hasTwoColors": false,
-      "season": "Weihnachten",
-      "onSale": false,
-      "price": 12,
-      "hasColors": true,
-      "personalizable": true,
-      "name": "Stern-Lampe",
-      "desc": "Diese Stern-Lampe bringt gemütliches Licht auf deinen Tisch.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 13 cm\n\nNur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
-      "needsPhoto": false,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "images": [
-        "images/products/8f73b23d-9bd6-4c8f-8a8e-6aecee8c1a7d.png",
-        "images/products/img_1005.jpeg"
-      ],
-      "id": "p15",
-      "colorOptions": "schwarz, eiche, terakotta/kaminrot",
-      "category": "Weihnachts- & Winterdeko",
       "salePercent": 15
     }
   ]
