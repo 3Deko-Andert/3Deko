@@ -297,7 +297,7 @@ function productCard(p){
   const personalizeField = p.personalizable ? `
         <label class="personalize-field">
           <span>${p.personalizeLabel || "Deine Wünsche"}</span>
-          <textarea rows="2" placeholder="z. B. „Anna“"></textarea>
+          <textarea rows="2" placeholder="${escapeHtml(p.personalizePlaceholder || "z. B. „Anna“")}"></textarea>
         </label>` : "";
 
   const colorList = (p.colorOptions || "").split(",").map(c => c.trim()).filter(Boolean);
