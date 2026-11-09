@@ -1,6 +1,31 @@
 {
   "products": [
     {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Weihnachten",
+      "onSale": false,
+      "price": 17,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Nussknacker-Lampe",
+      "desc": "Diese Nussknacker-Lampe bringt gemütliches Licht auf deinen Tisch.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 24 cm\n\nNur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": true,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/img_0761.jpeg",
+        "images/products/img_0763.jpeg",
+        "images/products/img_1009.jpeg"
+      ],
+      "id": "p14",
+      "colorOptions": "schwarz, eiche, olivgrün, terakotta/kaminrot",
+      "category": "Weihnachts- & Winterdeko",
+      "salePercent": 15
+    },
+    {
       "colorLabel1": "Farbe 1",
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
@@ -268,27 +293,26 @@
       "salePercent": 15
     },
     {
-      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "personalizeLabel": "Schirm mit Punkte, Schirm mit Streifen",
       "colorLabel1": "Farbe 1",
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
       "season": "Weihnachten",
       "onSale": false,
-      "price": 17,
+      "price": 12,
       "hasColors": true,
-      "personalizable": false,
-      "name": "Nussknacker-Lampe",
-      "desc": "Diese Nussknacker-Lampe bringt gemütliches Licht auf deinen Tisch.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 24 cm\n\nNur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
-      "needsPhoto": true,
+      "personalizable": true,
+      "name": "Stern-Lampe",
+      "desc": "Diese Stern-Lampe bringt gemütliches Licht auf deinen Tisch.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 13 cm\n\nNur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
       "colorOptions1": "",
       "colorOptions2": "",
       "images": [
-        "images/products/img_0761.jpeg",
-        "images/products/img_0763.jpeg",
-        "images/products/img_1009.jpeg"
+        "images/products/8f73b23d-9bd6-4c8f-8a8e-6aecee8c1a7d.png",
+        "images/products/img_1005.jpeg"
       ],
-      "id": "p14",
-      "colorOptions": "schwarz, eiche, olivgrün, terakotta/kaminrot",
+      "id": "p15",
+      "colorOptions": "schwarz, eiche, terakotta/kaminrot",
       "category": "Weihnachts- & Winterdeko",
       "salePercent": 15
     }
