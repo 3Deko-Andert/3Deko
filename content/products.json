@@ -26,6 +26,29 @@
       "salePercent": 15
     },
     {
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Ganzjährig",
+      "onSale": true,
+      "price": 39,
+      "hasColors": false,
+      "personalizable": false,
+      "name": "Foto Laterne",
+      "desc": "Fotolaterne – deine Lieblingsfotos in 3D gedruckt\n\nDeine Lieblingsfotos werden zu einer persönlichen Laterne. Im Licht der LED-Kerze kommen die Motive zur Geltung. Den Rahmen kannst du in verschiedenen Farben wählen, die Fotoelemente bleiben weiß.\n\nFotogröße: 10 × 10 cm\nMaterial: PLA\nInklusive: eine LED-Kerze\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
+      "needsPhoto": true,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/67fafc19-582f-4898-b672-e8d31da9dc5c.png",
+        "images/products/89cbee7a-0162-463a-9304-09a9bca2cccc.png",
+        "images/products/fb51ce46-e798-46ab-a4c4-f21745c71333.png"
+      ],
+      "id": "p6",
+      "category": "Personalisierte Geschenke",
+      "salePercent": 15
+    },
+    {
       "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
       "colorLabel1": "Farbe 1",
       "colorLabel2": "Farbe 2",
@@ -150,7 +173,7 @@
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
       "season": "Herbst",
-      "onSale": false,
+      "onSale": true,
       "price": 14,
       "hasColors": true,
       "personalizable": false,
@@ -166,7 +189,7 @@
       "id": "p2",
       "colorOptions": "Eiche/Braun/glatt, Schwarz/Eiche/glatt, Braun/Eiche/glatt, Weiß/Braun/glatt, Steinoptik/Eiche/glatt, Gold/Braun/glatt, Rötliches-Braun/Eiche/glatt, Eiche/Braun/rau, Schwarz/Eiche/rau, Braun/Eiche/rau, Weiß/Braun/rau, Steinoptik/Eiche/rau, Gold/Braun/rau, Rötliches-Braun/Eiche/rau",
       "category": "Herbstdeko",
-      "salePercent": 15
+      "salePercent": 25
     },
     {
       "colorLabel1": "Farbe 1",
@@ -217,29 +240,6 @@
       "colorLabel1": "Farbe 1",
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
-      "season": "Ganzjährig",
-      "onSale": false,
-      "price": 39,
-      "hasColors": false,
-      "personalizable": false,
-      "name": "Foto Laterne",
-      "desc": "Fotolaterne – deine Lieblingsfotos in 3D gedruckt\n\nDeine Lieblingsfotos werden zu einer persönlichen Laterne. Im Licht der LED-Kerze kommen die Motive zur Geltung. Den Rahmen kannst du in verschiedenen Farben wählen, die Fotoelemente bleiben weiß.\n\nFotogröße: 10 × 10 cm\nMaterial: PLA\nInklusive: eine LED-Kerze\n\nHinweis: Reiner Dekoartikel. Nur mit LED-Kerzen verwenden.",
-      "needsPhoto": true,
-      "colorOptions1": "",
-      "colorOptions2": "",
-      "images": [
-        "images/products/67fafc19-582f-4898-b672-e8d31da9dc5c.png",
-        "images/products/89cbee7a-0162-463a-9304-09a9bca2cccc.png",
-        "images/products/fb51ce46-e798-46ab-a4c4-f21745c71333.png"
-      ],
-      "id": "p6",
-      "category": "Personalisierte Geschenke",
-      "salePercent": 15
-    },
-    {
-      "colorLabel1": "Farbe 1",
-      "colorLabel2": "Farbe 2",
-      "hasTwoColors": false,
       "season": "Herbst",
       "onSale": true,
       "price": 5,
@@ -256,7 +256,7 @@
       "id": "p7",
       "colorOptions": "Schwarz/glatt, Schwarz/rau, Weiß/glatt, Weiß/rau, Olivegrün/glatt, Olivgrün/rau, Gold/glatt, Gold/rau, Rötliches-Braun/glatt, Rötliches-Braun/rau",
       "category": "Herbstdeko",
-      "salePercent": 20
+      "salePercent": 30
     },
     {
       "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
@@ -395,7 +395,7 @@
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
       "season": "Herbst",
-      "onSale": false,
+      "onSale": true,
       "price": 9,
       "hasColors": true,
       "personalizable": false,
