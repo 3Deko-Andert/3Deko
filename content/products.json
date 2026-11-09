@@ -32,18 +32,20 @@
       "hasTwoColors": false,
       "season": "Weihnachten",
       "onSale": false,
-      "price": 12,
+      "price": 22,
       "hasColors": true,
       "personalizable": false,
-      "name": "Weihnachtsbäume in Strickoptik",
-      "desc": "Diese Weihnachtsbäume in Strickoptik bringen winterlich-weihnachtliche Stimmung in dein Zuhause.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 13 cm\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "name": "Weihnachtsbäume in Strickoptik Set",
+      "desc": "Diese drei Weihnachtsbäume in Strickoptik bringen winterlich-weihnachtliche Stimmung in dein Zuhause. In drei unterschiedlichen Größen eignen sie sich als Tischdeko oder als Geschenk.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\n\nHöhen: ca. 13 cm, 10 cm und 8 cm\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
       "needsPhoto": false,
       "colorOptions1": "",
       "colorOptions2": "",
       "images": [
-        "images/products/img_0745.jpeg"
+        "images/products/drei-olivegrüne-weihnachtstannen-im-sonnenlicht.png",
+        "images/products/drei-matte-schwarze-weihnachtsbäume.png",
+        "images/products/drei-matte-weiße-weihnachtsbäume-im-sonnenlicht.png"
       ],
-      "id": "p16",
+      "id": "p19",
       "colorOptions": "schwarz, weiß, olivgrün",
       "category": "Weihnachts- & Winterdeko",
       "salePercent": 15
@@ -70,6 +72,29 @@
       ],
       "id": "p17",
       "colorOptions": "rot/weiß, eiche/braun",
+      "category": "Weihnachts- & Winterdeko",
+      "salePercent": 15
+    },
+    {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Weihnachten",
+      "onSale": false,
+      "price": 12,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Weihnachtsbäume in Strickoptik",
+      "desc": "Diese Weihnachtsbäume in Strickoptik bringen winterlich-weihnachtliche Stimmung in dein Zuhause.\n\nAus PLA im 3D-Druck gefertigt. Jedes Stück ist ein Einzelstück. Die Maße können um wenige Millimeter abweichen.\nHöhe: ca. 13 cm\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/img_0745.jpeg"
+      ],
+      "id": "p16",
+      "colorOptions": "schwarz, weiß, olivgrün",
       "category": "Weihnachts- & Winterdeko",
       "salePercent": 15
     },
@@ -216,7 +241,7 @@
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
       "season": "Herbst",
-      "onSale": false,
+      "onSale": true,
       "price": 5,
       "hasColors": true,
       "personalizable": false,
@@ -231,7 +256,7 @@
       "id": "p7",
       "colorOptions": "Schwarz/glatt, Schwarz/rau, Weiß/glatt, Weiß/rau, Olivegrün/glatt, Olivgrün/rau, Gold/glatt, Gold/rau, Rötliches-Braun/glatt, Rötliches-Braun/rau",
       "category": "Herbstdeko",
-      "salePercent": 15
+      "salePercent": 20
     },
     {
       "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
@@ -346,7 +371,7 @@
       "colorLabel2": "Farbe 2",
       "hasTwoColors": false,
       "season": "Herbst",
-      "onSale": false,
+      "onSale": true,
       "price": 8,
       "hasColors": true,
       "personalizable": false,
@@ -362,7 +387,7 @@
       "id": "p12",
       "colorOptions": "Gold, Olivgrün, Schwarz, Weiß",
       "category": "Herbstdeko",
-      "salePercent": 15
+      "salePercent": 30
     },
     {
       "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
@@ -385,7 +410,7 @@
       "id": "p13",
       "colorOptions": "schwarz, gold, olivgrün,",
       "category": "Herbstdeko",
-      "salePercent": 15
+      "salePercent": 30
     }
   ]
 }
