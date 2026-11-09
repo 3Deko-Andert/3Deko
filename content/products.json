@@ -213,6 +213,30 @@
       "salePercent": 15
     },
     {
+      "personalizeLabel": "Deine Wünsche (z. B. Name oder Text)",
+      "colorLabel1": "Farbe 1",
+      "colorLabel2": "Farbe 2",
+      "hasTwoColors": false,
+      "season": "Ganzjährig",
+      "onSale": true,
+      "price": 22,
+      "hasColors": true,
+      "personalizable": false,
+      "name": "Dekoset mit Vase",
+      "desc": "Dieses Dekoset mit Vase, LED-Teelichthalter und rundem Tablett bringt schlichte Eleganz in dein Zuhause. Die feinen Rillen und die Kombination aus Schwarz und Holzoptik machen es zum Blickfang auf deinem Tisch oder deiner Kommode. Auch eine schöne Geschenkidee!\n\nAus PLA im 3D-Druck gefertigt. Die Maße können um wenige Millimeter abweichen.\n\nDie Vase ist für Trockenblumen geeignet. Den Teelichthalter nur mit LED-Teelichtern verwenden. Nicht für echte Kerzen oder offene Flammen geeignet.\n\nDie abgebildeten Farben können je nach Bildschirmdarstellung und Lichteinfall vom tatsächlichen Produkt abweichen.",
+      "needsPhoto": false,
+      "colorOptions1": "",
+      "colorOptions2": "",
+      "images": [
+        "images/products/img_0628.jpeg",
+        "images/products/mattweiße-pla-dekore-mit-warmem-led-licht.png"
+      ],
+      "id": "p20",
+      "colorOptions": "schwarz/eiche, weiß/eiche",
+      "category": "Vasen",
+      "salePercent": 15
+    },
+    {
       "personalizeLabel": "Wie soll der Name lauten?",
       "colorLabel1": "Buchstabe",
       "colorLabel2": "Name inkl. Deko",
